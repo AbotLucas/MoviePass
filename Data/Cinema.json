@@ -1,0 +1,30 @@
+[
+    {
+        "id_Cinema": 2,
+        "name": "ambasador 2",
+        "address": "buenos aires 4567",
+        "capacity": "52",
+        "ticketValue": "300"
+    },
+    {
+        "id_Cinema": 3,
+        "name": "Ambassador",
+        "address": "Cordoba 1673",
+        "capacity": "50",
+        "ticketValue": "300"
+    },
+    {
+        "id_Cinema": 4,
+        "name": "Ambassador",
+        "address": "Cordoba 1673",
+        "capacity": "50",
+        "ticketValue": "300"
+    },
+    {
+        "id_Cinema": 6,
+        "name": "Cine del Paseo",
+        "address": "Diagonal Pueyrred\u00f3n 3058",
+        "capacity": "200",
+        "ticketValue": "400"
+    }
+]
