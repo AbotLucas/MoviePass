@@ -46,6 +46,15 @@
                 $this->ShowLogInView("incorrect user");
             }
         }
+
+        public function SignUpValidate() {
+
+
+
+
+
+
+        }
         
         //LogOutFunction
 

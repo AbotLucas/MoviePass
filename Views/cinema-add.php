@@ -1,10 +1,10 @@
 <?php require_once('nav-bar.php'); ?>
 
-<div class="wrapper row4">
+<div class="wrapper row4 diseño" style="position: fixed;top: 23%; background-color:rgba(0,0,0,0)">
 <main class="container clear"> 
     <div class="content"> 
       <div id="comments" >
-        <h2>ADD NEW CINEMA</h2>
+        <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Add New Cinema</span></h2>
         <form action="<?php echo  FRONT_ROOT."Cinema/AddCinema"?>" method="post" style="padding: 2rem !important;" >
           <table> 
             <thead>
@@ -13,7 +13,7 @@
               </tr>
               <tr>
                 <th>Name</th>
-                <th>Adress</th>
+                <th>Address</th>
                 <th>Capacity</th>
                   <th>Ticket Value</th>
               </tr>
@@ -36,6 +36,7 @@
               </tbody>
           </table>
           <div>
+            <br>
             <input type="submit" class="btn" value="Add Cinema" style="background-color:#DC8E47;color:white;"/>
             <br>
           </div>
@@ -44,6 +45,4 @@
     </div>
   </main>
 </div>
-<?php 
-  include('footer.php');
-?>
+</div>

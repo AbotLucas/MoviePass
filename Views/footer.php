@@ -12,7 +12,7 @@
     </div> -->
   </footer>
 </div>
-<div class="wrapper row5">
+<div class="wrapper row5" style="position:fixed; bottom: 0;">
   <div id="copyright" class="hoc clear"> 
   
     <p align="center">Copyright &copy; <?php echo date('Y'); ?> - All Rights Reserved - UTN Mar del Plata</p>

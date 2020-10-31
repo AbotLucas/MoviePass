@@ -282,7 +282,7 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#C1C2C4; background-color:#251618;}
+body{color:#e79e4f; background-color:#251618;}
 a{color:#DC8E47;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
@@ -301,6 +301,68 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 
 .heading.underline::after{background-color:#DC8E47;}
 
+.portada{
+	background: url(https://www.radiocantilo.com/wp-content/uploads/2020/01/por-que-se-comen-palomitas-en-el-cine-en-vez-de-otros-039snacks039.jpg) no-repeat fixed center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+
+ }
+
+
+ /* MOvimiento a la lista de imagenes */
+
+
+  .div-img {
+	display: block;
+	margin-left: 10px;
+	margin-right: 10px;
+  }
+  .div-img .img {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	transform: scale(1);
+	-ms-transform: scale(1);
+	-moz-transform: scale(1);
+	-webkit-transform: scale(1);
+	-o-transform: scale(1);
+	-webkit-transition: all 500ms ease-in-out;
+	-moz-transition: all 500ms ease-in-out;
+	-ms-transition: all 500ms ease-in-out;
+	-o-transition: all 500ms ease-in-out;
+  }
+  .div-img .text {
+	font-family: 'Open Sans';
+	padding-top: 5px;
+	display: block;
+	text-align: center;
+	width: 100%;
+	transform: translate(0px);
+	-webkit-transition: all 500ms ease-in-out;
+	-moz-transition: all 500ms ease-in-out;
+	-ms-transition: all 500ms ease-in-out;
+	-o-transition: all 500ms ease-in-out;
+	opacity: 0;
+	transition: transfom opacity 1.5s;
+  }
+  .div-img:hover .img {
+	transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-webkit-transform: scale(0.8);
+	-o-transform: scale(0.8);
+  }
+  .div-img:hover .text {
+	transform: translate(0px, -20px);
+	opacity: 1;
+  }
 
 /* Rows */
 .row0, .row0 a{color:#FFFFFF;}
@@ -309,6 +371,11 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 .row3{color:#474747; background-color:#FFFFFF;}
 .row4{color:#C1C2C4; background-color:#1A1914;}
 .row5, .row5 a{color:#C1C2C4; background-color:#292929;}
+
+/* Colores a las cosirijillas */
+.diseño{color: #cf812e; background-color: #734046;}
+.centrado{vertical-align: 50%;}
+
 
 
 /* Top Bar */
@@ -321,7 +388,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 
 
 /* Page Intro */
-#pageintro{color:#FFFFFF;}
+#pageintro{color:#e79e4f;}
 
 
 /* Content Area */

@@ -74,7 +74,7 @@ class CinemaDao implements Icinema
            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true):array();
 
            foreach($arrayToDecode as $valueArray){
-               $cinema = new Cinema($valueArray["id_Cinema"],$valueArray["name"],$valueArray["address"], $valueArray["capacity"], $valueArray["ticketValue"]);
+               $cinema = new Cinema($valueArray["id_Cinema"],$valueArray["name"],$valueArray["address"]);
                array_push($this->listCinema,$cinema);
            }
        }
@@ -89,8 +89,6 @@ class CinemaDao implements Icinema
 			$valueArray['id_Cinema'] =$cinema->getId_Cinema();
 			$valueArray['name'] =$cinema->getName();
 			$valueArray['address'] =$cinema->getAddress();
-            $valueArray['capacity'] =$cinema->getCapacity() ;
-			$valueArray['ticketValue'] = $cinema-> getTicketValue();
 			
 			array_push($arrayToEncode, $valueArray);
 			
