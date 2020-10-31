@@ -1,5 +1,4 @@
 <?php
- include('header.php');
  include('nav-bar.php');
 ?>
 <div class="wrapper row4">
@@ -7,7 +6,7 @@
     <div class="content"> 
       <div id="comments" >
 
-    <h1>Admin Login</h1>
+    <h1>Login</h1>
   </div>
   <div id="comments">
     <form class="login-form" id="mainav" method="post" action="<?php echo FRONT_ROOT."Session/CheckAdminLogin" ?>">

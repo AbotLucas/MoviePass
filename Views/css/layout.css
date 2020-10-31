@@ -173,8 +173,8 @@ This gives a smooth transition to "ALL" elements used in the layout - other than
 If you don't want it to fade all elements, you have to list the ones you want to be faded individually
 Delete it completely to stop fading
 --------------------------------------------------------------------------------------------------------------- */
-/* *, *::before, *::after{transition:all .3s ease-in-out;}
-#mainav form *{transition:none !important;} */
+*, *::before, *::after{transition:all .3s ease-in-out;}
+#mainav form *{transition:none !important;}
 
 
 /* ------------------------------------------------------------------------------------------------------------ */
@@ -255,7 +255,6 @@ table{width:100%; margin-bottom:15px;}
 th, td{padding:5px 8px;}
 td{border-width:0 1px;}
 
-
 /* Font Awesome Social Icons
 --------------------------------------------------------------------------------------------------------------- */
 .faico{margin:0; padding:0; list-style:none;}
@@ -283,7 +282,7 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#C1C2C4; background-color:#635e5e;}
+body{color:#C1C2C4; background-color:#251618;}
 a{color:#DC8E47;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
@@ -313,20 +312,16 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 
 
 /* Top Bar */
-#topbar ul li:first-child a{color:#dc8a47;}
+#topbar ul li:first-child a{color:#DC8E47;}
 
 
 /* Header */
 #header{border-color:rgba(255,255,255,.2);}
 #header #logo h1 a{color:inherit;}
-h3 {
-	text-align: center;
-	
-}
 
 
 /* Page Intro */
-#pageintro{color:#ffffff;}
+#pageintro{color:#FFFFFF;}
 
 
 /* Content Area */
@@ -385,11 +380,11 @@ h3 {
 
 
 /* Tables + Comments */
-table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
+table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#e79e4f;}
 #comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#DC8E47;}
 th{color:#FFFFFF; background-color:#373737;}
-tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#201e1e;}
-tr:nth-child(even), #comments li:nth-child(even){background-color:#ffffff;}
+tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#734046;}
+tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#321f28;}
 table a, #comments a{background-color:inherit;}
 
 
