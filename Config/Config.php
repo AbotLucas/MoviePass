@@ -2,7 +2,7 @@
 
 define("ROOT", dirname(__DIR__) . "/");
 //Path to your project's root folder
-define("FRONT_ROOT", "/MoviePass/");
+define("FRONT_ROOT", "/YourMovie/");
 define("VIEWS_PATH", "Views/");
 define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
@@ -10,7 +10,7 @@ define("IMG_PATH", VIEWS_PATH . "img/");
 
 //Database Constants
 define("DB_HOST", "localhost");
-define("DB_NAME", "moviepass");
+define("DB_NAME", "yourmovie");
 define("DB_USER", "");
 define("DB_PASS", "");
 
