@@ -16,7 +16,7 @@ class UserDAO {
             $contentFile = file_get_contents($this->nameFileUser);
             $contenDecode = ($contentFile)? json_decode($contentFile,true): array();
             foreach ($contenDecode as $value) {
-               $user = new User();
+               $user = new User($value['idUser'],$value['userName'], $value['password'], $value['role']);
                $user->setUserName($value['userName']);
                $user->setPassword($value['password']);
                array_push($this->listUser,$user);
@@ -45,7 +45,7 @@ class UserDAO {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            return new User($p['userName'], $p['password']);
+            return new User($p['idUser'], $p['userName'], $p['password'], $p['role']);
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];

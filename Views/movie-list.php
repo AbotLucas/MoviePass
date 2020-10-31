@@ -20,7 +20,7 @@ $count = 0; $count2 = 0;
 ?>
 <div> 
         <br>
-        <h3 style="font-size: 40px; font-weight: bold">Movies</h3>
+        <h3 style="font-size: 40px; font-weight: bold 20%; text-align: center;">Movies</h3>
     <table class="homeTable">
         <thead>
             
