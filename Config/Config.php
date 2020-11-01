@@ -11,7 +11,7 @@ define("IMG_PATH", VIEWS_PATH . "img/");
 //Database Constants
 define("DB_HOST", "localhost");
 define("DB_NAME", "yourmovie");
-define("DB_USER", "");
+define("DB_USER", "root");
 define("DB_PASS", "");
 
 //API Constants

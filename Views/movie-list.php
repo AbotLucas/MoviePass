@@ -20,8 +20,32 @@ $count = 0; $count2 = 0;
 ?>
 <div style="text-align: -webkit-center"> 
         <br>
-        <h3 style="font-size: 40px; font-weight: bold 20%; text-align: center;"> <span style="background-color: rgba(115, 64, 70, 0.9); padding:10px; border: solid 1px #321f28">Movie List</span></h3>
-    <table class="homeTable" style="max-width: 70%; ">
+        <div style="display:inline-flex; margin: 20px; padding: 10px">
+            <div style="position: absolute; left:15%">
+                <h3 style="font-size: 40px; font-weight: bold 20%;"> <span style="background-color: rgba(115, 64, 70, 0.9); padding:10px; border: solid 1px #321f28">Movie List</span></h3>
+            </div>
+            <div style="position: absolute; right: 15%;">        
+                
+                <form action="" method= "POST" style="background-color: #321f28; padding: 5px; display:flex">
+                    <div style="">    
+                        <label for="date">Date</label>
+                        <input type="date" id="date">
+                    </div>
+                    &nbsp;
+                    <div style="">
+                        <label for="gender">Gender</label>
+                        <select name="gender" id="gender">
+                            <option value="">Genero1</option>
+                            <option value="">Genero2</option>
+                            <option value="">Genero3</option>
+                        </select>
+                    </div>
+                    &nbsp;
+                    <button type="submit" class="" style="width: 50px; height:25px; align-self: flex-end;;">Apply</button>
+                </form>
+            </div>
+        </div>
+        <table class="homeTable" style="max-width: 70%; margin-top: 40px">
         <thead>
             
         </thead>
