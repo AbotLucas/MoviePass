@@ -7,8 +7,7 @@
         private $name;
         private $address;
 
-        public function __construct($id, $name, $address) {
-            $this->id_Cinema = $id;
+        public function __construct($name, $address) {
             $this->name = $name;
             $this->address = $address;
         }

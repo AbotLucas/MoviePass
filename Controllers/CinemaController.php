@@ -3,13 +3,16 @@
 
     use Models\Cinema as Cinema;
     use DAO\CinemaDao as CinemaDAO;
+    use DAO\CinemaBdDao as CinemaBdDAO;
 
     class CinemaController
     {       
         private $cinemaDAO;
+        private $cinemaBdDAO;
 
         public function __construct() {
             $this->cinemaDAO = new CinemaDAO(); 
+            $this->cinemaBdDAO = new CinemaBdDAO();
         }
 
         public function ShowAddCinemaView($message = "") {
@@ -21,20 +24,30 @@
             require_once(VIEWS_PATH."cinema-modify.php");
         }
         public function ShowListCinemaView()
-        {
-            $cinemaList = $this->cinemaDAO->getAllCinema();
+        {   
+            $this->cinemaBdDAO = new CinemaBdDAO();
+            $cinemaList = $this->cinemaBdDAO->getAllCinema();
             
             require_once(VIEWS_PATH."cinema-list.php");
         }
 
-        public function AddCinema($name, $address, $capacity, $ticketValue)
+        
+
+        public function AddCinema($name, $address)
         {
-            $newCinema = new Cinema(0, $name, $address, $capacity, $ticketValue);
+            $newCinema = new Cinema($name, $address);
             
             if($_POST) {
-                $this->cinemaDAO->addCinema($newCinema);
+                $result = $this->cinemaBdDAO->SaveCinemaInDB($newCinema);
+                if($result == 1) {
                 $message = "Cinema added succesfully!";
                 $this->ShowAddCinemaView($message);
+                }
+                else
+                {
+                    $message = "ERROR: System error, reintente";
+                    $this->ShowAddCinemaView($message);
+                }
             }
             else
             {
@@ -47,7 +60,21 @@
             $this->cinemaDAO->deleteCinema($id);
             $this->ShowListcinemaView();
         }
+        
+        public function RemoveCinemaFromDB($id)
+        {
+            $result = $this->cinemaBdDAO->DeleteCinemaInDB($id);
 
+            if($result == 1) {
+                $message = "Cinema Deleted Succefully!";
+                $this->ShowListcinemaView($message);
+            }
+            else
+            {
+                $message = "ERROR: Failed in cinema delete, reintente";
+                $this->ShowListcinemaView();
+            }
+        }
         public function getCinemasList() {
 
             return $this->cinemaDAO->getAllCinema();
@@ -56,7 +83,7 @@
     public function modifyANDremover($id){
 
         if(isset($_POST['id_remove'])){
-        $this->Remove($id);
+        $this->RemoveCinemaFromDB($id);
         }elseif(isset($_POST['id_modify'])){
            $_SESSION['id'] = $id;
            $this->ShowModififyView();

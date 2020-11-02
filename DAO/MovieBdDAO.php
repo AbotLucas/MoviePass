@@ -8,9 +8,9 @@ use FFI\Exception;
 class MovieBdDao {
 
     private $listMovie = array();
-    private $movieDAO = $movieDAO;
+    private $movieDAO;
     private $tableName = "movie";
-    private $fileJsonMovie;
+    private $connection;
 
     /* id_movie BIGINT UNSIGNED not null unique,
     title VARCHAR(50) not null ,
@@ -20,10 +20,6 @@ class MovieBdDao {
     duration VARCHAR(10) ,
     constraint pk_idmovie primary key(id_movie); */
  
-    public function __construct(){
-        $this->movieDAO = new MovieDao();
-        $this->fileJsonMovie = ROOT."/Data/Movie.json";
-    }
 
     public static function MapearMovie($idMovieAMapear) {
         $movieBdDAOAux = new MovieBdDao();

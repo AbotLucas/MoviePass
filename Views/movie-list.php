@@ -1,6 +1,7 @@
 <?php require_once('nav-bar.php');
 use Controllers\MovieController;
 use Models\Movie;
+use DAO\MovieBdDao as MovieBdDAO;
 
 $MovieController = new MovieController();
 $MovieList = $MovieController->getAPIList();
@@ -26,7 +27,7 @@ $count = 0; $count2 = 0;
             </div>
 
             <div>
-                <?php if(isset($message)) { echo "<h6>" . $message . "<h6>"; } ?>
+                <?php /* $MovieBdDAO = new MovieBdDAO(); $MovieBdDAO->MigrateMoviesToDB(); */ if(isset($message)) { echo "<h6>" . $message . "<h6>"; } ?>
             </div>
             
             <div style="position: absolute; right: 15%;">        
