@@ -13,36 +13,34 @@ class UserBdDAO{
 
     public function GetByUserName($userName)
     {
-        $user = null;
 
-        $query = "SELECT user_id ,username, password ,role FROM " . $this->tableName . " WHERE (username = :username) ";
+        $query = "SELECT * FROM " . $this->tableName . " WHERE (username = :username) ";
 
         $parameters["username"] = $userName;
 
         try{
 
             $this->connection = Connection::GetInstance();
-            $results = $this->connection->Execute($query, $parameters);
+            $resultStat = $this->connection->Execute($query, $parameters);
         
         } catch (Exception $ex) {
             throw $ex;
         }
 
-        foreach($results as $user)
-        {
-           $userReturn = $this->mapear($user);
+        if (!empty($resultStat)){
+            return $this->mapear($resultStat);
         }
-
-        return $userReturn;
+        else
+            return false;
     }  
 
     public function SaveUserInDB($user) {
 
-        $sql = "INSERT INTO user (userName, password, role) VALUES (:userName, :password, :role)";
+        $sql = "INSERT INTO " .$this->tableName. " (userName, password, role) VALUES (:userName, :password, :role)";
 
         $parameters["userName"] = $user->GetUserName();
         $parameters["password"] = $user->GetPassword();
-        $parameters["role"] = 1;
+        $parameters["role"] = 2;
 
         try {
             $this->connection = Connection::GetInstance();
@@ -58,7 +56,9 @@ class UserBdDAO{
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            return new User($p['username'], $p['password'], $p['role']);
+            $user = new User($p['username'], $p['password'], $p['role']);
+            $user->setUserId($p["user_id"]);
+            return $user;
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];

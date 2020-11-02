@@ -11,12 +11,12 @@
         private $ticketValue;
         private Cinema $cinema;
 
-        public function __construct($id_room, $name, $capacity, $ticketValue, $cinema)
+        public function __construct($name, $capacity, $ticketValue, Cinema $cinema)
 	{
-        $this->id_room = $id_room;
         $this->name = $name;
         $this->capacity = $capacity;
         $this->ticketValue = $ticketValue;
+        $this->cinema = $cinema;
     }
 
         public function getId_room() { return $this->id_room;}

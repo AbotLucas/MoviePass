@@ -12,7 +12,7 @@
         private Movie $movie;//Movie to be screened 
         private Room $room; //Cinema_ID where it gonna be screened the movie
 
-        public function __construct($date_screening, $hour_screening, $movie, $room) {
+        public function __construct($date_screening, $hour_screening, Movie $movie, Room $room) {
            
             $this->id_screening = 0;
             $this->date_screening = $date_screening;

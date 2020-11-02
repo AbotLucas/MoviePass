@@ -58,7 +58,7 @@ class ScreeningDao implements Iscreening
            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true) : array();
 
            foreach($arrayToDecode as $valueArray){
-               $screening = new Screening($valueArray["date_screening"], $valueArray["id_movie_screening"], $valueArray["id_cinema_screening"]);
+               $screening = new Screening($valueArray["date_screening"], $valueArray["hour_screening"], $valueArray["id_movie_screening"], $valueArray["id_cinema_screening"]);
                array_push($this->screening_list, $screening);
            }
        }
@@ -89,7 +89,7 @@ class ScreeningDao implements Iscreening
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            return new Screening($p['id_screening'], $p['date_screening'], $p['id_movie_screening'], $p['id_cinema_screening']);
+            return new Screening($p['id_screening'], $p['date_screening'], $p["hour_screening"], MovieBdDAO::MapearMovie($p['idmovie']), RoomBdDAO::MapearRoom($p['idroom']));
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];
