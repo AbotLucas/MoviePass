@@ -15,7 +15,7 @@ include_once('nav-bar.php');
         </span>
       </div>
       <div id="comments">
-        <form class="login-form" id="mainav" method="post" action="<?php echo FRONT_ROOT . "Session/SignUpValidate" ?>">
+        <form class="login-form" id="mainav" method="post" action="<?php echo FRONT_ROOT . "User/SignUpValidate" ?>">
           <div class="form-group content-align: inline;">
             <label style="font-weight: bold;">E-mail</label>
             <input name="email" type="email" placeholder="Insert your E-mail" style="max-width: 20%;" required />

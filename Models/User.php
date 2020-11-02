@@ -9,11 +9,11 @@ class User {
     private $password;
     private $role;
 
-    public function __construct($user_id, $userName, $password, $role)
+    public function __construct($userName, $password, $role)
     {
+        $user_id = null;
         $this->userName = $userName;
         $this->password = $password;
-        $this->user_id = $user_id;
         $this->role = $role;
     }
 

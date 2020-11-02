@@ -24,6 +24,11 @@ $count = 0; $count2 = 0;
             <div style="position: absolute; left:15%">
                 <h3 style="font-size: 40px; font-weight: bold 20%;"> <span style="background-color: rgba(115, 64, 70, 0.9); padding:10px; border: solid 1px #321f28">Movie List</span></h3>
             </div>
+
+            <div>
+                <?php echo $MovieController->movieDAO->MigrateMoviesToDB(); if(isset($message)) { echo "<h6>" . $message . "<h6>"; } ?>
+            </div>
+            
             <div style="position: absolute; right: 15%;">        
                 
                 <form action="" method= "POST" style="background-color: #321f28; padding: 5px; display:flex">

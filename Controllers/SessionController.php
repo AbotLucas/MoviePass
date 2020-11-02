@@ -47,29 +47,7 @@
             }
         }
 
-        public function SignUpValidate($email, $password, $password2) {
-
-            if($password==$password2) {
-                if($this->userDAO->SearchEmailInDB($email)) {
-                    $this->ShowSignUpView("That mail is already in use.");
-                }
-                else {
-                    $newId = $this->userDAO->GetLastIdUserInDB()+1;
-                    $newUser = new User($newId, $email, $password, 1);
-                    $result = $this->userDAO->SaveUserInDB($newUser);
-                    if($result == 1) {
-                        $this->ShowLogInView("Sign Up succesfully! Now you can log in.");
-                    }
-                    else {
-                        $this->ShowLogInView("Error in Sign Up, please try again.");
-                    }
-                }
-            }
-            else {
-                $this->ShowSignUpView("Password's must be equal");
-            }
-
-        }
+        
         
         //LogOutFunction
 

@@ -49,12 +49,11 @@ class UserDAO {
     /* Retorna false o la instancia encontrada*/
     public function SearchEmailInDB($email) {
 
-        $sql = "SELECT * FROM Users WHERE userName = :userName";
+        $sql = "SELECT * FROM User WHERE userName = :userName";
 
         $parameters["userName"] = $email;
 
         try {
-
             $this->connection = Connection::GetInstance();
             $resultStat = $this->connection->Execute($sql, $parameters);
 
@@ -70,7 +69,7 @@ class UserDAO {
 
     }
 
-    public function GetLastIdUserInDB() {
+    /* public function GetLastIdUserInDB() {
 
         $sql = "SELECT user_id FROM users ORDER BY user_id DESC LIMIT 1";
 
@@ -80,14 +79,13 @@ class UserDAO {
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $resultStat;
-    }
+        return $resultStat[0];
+    } */
 
     public function SaveUserInDB($user) {
 
-        $sql = "INSERT INTO users (user_id, email, password, role) VALUES (:user_id, :userName, :password, :role)";
+        $sql = "INSERT INTO user (userName, password, role) VALUES (:userName, :password, :role)";
 
-        $parameters["user_id"] = $this->GetLastIdUserInDB() + 1;
         $parameters["userName"] = $user->GetUserName();
         $parameters["password"] = $user->GetPassword();
         $parameters["role"] = 1;
@@ -98,7 +96,8 @@ class UserDAO {
         } catch (Exception $ex) {
             throw $ex;
         }
-     }
+    }
+
 
 
     protected function mapear($value) {
@@ -106,7 +105,9 @@ class UserDAO {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            return new User($p['user_id'], $p['userName'], $p['password'], $p['role']);
+            $user = new User($p['userName'], $p['password'], $p['role']);
+            $user->setUserId($p["user_id"]);
+            return $user;
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];
