@@ -3,14 +3,16 @@
 
     use DAO\UserDao as UserDao;
     use Models\User as User;
-
+    use DAO\UserBdDAO as UserBdDAO;
+    
     class SessionController {
        
         private $userDAO ;
 
         public function __construct()
         {
-           $this->userDAO = new UserDao();
+           $this->userDAO = new UserBdDAO();
+           #$this->userDAO = new UserDAO();
         }
 
         //SignUp function
@@ -33,7 +35,7 @@
     
        public function CheckAdminLogin($username, $password)
         {
-            $user = $this->userDAO->GetUserName($username);
+            $user = $this->userDAO->GetByUserName($username);
 
             if(($user != null) && ($user->getPassword() === $password))
             {
@@ -47,29 +49,7 @@
             }
         }
 
-        public function SignUpValidate($email, $password, $password2) {
 
-            if($password==$password2) {
-                if($this->userDAO->SearchEmailInDB($email)) {
-                    $this->ShowSignUpView("That mail is already in use.");
-                }
-                else {
-                    $newId = $this->userDAO->GetLastIdUserInDB()+1;
-                    $newUser = new User($newId, $email, $password, 1);
-                    $result = $this->userDAO->SaveUserInDB($newUser);
-                    if($result == 1) {
-                        $this->ShowLogInView("Sign Up succesfully! Now you can log in.");
-                    }
-                    else {
-                        $this->ShowLogInView("Error in Sign Up, please try again.");
-                    }
-                }
-            }
-            else {
-                $this->ShowSignUpView("Password's must be equal");
-            }
-
-        }
         
         //LogOutFunction
 
