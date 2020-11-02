@@ -49,8 +49,7 @@
             }
         }
 
-        public function SignUpValidate() {
-        }
+
         
         //LogOutFunction
 

@@ -1,12 +1,16 @@
 <?php 
 namespace DAO;
 
+use Exception as GlobalException;
+use FFI\Exception;
 use Models\User as User;
+use PDOException;
 
 class UserDAO {
    
     private $nameFileUser = ROOT."Data/user.json";
     private $listUser = array();
+    private $connection;
 
     public function retrieveData(){
 
@@ -40,8 +44,8 @@ class UserDAO {
         return $this->listUser;
     }
 
-   
-}
 
+    /* FUNCIONES DE DATABASE */
 
-?>
+    /* Retorna false o la instancia encontrada*/
+    

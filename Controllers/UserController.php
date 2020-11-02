@@ -7,8 +7,10 @@
 
         private $userDAO;
 
-        
 
+        public function add() {
+
+        }
 
 
 

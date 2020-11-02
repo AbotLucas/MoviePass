@@ -62,8 +62,8 @@ label, input, textarea, select, button{display:block; resize:none; outline:none;
 label{margin-bottom:5px;}
 :required, :invalid{outline:none; box-shadow:none;}
 ::placeholder{opacity:1;}/* Makes sure the placeholder text is not transparent */
-
 input, select{border: 1px solid #ced4da;border-radius: .25rem;width: 120px;}
+
 /* Generalise
 --------------------------------------------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, .heading{margin:0 0 20px 0; font-size:1.4rem; line-height:normal; font-weight:normal; text-transform:capitalize;}
