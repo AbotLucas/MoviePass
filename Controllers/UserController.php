@@ -5,15 +5,18 @@
     use Models\User as User;
     use DAO\UserDAO as UserDao;
     use Controllers\MovieController as MovieController;
+use DAO\UserBdDAO;
 
-    class UserController {
+class UserController {
 
 
         private $userDAO;
+        private $userBdDAO;
 
         public function __construct()
         {
            $this->userDAO = new UserDao();
+           $this->userBdDAO = new UserBdDAO();
         }
 
         public function ShowSignUpView($message = "")
@@ -28,12 +31,12 @@
         public function SignUpValidate($email, $password, $password2) {
 
             if($password==$password2) {
-                if($this->userDAO->SearchEmailInDB($email)) {
+                if($this->userBdDAO->GetByUserName($email)) {
                     $this->ShowSignUpView("That mail is already in use.");
                 }
                 else {
                     $newUser = new User($email, $password, 1);
-                    $result = $this->userDAO->SaveUserInDB($newUser);
+                    $result = $this->userBdDAO->SaveUserInDB($newUser);
                     if($result == 1) {
                         $this->ShowLogInView("Sign Up succesfully! Now you can log in.");
                     }
@@ -50,7 +53,7 @@
 
         public function LogInValidate($email,  $password) {
 
-            $user = $this->userDAO->SearchEmailInDB($email);
+            $user = $this->userBdDAO->GetByUserName($email);
             if($user) {
                 if($user->getPassword() == $password) {
                     $movieController = new MovieController();

@@ -3,14 +3,16 @@
 
     use DAO\UserDao as UserDao;
     use Models\User as User;
-
+    use DAO\UserBdDAO as UserBdDAO;
+    
     class SessionController {
        
         private $userDAO ;
 
         public function __construct()
         {
-           $this->userDAO = new UserDao();
+           $this->userDAO = new UserBdDAO();
+           #$this->userDAO = new UserDAO();
         }
 
         //SignUp function
@@ -33,7 +35,7 @@
     
        public function CheckAdminLogin($username, $password)
         {
-            $user = $this->userDAO->GetUserName($username);
+            $user = $this->userDAO->GetByUserName($username);
 
             if(($user != null) && ($user->getPassword() === $password))
             {
@@ -47,7 +49,6 @@
             }
         }
 
-        
         
         //LogOutFunction
 

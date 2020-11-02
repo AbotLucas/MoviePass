@@ -26,7 +26,6 @@ class ScreeningDao implements Iscreening
  
     public function addScreening(Screening $screening){
         $this->retrieveData();
-        $screening->setId_screening($this->GetNextId_screening());
         array_push($this->listCinema, $screening);
         $this->saveData();
     }
@@ -59,7 +58,7 @@ class ScreeningDao implements Iscreening
            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true) : array();
 
            foreach($arrayToDecode as $valueArray){
-               $screening = new Screening($valueArray["id_screening"], $valueArray["date_screening"], $valueArray["id_movie_screening"], $valueArray["id_cinema_screening"]);
+               $screening = new Screening($valueArray["date_screening"], $valueArray["id_movie_screening"], $valueArray["id_cinema_screening"]);
                array_push($this->screening_list, $screening);
            }
        }

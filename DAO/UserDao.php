@@ -20,7 +20,7 @@ class UserDAO {
             $contentFile = file_get_contents($this->nameFileUser);
             $contenDecode = ($contentFile)? json_decode($contentFile,true): array();
             foreach ($contenDecode as $value) {
-               $user = new User($value['idUser'],$value['userName'], $value['password'], $value['role']);
+               $user = new User($value['id_User'],$value['userName'], $value['password'], $value['role']);
                $user->setUserName($value['userName']);
                $user->setPassword($value['password']);
                array_push($this->listUser,$user);
@@ -43,11 +43,16 @@ class UserDAO {
         $this->retrieveData();
         return $this->listUser;
     }
+}
+
 
     /* FUNCIONES DE DATABASE */
 
     /* Retorna false o la instancia encontrada*/
-    public function SearchEmailInDB($email) {
+    
+
+
+    /* public function SearchEmailInDB($email) {
 
         $sql = "SELECT * FROM User WHERE userName = :userName";
 
@@ -67,7 +72,7 @@ class UserDAO {
         else
             return false;
 
-    }
+    } */
 
     /* public function GetLastIdUserInDB() {
 
@@ -82,7 +87,7 @@ class UserDAO {
         return $resultStat[0];
     } */
 
-    public function SaveUserInDB($user) {
+/*     public function SaveUserInDB($user) {
 
         $sql = "INSERT INTO user (userName, password, role) VALUES (:userName, :password, :role)";
 
@@ -112,7 +117,7 @@ class UserDAO {
 
         return count($resp) > 1 ? $resp : $resp['0'];
     }
-}
+} */
 
 
 ?>

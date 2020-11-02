@@ -26,7 +26,7 @@ $count = 0; $count2 = 0;
             </div>
 
             <div>
-                <?php echo $MovieController->movieDAO->MigrateMoviesToDB(); if(isset($message)) { echo "<h6>" . $message . "<h6>"; } ?>
+                <?php if(isset($message)) { echo "<h6>" . $message . "<h6>"; } ?>
             </div>
             
             <div style="position: absolute; right: 15%;">        

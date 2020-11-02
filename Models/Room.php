@@ -19,7 +19,16 @@
         $this->ticketValue = $ticketValue;
     }
 
-
+        public function getId_room() { return $this->id_room;}
+        public function setId_room($id_room){ $this->id_room = $id_room;return $this;}
+        public function getName(){ return $this->name;}
+        public function setName($name) {  $this->name = $name; return $this;}
+        public function getCapacity(){ return $this->capacity;}
+        public function setCapacity($capacity){ $this->capacity = $capacity;}
+        public function getTicketValue(){ return $this->ticketValue;}
+        public function setTicketValue($ticketValue){ $this->ticketValue = $ticketValue;}
+        public function getCinema() { return $this->cinema; }
+        public function setCinema($cinema) {  $this->cinema = $cinema;}
     }
 
 
