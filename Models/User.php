@@ -2,7 +2,7 @@
 
 namespace Models;
  
-class User {
+class User{
 
     private $user_id;
     private $userName ;
@@ -17,46 +17,13 @@ class User {
         $this->role = $role;
     }
 
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId($user_id)
-    {
-        $this->user_id = $user_id;
-    }
-    
-    public function getUserName()
-    {
-        return $this->userName;
-    }
-
-    public function setUserName($userName)
-    {
-        $this->userName = $userName;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-    }
-    
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-    }
+    public function getUserId(){ return $this->user_id;}
+    public function setUserId($user_id){  $this->user_id = $user_id; }
+    public function getUserName(){  return $this->userName; }
+    public function setUserName($userName){$this->userName = $userName;}
+    public function getPassword(){  return $this->password;}
+    public function setPassword($password) { $this->password = $password;}
+    public function getRole(){  return $this->role;}
+    public function setRole($role) { $this->role = $role;}
 }
 ?>
