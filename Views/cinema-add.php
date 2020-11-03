@@ -9,7 +9,7 @@
           <table style="max-width: 60%"> 
             <thead>
               <tr>
-              <?php if($message){ echo "<h3>". $message ."</h3><br>";}?>
+              <?php  if($message){ echo "<h3>". $message ."</h3><br>";}?>
               </tr>
               <tr>
                 <th>Name</th>

@@ -32,13 +32,13 @@ $count = 0; $count2 = 0;
             
             <div style="position: absolute; right: 15%;">        
                 
-                <form action="" method= "POST" style="background-color: #321f28; padding: 5px; display:flex">
-                    <div style="">    
+                <form action="<?php echo FRONT_ROOT . "/Screening/ApplyFilters"?>" method= "POST" style="background-color: #321f28; padding: 5px; display:flex">
+                    <div >    
                         <label for="date">Date</label>
                         <input type="date" id="date">
                     </div>
                     &nbsp;
-                    <div style="">
+                    <div >
                         <label for="gender">Gender</label>
                         <select name="gender" id="gender">
                             <option value="">Genero1</option>
@@ -60,7 +60,7 @@ $count = 0; $count2 = 0;
           <?php while($count<=5){ while($count2<$count*4) {?>
 
             <td style="text-align: center;">
-                <a href="#">
+                <a href="<?php echo FRONT_ROOT."Screening/ShowAddScreeningView/"."?id_movie=".$MovieList[$count2]->getId_movie();?>">
                     
                         <div class="div-img">
                             <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $MovieList[$count2]->getUrlImage();?>" alt="<?php echo $MovieList[$count2]->getTitle(); ?>">

@@ -24,8 +24,13 @@ class UserController {
             require_once(VIEWS_PATH."signup.php");
         } 
         public function ShowLogInView($message = "")
-        {
-            require_once(VIEWS_PATH."login.php");
+        {   
+            if(!isset($_SESSION["loginUser"])){
+                require_once(VIEWS_PATH."login.php");
+            }
+            else{
+                require_once("");
+            }
         } 
 
         public function SignUpValidate($email, $password, $password2) {

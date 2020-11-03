@@ -9,16 +9,17 @@
         private $id_screening; //Screening ID
         private $date_screening; //Screening Date
         private $hour_screening; //Screening Hour
-        private Movie $movie;//Movie to be screened 
-        private Room $room; //Cinema_ID where it gonna be screened the movie
+        private $movie;//Movie to be screened 
+        private $cinema; //Cinema_ID where it gonna be screened the movie
+        //private Room $room; //Cinema_ID where it gonna be screened the movie
 
-        public function __construct($date_screening, $hour_screening, Movie $movie, Room $room) {
+        public function __construct($date_screening, $hour_screening, Movie $movie, Cinema $cinema) {
            
             $this->id_screening = 0;
             $this->date_screening = $date_screening;
             $this->hour_screening = $hour_screening;
             $this->movie = $movie;
-            $this->room = $room;
+            $this->cinema = $cinema;
         }
 
 
@@ -83,6 +84,26 @@
         {
                 $this->room = $room;
 
+        }
+
+        /**
+         * Get the value of cinema
+         */ 
+        public function getCinema()
+        {
+                return $this->cinema;
+        }
+
+        /**
+         * Set the value of cinema
+         *
+         * @return  self
+         */ 
+        public function setCinema($cinema)
+        {
+                $this->cinema = $cinema;
+
+                return $this;
         }
      }
 

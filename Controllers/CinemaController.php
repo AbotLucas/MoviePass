@@ -17,18 +17,41 @@
 
         public function ShowAddCinemaView($message = "") {
             
+            if(!isset($_SESSION["loginUser"])){
+                $message = "";
+                require_once(VIEWS_PATH."login.php");
+            }
+            else {
+            $id_movie = $message;
+            $message = "";
             require_once(VIEWS_PATH."cinema-add.php");
+            }
         }
         public function ShowModififyView($message =""){
             
+            if(!isset($_SESSION["loginUser"])){
+                $message = "";
+                require_once(VIEWS_PATH."login.php");
+            }
+            else {
+            $id_movie = $message;
+            $message = "";
             require_once(VIEWS_PATH."cinema-modify.php");
+            }
         }
-        public function ShowListCinemaView()
+        public function ShowListCinemaView($message="")
         {   
             $this->cinemaBdDAO = new CinemaBdDAO();
             $cinemaList = $this->cinemaBdDAO->getAllCinema();
             
+            if(!isset($_SESSION["loginUser"])){
+                $message = "";
+                require_once(VIEWS_PATH."login.php");
+            }
+            else {
+            $message = "";
             require_once(VIEWS_PATH."cinema-list.php");
+            }
         }
 
         
@@ -77,7 +100,7 @@
         }
         public function getCinemasList() {
 
-            return $this->cinemaDAO->getAllCinema();
+            return $this->cinemaBdDAO->getAllCinema();
         }
     
     public function modifyANDremover($id){

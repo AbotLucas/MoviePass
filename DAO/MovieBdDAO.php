@@ -11,6 +11,7 @@ class MovieBdDao {
     private $movieDAO;
     private $tableName = "movie";
     private $connection;
+    private static $instance = null;
 
     /* id_movie BIGINT UNSIGNED not null unique,
     title VARCHAR(50) not null ,
@@ -21,11 +22,11 @@ class MovieBdDao {
     constraint pk_idmovie primary key(id_movie); */
  
 
-    public static function MapearMovie($idMovieAMapear) {
+/*     public static function MapearMovie($idMovieAMapear) {
         $movieBdDAOAux = new MovieBdDao();
         return $movieBdDAOAux->GetMovieById($idMovieAMapear);
 
-    }
+    } */
 
     public function GetMovieById($idMovieABuscar)
     {
@@ -43,11 +44,9 @@ class MovieBdDao {
         } catch (Exception $ex) {
             throw $ex;
         }
+        
+        $return = $this->mapear($results);
 
-        foreach($results as $movie)
-        {
-           $return = $this->mapear($movie);
-        }
 
         return $return;
     }  
@@ -79,6 +78,19 @@ class MovieBdDao {
         }
         return $numberOfMovies;
     }
+
+    public static function GetInstance()
+        {
+            if(self::$instance == null)
+                self::$instance = new CinemaBdDao();
+
+            return self::$instance;
+        }
+    
+        public static function MapearMovie($idMovieAMapear) {
+            $movieDAOBdAux = new MovieBdDao();
+            return $movieDAOBdAux->GetMovieById($idMovieAMapear);
+        }
     
 
     protected function mapear($value) {

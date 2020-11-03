@@ -14,7 +14,7 @@
            
             <th style="width: 20%;">Name</th>
             <th style="width: 20%;">Adress</th>
-            <th style="width: 30%;" > Action</th>
+            <th style="width: 30%;" >Action</th>
             </tr>
           </thead>
           <tbody>
