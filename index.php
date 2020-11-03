@@ -21,7 +21,7 @@
 
 	//require_once(VIEWS_PATH. "nav-bar.php");
 
-	Router::Route(new Request());''
+	Router::Route(new Request());
 
 	require_once(VIEWS_PATH."footer.php");
 ?>
