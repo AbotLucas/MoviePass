@@ -30,8 +30,12 @@
             
             require_once(VIEWS_PATH."cinema-list.php");
         }
-
-        
+        public function ShowLisSceening(){
+            require_once(VIEWS_PATH."screening-list.php");
+        }
+        public function ShowAddRoom($message =""){
+            require_once(VIEWS_PATH."room-add.php");
+        }
 
         public function AddCinema($name, $address)
         {
@@ -41,7 +45,7 @@
                 $result = $this->cinemaBdDAO->SaveCinemaInDB($newCinema);
                 if($result == 1) {
                 $message = "Cinema added succesfully!";
-                $this->ShowAddCinemaView($message);
+                $this->ShowAddRoom($message);
                 }
                 else
                 {
@@ -87,6 +91,9 @@
         }elseif(isset($_POST['id_modify'])){
            $_SESSION['id'] = $id;
            $this->ShowModififyView();
+         }else {
+             $_SESSION['id'] = $id;
+             $this->ShowLisSceening();
          }
     }
 

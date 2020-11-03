@@ -9,9 +9,9 @@
         private $name;
         private $capacity;
         private $ticketValue;
-        private Cinema $cinema;
+        private  $cinema;
 
-        public function __construct($name, $capacity, $ticketValue, Cinema $cinema)
+        public function __construct($name, $capacity, $ticketValue,  $cinema)
 	{
         $this->name = $name;
         $this->capacity = $capacity;
