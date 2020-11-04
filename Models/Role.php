@@ -3,11 +3,11 @@ namespace Models;
 
 class Role{
     private $id_role;
-    private $preority;
+    private $priority;
 
-    public function __construct($id_role , $preority){
+    public function __construct($id_role , $priority){
         $this->id_role = $id_role;
-        $this->preority = $preority;
+        $this->priority = $priority;
     }
 
 
@@ -23,14 +23,14 @@ class Role{
     }
 
 
-    public function getPreority()
+    public function getPriority()
     {
-        return $this->preority;
+        return $this->priority;
     }
 
 
-    public function setPreority($preority)
+    public function setPriority($priority)
     {
-        $this->preority = $preority;
+        $this->priority = $priority;
     }
 }
