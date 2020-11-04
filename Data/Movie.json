@@ -1,8 +1,8 @@
 {
     "results": [
         {
-            "popularity": 2960.755,
-            "vote_count": 57,
+            "popularity": 2766.111,
+            "vote_count": 62,
             "video": false,
             "poster_path": "\/ugZW8ocsrfgI95pnQ7wrmKDxIe.jpg",
             "id": 724989,
@@ -15,14 +15,14 @@
                 53
             ],
             "title": "Hard Kill",
-            "vote_average": 4.3,
+            "vote_average": 4.4,
             "overview": "The work of billionaire tech CEO Donovan Chalmers is so valuable that he hires mercenaries to protect it, and a terrorist group kidnaps his daughter just to get it.",
             "release_date": "2020-10-23",
             "duration": 98
         },
         {
-            "popularity": 2634.492,
-            "vote_count": 452,
+            "popularity": 2062.475,
+            "vote_count": 472,
             "video": false,
             "poster_path": "\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
             "id": 531219,
@@ -38,14 +38,14 @@
                 27
             ],
             "title": "Roald Dahl's The Witches",
-            "vote_average": 7.2,
+            "vote_average": 7.1,
             "overview": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.",
             "release_date": "2020-10-26",
             "duration": 106
         },
         {
-            "popularity": 2235.682,
-            "vote_count": 234,
+            "popularity": 1898.846,
+            "vote_count": 240,
             "video": false,
             "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
             "id": 528085,
@@ -65,52 +65,8 @@
             "duration": 114
         },
         {
-            "popularity": 1098.562,
-            "vote_count": 223,
-            "video": false,
-            "poster_path": "\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
-            "id": 560050,
-            "adult": false,
-            "backdrop_path": "\/htBUhLSS7FfHtydgYxUWjL3J1Q1.jpg",
-            "original_language": "en",
-            "original_title": "Over the Moon",
-            "genre_ids": [
-                16,
-                12,
-                10751,
-                14
-            ],
-            "title": "Over the Moon",
-            "vote_average": 7.7,
-            "overview": "A girl builds a rocket to travel to the moon in hopes of meeting the legendary Moon Goddess.",
-            "release_date": "2020-10-16",
-            "duration": 100
-        },
-        {
-            "popularity": 888.689,
-            "vote_count": 2710,
-            "video": false,
-            "poster_path": "\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
-            "id": 560050,
-            "adult": false,
-            "backdrop_path": "\/htBUhLSS7FfHtydgYxUWjL3J1Q1.jpg",
-            "original_language": "en",
-            "original_title": "Over the Moon",
-            "genre_ids": [
-                16,
-                12,
-                10751,
-                14
-            ],
-            "title": "Over the Moon",
-            "vote_average": 7.6,
-            "overview": "A girl builds a rocket to travel to the moon in hopes of meeting the legendary Moon Goddess.",
-            "release_date": "2020-10-16",
-            "duration": 100
-        },
-        {
-            "popularity": 1018.142,
-            "vote_count": 82,
+            "popularity": 1113.589,
+            "vote_count": 86,
             "video": false,
             "poster_path": "\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
             "id": 741074,
@@ -131,8 +87,8 @@
             "duration": 12
         },
         {
-            "popularity": 999.585,
-            "vote_count": 31,
+            "popularity": 1013.551,
+            "vote_count": 33,
             "video": false,
             "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
             "id": 635302,
@@ -149,58 +105,98 @@
                 18
             ],
             "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
-            "vote_average": 6.9,
+            "vote_average": 6.7,
             "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
             "release_date": "2020-10-16",
             "duration": 117
         },
         {
-            "popularity": 827.236,
-            "vote_count": 330,
+            "popularity": 962.855,
+            "vote_count": 251,
             "video": false,
-            "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
-            "id": 718444,
+            "poster_path": "\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
+            "id": 560050,
             "adult": false,
-            "backdrop_path": "\/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg",
+            "backdrop_path": "\/htBUhLSS7FfHtydgYxUWjL3J1Q1.jpg",
             "original_language": "en",
-            "original_title": "Rogue",
+            "original_title": "Over the Moon",
+            "genre_ids": [
+                16,
+                12,
+                10751,
+                14
+            ],
+            "title": "Over the Moon",
+            "vote_average": 7.6,
+            "overview": "A girl builds a rocket to travel to the moon in hopes of meeting the legendary Moon Goddess.",
+            "release_date": "2020-10-16",
+            "duration": 100
+        },
+        {
+            "popularity": 720.44,
+            "vote_count": 2734,
+            "video": false,
+            "poster_path": "\/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
+            "id": 337401,
+            "adult": false,
+            "backdrop_path": "\/zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
+            "original_language": "en",
+            "original_title": "Mulan",
             "genre_ids": [
                 28,
                 12,
                 18,
-                53
+                14
             ],
-            "title": "Rogue",
-            "vote_average": 5.8,
-            "overview": "Battle-hardened O\u2019Hara leads a lively mercenary team of soldiers on a daring mission: rescue hostages from their captors in remote Africa. But as the mission goes awry and the team is stranded, O\u2019Hara\u2019s squad must face a bloody, brutal encounter with a gang of rebels.",
-            "release_date": "2020-08-20",
-            "duration": 106
+            "title": "Mulan",
+            "vote_average": 7.2,
+            "overview": "When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.",
+            "release_date": "2020-09-04",
+            "duration": 115
         },
         {
-            "popularity": 819.428,
-            "vote_count": 245,
+            "popularity": 686.411,
+            "vote_count": 699,
             "video": false,
-            "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
-            "id": 590223,
+            "poster_path": "\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
+            "id": 581392,
             "adult": false,
-            "backdrop_path": "\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg",
-            "original_language": "en",
-            "original_title": "Love and Monsters",
+            "backdrop_path": "\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg",
+            "original_language": "ko",
+            "original_title": "\ubc18\ub3c4",
             "genre_ids": [
                 28,
-                12,
-                35,
-                878
+                27,
+                53
             ],
-            "title": "Love and Monsters",
-            "vote_average": 7.7,
-            "overview": "Seven years after the Monsterpocalypse, Joel Dawson, along with the rest of humanity, has been living underground ever since giant creatures took control of the land. After reconnecting over radio with his high school girlfriend Aimee, who is now 80 miles away at a coastal colony, Joel begins to fall for her again. As Joel realizes that there\u2019s nothing left for him underground, he decides against all logic to venture out to Aimee, despite all the dangerous monsters that stand in his way.",
-            "release_date": "2020-10-16",
-            "duration": 109
+            "title": "Peninsula",
+            "vote_average": 7,
+            "overview": "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.",
+            "release_date": "2020-07-15",
+            "duration": 114
         },
         {
-            "popularity": 782.683,
-            "vote_count": 558,
+            "popularity": 679.503,
+            "vote_count": 161,
+            "video": false,
+            "poster_path": "\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+            "id": 694919,
+            "adult": false,
+            "backdrop_path": "\/pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+            "original_language": "en",
+            "original_title": "Money Plane",
+            "genre_ids": [
+                28
+            ],
+            "title": "Money Plane",
+            "vote_average": 6,
+            "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
+            "release_date": "2020-09-29",
+            "duration": 82
+        },
+        {
+            "popularity": 662.44,
+            "vote_count": 563,
             "video": false,
             "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
             "id": 539885,
@@ -221,8 +217,30 @@
             "duration": 96
         },
         {
-            "popularity": 750.191,
-            "vote_count": 255,
+            "popularity": 636.413,
+            "vote_count": 337,
+            "video": false,
+            "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
+            "id": 718444,
+            "adult": false,
+            "backdrop_path": "\/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg",
+            "original_language": "en",
+            "original_title": "Rogue",
+            "genre_ids": [
+                28,
+                12,
+                18,
+                53
+            ],
+            "title": "Rogue",
+            "vote_average": 5.8,
+            "overview": "Battle-hardened O\u2019Hara leads a lively mercenary team of soldiers on a daring mission: rescue hostages from their captors in remote Africa. But as the mission goes awry and the team is stranded, O\u2019Hara\u2019s squad must face a bloody, brutal encounter with a gang of rebels.",
+            "release_date": "2020-08-20",
+            "duration": 106
+        },
+        {
+            "popularity": 630.352,
+            "vote_count": 264,
             "video": false,
             "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
             "id": 590223,
@@ -243,87 +261,8 @@
             "duration": 109
         },
         {
-            "popularity": 742.268,
-            "vote_count": 160,
-            "video": false,
-            "poster_path": "\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-            "id": 694919,
-            "adult": false,
-            "backdrop_path": "\/pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-            "original_language": "en",
-            "original_title": "Money Plane",
-            "genre_ids": [
-                28
-            ],
-            "title": "Money Plane",
-            "vote_average": 6,
-            "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
-            "release_date": "2020-09-29",
-            "duration": 82
-        },
-        {
-            "popularity": 570.689,
-            "vote_count": 60,
-            "video": false,
-            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
-            "id": 509635,
-            "adult": false,
-            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
-            "original_language": "en",
-            "original_title": "Alone",
-            "genre_ids": [
-                53
-            ],
-            "title": "Alone",
-            "vote_average": 6,
-            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
-            "release_date": "2020-09-10",
-            "duration": 98
-        },
-        {
-            "popularity": 727.244,
-            "vote_count": 78,
-            "video": false,
-            "poster_path": "\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
-            "id": 741074,
-            "adult": false,
-            "backdrop_path": "\/DA7gzvlBoxMNL0XmGgTZOyv67P.jpg",
-            "original_language": "en",
-            "original_title": "Once Upon a Snowman",
-            "genre_ids": [
-                16,
-                35,
-                14,
-                10751
-            ],
-            "title": "Once Upon a Snowman",
-            "vote_average": 7.6,
-            "overview": "The previously untold origins of Olaf, the innocent and insightful, summer-loving snowman are revealed as we follow Olaf\u2019s first steps as he comes to life and searches for his identity in the snowy mountains outside Arendelle.",
-            "release_date": "2020-10-23",
-            "duration": 12
-        },
-        {
-            "popularity": 530.81,
-            "vote_count": 39,
-            "video": false,
-            "poster_path": "\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
-            "id": 595149,
-            "adult": false,
-            "backdrop_path": "\/3GTSbc85Xangv8JkBSsQZMXGyhh.jpg",
-            "original_language": "en",
-            "original_title": "Death of Me",
-            "genre_ids": [
-                27
-            ],
-            "title": "Death of Me",
-            "vote_average": 5.9,
-            "overview": "A couple on holiday on a remote South Pacific island awaken one morning with a hang over and no recollection of what transpired. When playing back a video of the previous night, they see they participated in a local ritual that somehow ends with him murdering her.",
-            "release_date": "2020-10-02",
-            "duration": 95
-        },
-        {
-            "popularity": 532.372,
-            "vote_count": 1257,
+            "popularity": 527.441,
+            "vote_count": 1353,
             "video": false,
             "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
             "id": 613504,
@@ -342,48 +281,46 @@
             "duration": 105
         },
         {
-            "popularity": 409.083,
-            "vote_count": 38,
+            "popularity": 424.569,
+            "vote_count": 61,
+            "video": false,
+            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
+            "id": 509635,
+            "adult": false,
+            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
+            "original_language": "en",
+            "original_title": "Alone",
+            "genre_ids": [
+                53
+            ],
+            "title": "Alone",
+            "vote_average": 6,
+            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
+            "release_date": "2020-09-10",
+            "duration": 98
+        },
+        {
+            "popularity": 414.102,
+            "vote_count": 39,
             "video": false,
             "poster_path": "\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
             "id": 595149,
             "adult": false,
-            "backdrop_path": "\/kt0eObou8IS6taCnzw7kikbExJU.jpg",
+            "backdrop_path": "\/3GTSbc85Xangv8JkBSsQZMXGyhh.jpg",
             "original_language": "en",
             "original_title": "Death of Me",
             "genre_ids": [
                 27
             ],
             "title": "Death of Me",
-            "vote_average": 6.1,
+            "vote_average": 5.9,
             "overview": "A couple on holiday on a remote South Pacific island awaken one morning with a hang over and no recollection of what transpired. When playing back a video of the previous night, they see they participated in a local ritual that somehow ends with him murdering her.",
             "release_date": "2020-10-02",
             "duration": 95
         },
         {
-            "popularity": 375.103,
-            "vote_count": 100,
-            "video": false,
-            "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
-            "id": 425001,
-            "adult": false,
-            "backdrop_path": "\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg",
-            "original_language": "en",
-            "original_title": "The War with Grandpa",
-            "genre_ids": [
-                35,
-                10751,
-                18
-            ],
-            "title": "The War with Grandpa",
-            "vote_average": 6.1,
-            "overview": "Sixth-grader Peter is pretty much your average kid\u2014he likes gaming, hanging with his friends and his beloved pair of Air Jordans. But when his recently widowed grandfather Ed  moves in with Peter\u2019s family, the boy is forced to give up his most prized possession of all, his bedroom. Unwilling to let such an injustice stand, Peter devises a series of increasingly elaborate pranks to drive out the interloper, but Grandpa Ed won\u2019t go without a fight.",
-            "release_date": "2020-08-27",
-            "duration": 94
-        },
-        {
-            "popularity": 359.47,
-            "vote_count": 1256,
+            "popularity": 346.148,
+            "vote_count": 1258,
             "video": false,
             "poster_path": "\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
             "id": 446893,
@@ -406,7 +343,28 @@
             "duration": 91
         },
         {
-            "popularity": 335.748,
+            "popularity": 334.032,
+            "vote_count": 102,
+            "video": false,
+            "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
+            "id": 425001,
+            "adult": false,
+            "backdrop_path": "\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg",
+            "original_language": "en",
+            "original_title": "The War with Grandpa",
+            "genre_ids": [
+                35,
+                10751,
+                18
+            ],
+            "title": "The War with Grandpa",
+            "vote_average": 6,
+            "overview": "Sixth-grader Peter is pretty much your average kid\u2014he likes gaming, hanging with his friends and his beloved pair of Air Jordans. But when his recently widowed grandfather Ed  moves in with Peter\u2019s family, the boy is forced to give up his most prized possession of all, his bedroom. Unwilling to let such an injustice stand, Peter devises a series of increasingly elaborate pranks to drive out the interloper, but Grandpa Ed won\u2019t go without a fight.",
+            "release_date": "2020-08-27",
+            "duration": 94
+        },
+        {
+            "popularity": 301.113,
             "vote_count": 2,
             "video": false,
             "poster_path": "\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
@@ -425,8 +383,8 @@
             "duration": 77
         },
         {
-            "popularity": 324.126,
-            "vote_count": 89,
+            "popularity": 281.392,
+            "vote_count": 93,
             "video": false,
             "poster_path": "\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
             "id": 726739,
@@ -439,39 +397,39 @@
                 28
             ],
             "title": "Cats & Dogs 3: Paws Unite",
-            "vote_average": 6.6,
+            "vote_average": 6.5,
             "overview": "It's been ten years since the creation of the Great Truce, an elaborate joint-species surveillance system designed and monitored by cats and dogs to keep the peace when conflicts arise. But when a tech-savvy villain hacks into wireless networks to use frequencies only heard by cats and dogs, he manipulates them into conflict and the worldwide battle between cats and dogs is BACK ON. Now, a team of inexperienced and untested agents will have to use their old-school animal instincts to restore order and peace between cats and dogs everywhere.",
             "release_date": "2020-10-02",
             "duration": 84
         },
         {
-            "popularity": 278.558,
-            "vote_count": 64,
+            "popularity": 206.938,
+            "vote_count": 297,
             "video": false,
-            "poster_path": "\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
-            "id": 667141,
+            "poster_path": "\/bSKVKcCXdKxkbgf0LL8lBTPG02e.jpg",
+            "id": 505379,
             "adult": false,
-            "backdrop_path": "\/2LL1jHtNKJhTDc3tA1difsAnLui.jpg",
+            "backdrop_path": "\/bWQGF5D7mLVKE3BzETVq5hHcusK.jpg",
             "original_language": "en",
-            "original_title": "12 Hour Shift",
+            "original_title": "Rebecca",
             "genre_ids": [
-                53,
-                27,
-                35,
-                80
+                10749,
+                18,
+                9648,
+                53
             ],
-            "title": "12 Hour Shift",
-            "vote_average": 5.1,
-            "overview": "It's 1998 and over the course of one 12-hour shift at an Arkansas hospital, a junkie nurse, her scheming cousin and a group of black market organ-trading criminals start a heist that could lead to their collective demise.",
-            "release_date": "2020-10-02",
-            "duration": 86
+            "title": "Rebecca",
+            "vote_average": 6.4,
+            "overview": "After a whirlwind romance with a wealthy widower, a na\u00efve bride moves to his family estate but can't escape the haunting shadow of his late wife.",
+            "release_date": "2020-10-16",
+            "duration": 121
         }
     ],
     "page": 1,
-    "total_results": 1546,
+    "total_results": 1584,
     "dates": {
-        "maximum": "2020-11-01",
-        "minimum": "2020-09-14"
+        "maximum": "2020-11-02",
+        "minimum": "2020-09-15"
     },
-    "total_pages": 79
+    "total_pages": 80
 }
