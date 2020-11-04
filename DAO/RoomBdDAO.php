@@ -3,12 +3,11 @@ namespace DAO;
 
 use Models\Room as Room;
 use DAO\Iroom as Iroom;
+use DAO\Connection as Connection;
 use FFI\Exception;
 
 class RoomBdDAO implements Iroom {
 
-    private $roomList = $array();
-   # private $movieDAO;
     private $tableName = "Room";
     private $connection;
 
@@ -16,6 +15,23 @@ class RoomBdDAO implements Iroom {
     public function __construct(){
         
     }
+    public function addRoom($Room) {
+    
+        $sql = " INSERT INTO ". $this->tableName ." (name, capacity,ticketvalue,idcinema) VALUES (:name, :capacity ,:ticketvalue , :idcinema)";
+      
+              $parameters["name"] = $Room->getName();
+              $parameters["capacity"] = $Room->getCapacity();
+              $parameters["ticketvalue"] = $Room->getTicketvalue();
+              $parameters["idcinema"] = $Room->getCinema();
+              try {
+                  $this->connection = Connection::GetInstance();
+                  return $this->connection->ExecuteNonQuery($sql, $parameters);
+              } catch (Exception $ex) {
+                  throw $ex;
+              }
+          }
+
+          
     public function getRoomFromDB(){
         
         $query = "SELECT * FROM " . $this->tableName;
@@ -67,24 +83,12 @@ class RoomBdDAO implements Iroom {
 
     }
    
-    public function addRoom($Room) {
-    
-      $sql = "INSERT INTO room (name, capacity,ticketvalue,idcinema) VALUES (:name, :capacity ,:ticketvalue , idcinema)";
-    
-            $parameters["name"] = $Room->getName();
-            $parameters["capacity"] = $Room->getCapacity();
-            $parameters["ticketvalue"] = $Room->getTicketvalue();
-            $parameters["idcinema"] = $Room->getCinema();
-            try {
-                $this->connection = Connection::GetInstance();
-                return $this->connection->ExecuteNonQuery($sql, $parameters);
-            } catch (Exception $ex) {
-                throw $ex;
-            }
-        }
+   
        
     
-
+        function deleteRoom($id_room){
+            
+        }
     
 
     

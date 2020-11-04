@@ -15,39 +15,28 @@
         }
 
         public function ShowAddRoomView($message = "") {
-            
+            require_once(VIEWS_PATH."validate-session.php");
             require_once(VIEWS_PATH."room-add.php");
         }
-
+        public function ShowAddScreeningView($message = "") {
+            require_once(VIEWS_PATH."validate-session.php");
+            require_once(VIEWS_PATH."screening-add.php");
+        }
         public function ShowListRoomView()
         {   
-           # $this->roomBdDAO = new RoomBdDAO();
            $roomList = $this->roomBdDAO->getAllRoom();
-             require_once(VIEWS_PATH."Room-list.php");
+            require_once(VIEWS_PATH."Room-list.php");
         }
-
-        public function AddRoom($name, $capacity ,$ticketValue,$cinema)
+        public function AddRoom($name, $capacity ,$ticketValue,$idcinema)
         {
-            $newRoom = new Room($name, $capacity ,$ticketValue,$cinema);
-            
-            if($_POST) {
-                $result = $this->roomBdDAO->addRoom($newRoom);
-                if($result == 1) {
-                $message = "Room added succesfully!";
-                $this->ShowListRoomView(($message);
-                }
-                else
-                {
-                    $message = "ERROR: System error, reintente";
-                    $this->ShowAddRoomView($message);
-                }
-            }
-            else
-            {
-                $this->ShowAddRoomView("Failed in cinema adding!");
-            }
-        }       
-        
-       
+            require_once(VIEWS_PATH."validate-session.php");
+             $newRoom = new Room($name, $capacity ,$ticketValue,$idcinema);
+             $this->roomBdDAO->addRoom($newRoom);
+             $message = "Room added succesfully!";
+             $this->ShowAddScreeningView($message);
+        } 
+
+      
+    } 
     
 ?>

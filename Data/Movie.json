@@ -1,8 +1,8 @@
 {
     "results": [
         {
-            "popularity": 3089.11,
-            "vote_count": 50,
+            "popularity": 2960.755,
+            "vote_count": 57,
             "video": false,
             "poster_path": "\/ugZW8ocsrfgI95pnQ7wrmKDxIe.jpg",
             "id": 724989,
@@ -21,8 +21,8 @@
             "duration": 98
         },
         {
-            "popularity": 2968.909,
-            "vote_count": 425,
+            "popularity": 2634.492,
+            "vote_count": 452,
             "video": false,
             "poster_path": "\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
             "id": 531219,
@@ -44,8 +44,8 @@
             "duration": 106
         },
         {
-            "popularity": 2291.144,
-            "vote_count": 228,
+            "popularity": 2235.682,
+            "vote_count": 234,
             "video": false,
             "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
             "id": 528085,
@@ -59,14 +59,14 @@
                 18
             ],
             "title": "2067",
-            "vote_average": 5.2,
+            "vote_average": 5.1,
             "overview": "A lowly utility worker is called to the future by a mysterious radio signal, he must leave his dying wife to embark on a journey that will force him to face his deepest fears in an attempt to change the fabric of reality and save humankind from its greatest environmental crisis yet.",
             "release_date": "2020-10-01",
             "duration": 114
         },
         {
-            "popularity": 1098.562,
-            "vote_count": 223,
+            "popularity": 1089.211,
+            "vote_count": 243,
             "video": false,
             "poster_path": "\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
             "id": 560050,
@@ -81,14 +81,60 @@
                 14
             ],
             "title": "Over the Moon",
-            "vote_average": 7.7,
+            "vote_average": 7.6,
             "overview": "A girl builds a rocket to travel to the moon in hopes of meeting the legendary Moon Goddess.",
             "release_date": "2020-10-16",
             "duration": 100
         },
         {
-            "popularity": 888.689,
-            "vote_count": 2710,
+            "popularity": 1018.142,
+            "vote_count": 82,
+            "video": false,
+            "poster_path": "\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
+            "id": 741074,
+            "adult": false,
+            "backdrop_path": "\/DA7gzvlBoxMNL0XmGgTZOyv67P.jpg",
+            "original_language": "en",
+            "original_title": "Once Upon a Snowman",
+            "genre_ids": [
+                16,
+                35,
+                14,
+                10751
+            ],
+            "title": "Once Upon a Snowman",
+            "vote_average": 7.7,
+            "overview": "The previously untold origins of Olaf, the innocent and insightful, summer-loving snowman are revealed as we follow Olaf\u2019s first steps as he comes to life and searches for his identity in the snowy mountains outside Arendelle.",
+            "release_date": "2020-10-23",
+            "duration": 12
+        },
+        {
+            "popularity": 999.585,
+            "vote_count": 31,
+            "video": false,
+            "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+            "id": 635302,
+            "adult": false,
+            "backdrop_path": "\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg",
+            "original_language": "ja",
+            "original_title": "\u5287\u5834\u7248\u300c\u9b3c\u6ec5\u306e\u5203\u300d\u7121\u9650\u5217\u8eca\u7de8",
+            "genre_ids": [
+                16,
+                28,
+                36,
+                12,
+                14,
+                18
+            ],
+            "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
+            "vote_average": 6.9,
+            "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
+            "release_date": "2020-10-16",
+            "duration": 117
+        },
+        {
+            "popularity": 808.911,
+            "vote_count": 2724,
             "video": false,
             "poster_path": "\/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
             "id": 337401,
@@ -109,32 +155,8 @@
             "duration": 115
         },
         {
-            "popularity": 868.519,
-            "vote_count": 28,
-            "video": false,
-            "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
-            "id": 635302,
-            "adult": false,
-            "backdrop_path": "\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg",
-            "original_language": "ja",
-            "original_title": "\u5287\u5834\u7248\u300c\u9b3c\u6ec5\u306e\u5203\u300d\u7121\u9650\u5217\u8eca\u7de8",
-            "genre_ids": [
-                16,
-                28,
-                36,
-                12,
-                14,
-                18
-            ],
-            "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
-            "vote_average": 7.2,
-            "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
-            "release_date": "2020-10-16",
-            "duration": 117
-        },
-        {
-            "popularity": 827.236,
-            "vote_count": 330,
+            "popularity": 772.131,
+            "vote_count": 333,
             "video": false,
             "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
             "id": 718444,
@@ -155,30 +177,29 @@
             "duration": 106
         },
         {
-            "popularity": 819.428,
-            "vote_count": 245,
+            "popularity": 752.98,
+            "vote_count": 692,
             "video": false,
-            "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
-            "id": 590223,
+            "poster_path": "\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
+            "id": 581392,
             "adult": false,
-            "backdrop_path": "\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg",
-            "original_language": "en",
-            "original_title": "Love and Monsters",
+            "backdrop_path": "\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg",
+            "original_language": "ko",
+            "original_title": "\ubc18\ub3c4",
             "genre_ids": [
                 28,
-                12,
-                35,
-                878
+                27,
+                53
             ],
-            "title": "Love and Monsters",
-            "vote_average": 7.7,
-            "overview": "Seven years after the Monsterpocalypse, Joel Dawson, along with the rest of humanity, has been living underground ever since giant creatures took control of the land. After reconnecting over radio with his high school girlfriend Aimee, who is now 80 miles away at a coastal colony, Joel begins to fall for her again. As Joel realizes that there\u2019s nothing left for him underground, he decides against all logic to venture out to Aimee, despite all the dangerous monsters that stand in his way.",
-            "release_date": "2020-10-16",
-            "duration": 109
+            "title": "Peninsula",
+            "vote_average": 7,
+            "overview": "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.",
+            "release_date": "2020-07-15",
+            "duration": 114
         },
         {
-            "popularity": 782.683,
-            "vote_count": 558,
+            "popularity": 752.95,
+            "vote_count": 562,
             "video": false,
             "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
             "id": 539885,
@@ -199,8 +220,30 @@
             "duration": 96
         },
         {
-            "popularity": 773.599,
-            "vote_count": 159,
+            "popularity": 750.191,
+            "vote_count": 255,
+            "video": false,
+            "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
+            "id": 590223,
+            "adult": false,
+            "backdrop_path": "\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg",
+            "original_language": "en",
+            "original_title": "Love and Monsters",
+            "genre_ids": [
+                28,
+                12,
+                35,
+                878
+            ],
+            "title": "Love and Monsters",
+            "vote_average": 7.7,
+            "overview": "Seven years after the Monsterpocalypse, Joel Dawson, along with the rest of humanity, has been living underground ever since giant creatures took control of the land. After reconnecting over radio with his high school girlfriend Aimee, who is now 80 miles away at a coastal colony, Joel begins to fall for her again. As Joel realizes that there\u2019s nothing left for him underground, he decides against all logic to venture out to Aimee, despite all the dangerous monsters that stand in his way.",
+            "release_date": "2020-10-16",
+            "duration": 109
+        },
+        {
+            "popularity": 742.268,
+            "vote_count": 160,
             "video": false,
             "poster_path": "\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
             "id": 694919,
@@ -212,57 +255,14 @@
                 28
             ],
             "title": "Money Plane",
-            "vote_average": 5.9,
+            "vote_average": 6,
             "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
             "release_date": "2020-09-29",
             "duration": 82
         },
         {
-            "popularity": 768.426,
-            "vote_count": 690,
-            "video": false,
-            "poster_path": "\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
-            "id": 581392,
-            "adult": false,
-            "backdrop_path": "\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg",
-            "original_language": "ko",
-            "original_title": "\ubc18\ub3c4",
-            "genre_ids": [
-                28,
-                27,
-                53
-            ],
-            "title": "Peninsula",
-            "vote_average": 7,
-            "overview": "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.",
-            "release_date": "2020-07-15",
-            "duration": 114
-        },
-        {
-            "popularity": 727.244,
-            "vote_count": 78,
-            "video": false,
-            "poster_path": "\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
-            "id": 741074,
-            "adult": false,
-            "backdrop_path": "\/DA7gzvlBoxMNL0XmGgTZOyv67P.jpg",
-            "original_language": "en",
-            "original_title": "Once Upon a Snowman",
-            "genre_ids": [
-                16,
-                35,
-                14,
-                10751
-            ],
-            "title": "Once Upon a Snowman",
-            "vote_average": 7.6,
-            "overview": "The previously untold origins of Olaf, the innocent and insightful, summer-loving snowman are revealed as we follow Olaf\u2019s first steps as he comes to life and searches for his identity in the snowy mountains outside Arendelle.",
-            "release_date": "2020-10-23",
-            "duration": 12
-        },
-        {
-            "popularity": 674.312,
-            "vote_count": 59,
+            "popularity": 570.689,
+            "vote_count": 60,
             "video": false,
             "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
             "id": 509635,
@@ -280,8 +280,8 @@
             "duration": 98
         },
         {
-            "popularity": 532.372,
-            "vote_count": 1257,
+            "popularity": 532.654,
+            "vote_count": 1304,
             "video": false,
             "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
             "id": 613504,
@@ -300,26 +300,45 @@
             "duration": 105
         },
         {
-            "popularity": 409.083,
-            "vote_count": 38,
+            "popularity": 530.81,
+            "vote_count": 39,
             "video": false,
             "poster_path": "\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
             "id": 595149,
             "adult": false,
-            "backdrop_path": "\/kt0eObou8IS6taCnzw7kikbExJU.jpg",
+            "backdrop_path": "\/3GTSbc85Xangv8JkBSsQZMXGyhh.jpg",
             "original_language": "en",
             "original_title": "Death of Me",
             "genre_ids": [
                 27
             ],
             "title": "Death of Me",
-            "vote_average": 6.1,
+            "vote_average": 5.9,
             "overview": "A couple on holiday on a remote South Pacific island awaken one morning with a hang over and no recollection of what transpired. When playing back a video of the previous night, they see they participated in a local ritual that somehow ends with him murdering her.",
             "release_date": "2020-10-02",
             "duration": 95
         },
         {
-            "popularity": 405.882,
+            "popularity": 382.685,
+            "vote_count": 2,
+            "video": false,
+            "poster_path": "\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
+            "id": 748224,
+            "adult": false,
+            "backdrop_path": "\/flNp7NdzBC1UGctzuubQveuVSF5.jpg",
+            "original_language": "en",
+            "original_title": "Reaptown",
+            "genre_ids": [
+                27
+            ],
+            "title": "Reaptown",
+            "vote_average": 6,
+            "overview": "In this supernatural horror film, Carrie Baldwin is freed from prison under the conditions of a work-release program in Reaptown, Nevada. As she struggles to find her missing sister while working the night shift as a security guard for the Reaptown Railway Museum, Carrie soon finds herself in the presence of evil. Could the Railway hold the clues to her sister's mysterious disappearance?",
+            "release_date": "2020-09-28",
+            "duration": 77
+        },
+        {
+            "popularity": 375.103,
             "vote_count": 100,
             "video": false,
             "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
@@ -340,8 +359,8 @@
             "duration": 94
         },
         {
-            "popularity": 389.955,
-            "vote_count": 1253,
+            "popularity": 359.47,
+            "vote_count": 1256,
             "video": false,
             "poster_path": "\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
             "id": 446893,
@@ -364,27 +383,8 @@
             "duration": 91
         },
         {
-            "popularity": 335.748,
-            "vote_count": 2,
-            "video": false,
-            "poster_path": "\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
-            "id": 748224,
-            "adult": false,
-            "backdrop_path": "\/flNp7NdzBC1UGctzuubQveuVSF5.jpg",
-            "original_language": "en",
-            "original_title": "Reaptown",
-            "genre_ids": [
-                27
-            ],
-            "title": "Reaptown",
-            "vote_average": 6,
-            "overview": "In this supernatural horror film, Carrie Baldwin is freed from prison under the conditions of a work-release program in Reaptown, Nevada. As she struggles to find her missing sister while working the night shift as a security guard for the Reaptown Railway Museum, Carrie soon finds herself in the presence of evil. Could the Railway hold the clues to her sister's mysterious disappearance?",
-            "release_date": "2020-09-28",
-            "duration": 77
-        },
-        {
-            "popularity": 324.126,
-            "vote_count": 89,
+            "popularity": 314.277,
+            "vote_count": 91,
             "video": false,
             "poster_path": "\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
             "id": 726739,
@@ -403,7 +403,7 @@
             "duration": 84
         },
         {
-            "popularity": 278.558,
+            "popularity": 247.532,
             "vote_count": 64,
             "video": false,
             "poster_path": "\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
@@ -426,10 +426,10 @@
         }
     ],
     "page": 1,
-    "total_results": 1546,
+    "total_results": 1573,
     "dates": {
-        "maximum": "2020-10-31",
-        "minimum": "2020-09-13"
+        "maximum": "2020-11-01",
+        "minimum": "2020-09-14"
     },
-    "total_pages": 78
+    "total_pages": 79
 }
