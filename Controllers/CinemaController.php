@@ -4,8 +4,10 @@
     use Models\Cinema as Cinema;
     use DAO\CinemaDao as CinemaDAO;
     use DAO\CinemaBdDao as CinemaBdDAO;
+use Controllers\Functions;
+use PDOException;
 
-    class CinemaController
+class CinemaController
     {       
         private $cinemaDAO;
         private $cinemaBdDAO;
@@ -22,8 +24,6 @@
                 require_once(VIEWS_PATH."login.php");
             }
             else {
-            $id_movie = $message;
-            $message = "";
             require_once(VIEWS_PATH."cinema-add.php");
             }
         }
@@ -61,20 +61,28 @@
             $newCinema = new Cinema($name, $address);
             
             if($_POST) {
-                $result = $this->cinemaBdDAO->SaveCinemaInDB($newCinema);
-                if($result == 1) {
-                $message = "Cinema added succesfully!";
-                $this->ShowAddCinemaView($message);
-                }
-                else
-                {
-                    $message = "ERROR: System error, reintente";
-                    $this->ShowAddCinemaView($message);
+                try{
+                    $result = $this->cinemaBdDAO->SaveCinemaInDB($newCinema);
+                    if($result == 1) {
+                        $message = "Cinema added succesfully!";
+                        $this->ShowListCinemaView($message);
+                     }
+                    else
+                    {
+                        $message = "ERROR: System error, reintente";
+                        $this->ShowListCinemaView($message);
+                    }
+                } catch (PDOException $ex){
+                    $message = $ex->getMessage();
+                    if(Functions::contains_substr($message, "Duplicate entry")) {
+                        $message = "Alguno de los datos ingresados (Address/Name) ya existe en la BD. Reintente.";
+                        $this->ShowAddCinemaView($message);
+                    }
                 }
             }
             else
             {
-                $this->ShowAddCinemaView("Failed in cinema adding!");
+                $this->ShowListCinemaView("Failed in cinema adding!");
             }
         }       
         

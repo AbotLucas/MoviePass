@@ -8,6 +8,11 @@
       <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Cinemas List</span></h2>
       <br>
       <form action="<?php echo FRONT_ROOT."Cinema/modifyANDremover"?> " method="post">
+
+      <div id="btnImportant" class="" style="position: absolute; right: 15%; top: 21%; color:black;">  
+
+       </div>
+
         <table style="text-align:center;">
           <thead>
             <tr>
@@ -16,9 +21,18 @@
             <th style="width: 20%;">Adress</th>
             <th style="width: 30%;" >Action</th>
             </tr>
+            <td style="background-color: #1a1c20;">
+            <span style="color: white; background-color: ; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT."Cinema/ShowAddCinemaView" ?>">+Add</a></span>
+          </td>
+          <td style="background-color: #1a1c20">
+            - - - -
+          </td>
+          <td style="background-color: #1a1c20"> 
+            - - - - 
+          </td>
           </thead>
           <tbody>
-          <?php foreach($cinemaList as $Cinema)
+          <?php if(is_array($cinemaList)) {foreach($cinemaList as $Cinema)
           {
                ?>
             <tr>
@@ -33,9 +47,12 @@
                 
             </tr> 
           <?php 
-        }
+        }}
          ?>                
         </tbody></form>
+        <tfoot>
+          
+        </tfoot>
         </table> 
       </div>
     </div>

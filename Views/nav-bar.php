@@ -25,12 +25,7 @@
            else
            {
              ?>
-            <li><a class="drop" href="#">Cinemas</a>
-              <ul>
-              <li><a href="<?php echo FRONT_ROOT."Cinema/ShowAddCinemaView" ?>">Add Cinema</a></li>
-              <li><a href="<?php echo FRONT_ROOT."Cinema/ShowListCinemaView" ?>">Show List</a></li>
-              </ul>
-            </li>
+            <a href="<?php echo FRONT_ROOT."Cinema/ShowListCinemaView" ?>">Cinemas</a></li>
             <li><a class="drop" href="#">Screenings</a>
               <ul>
               <li><a href="<?php echo FRONT_ROOT."Screening/ShowAddScreeningView" ?>">Add Screening</a></li>

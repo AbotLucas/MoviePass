@@ -8,8 +8,8 @@
         <form action="<?php echo  FRONT_ROOT."Cinema/AddCinema"?>" method="post" style="padding: 2rem !important;" >
           <table style="max-width: 60%"> 
             <thead>
-              <tr>
-              <?php  if($message){ echo "<h3>". $message ."</h3><br>";}?>
+              <tr >
+              <?php  if($message){ echo "<span style='color:red; font-weight: bold;' >". $message ."</span><br><br>";}?>
               </tr>
               <tr>
                 <th>Name</th>

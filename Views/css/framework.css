@@ -48,6 +48,8 @@ img{width:auto; max-width:100%; height:auto; margin:0; padding:0; border:none; l
 .imgover:hover::before, .imgover:hover::after{opacity:1;}
 
 
+
+
 /* Fonts
 --------------------------------------------------------------------------------------------------------------- */
 body, input, textarea, select{font-family:Verdana, Geneva, sans-serif;}
