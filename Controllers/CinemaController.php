@@ -53,8 +53,12 @@ class CinemaController
             require_once(VIEWS_PATH."cinema-list.php");
             }
         }
-
-        
+        public function ShowLisSceening(){
+            require_once(VIEWS_PATH."screening-list.php");
+        }
+        public function ShowAddRoom($message =""){
+            require_once(VIEWS_PATH."room-add.php");
+        }
 
         public function AddCinema($name, $address)
         {
@@ -118,6 +122,9 @@ class CinemaController
         }elseif(isset($_POST['id_modify'])){
            $_SESSION['id'] = $id;
            $this->ShowModififyView();
+         }else {
+             $_SESSION['id'] = $id;
+             $this->ShowLisSceening();
          }
     }
 
