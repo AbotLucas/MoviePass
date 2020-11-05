@@ -19,7 +19,7 @@ class MovieController {
 
     public function listMovies($message = "") {
         require_once(VIEWS_PATH. "movie-list.php");
-    }   
+    }  
 
 }
 

@@ -5,7 +5,7 @@ use Models\Room as Room;
 use DAO\Iroom as Iroom;
 use FFI\Exception;
 
-class RoomBdDAO implements Iroom {
+class RoomBdDAO {
 
     private $roomList = $array();
    # private $movieDAO;

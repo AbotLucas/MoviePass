@@ -21,8 +21,6 @@
             $this->movie = $movie;
             $this->cinema = $cinema;
         }
-
-
         
         public function getId_screening()
         {
