@@ -15,10 +15,9 @@ File: Layout CSS
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0{padding:80px 0 0 0;}
-.row1, .row1 a{}
 .row2, .row2 a{}
 .row3, .row3 a{}
-.row4, .row4 a{}
+.row4, .row4 a{color: #f4f4f4;}
 .row5, .row5 a{}
 
 
@@ -283,7 +282,7 @@ td{border-width:0 1px;}
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#e79e4f; background-color:#251618;}
-a{color:#DC8E47;}
+a{color:#f4f4f4;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
@@ -295,6 +294,10 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 
 .btn, .btn.inverse:hover{color:#FFFFFF; background-color:#DC8E47; border-color:#DC8E47;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
+
+
+.btnImportant{position: absolute; right: 15%; padding:10px; color: black; background-color: yellow; border: 2px solid}
+
 
 .imgover:hover::before{background:rgba(220,142,71,.5);/* #DC8E47 */}
 .imgover, .imgover:hover::after{color:#FFFFFF;}
@@ -310,6 +313,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 	height: 100%;
 
  }
+
+ td span { background-color: white;}
 
 
  /* MOvimiento a la lista de imagenes */

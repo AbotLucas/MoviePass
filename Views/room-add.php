@@ -5,7 +5,7 @@
     <div class="content"> 
       <div id="comments" >
         <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Add New Room</span></h2>
-        <form action="<?php echo  FRONT_ROOT."Room/AddRoom/". $i?>" method="post" style="padding: 2rem !important;" >
+        <form action="<?php echo  FRONT_ROOT."Room/AddRoom"?>" method="post" style="padding: 2rem !important;" >
           <table style="max-width: 60%"> 
             <thead>
               <tr>
@@ -23,7 +23,7 @@
                   <input type="text" name="name" min="1" max="30" size="30"  placeholder="Name of the Room" required>
                 </td>
                 <td style="width: 30%;">
-                  <input type="number" name="capacity"  min="50" max="300" size="20" placeholder="Capacity of the room" required>
+                  <input type="number" name="capacity"  min="30" max="300" size="20" placeholder="Capacity of the room" required>
                 </td> 
                 <td style="width: 30%;">
                   <input type="number" name="ticketValue" min="50" max="1500" size="20"  placeholder="Ticket Value" required>

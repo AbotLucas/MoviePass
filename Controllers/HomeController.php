@@ -6,7 +6,12 @@
         public function Index($message = "")
         {
             /*require_once(VIEWS_PATH."movie-list.php");*/
-            require_once(VIEWS_PATH."login.php");
+            if(!isset($_SESSION["loginUser"])){
+                require_once(VIEWS_PATH."login.php");
+            }
+            else{
+                require_once(VIEWS_PATH."movie-list.php");
+            }
         }        
         public function MostrarHome($message = "")
         {

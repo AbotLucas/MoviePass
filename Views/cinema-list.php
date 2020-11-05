@@ -7,35 +7,50 @@
       <div class="scrollable">
       <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Cinemas List</span></h2>
       <br>
-      <form action="<?php echo FRONT_ROOT."Cinema/modifyANDremover"?> " method="post">
+      <form action="<?php echo FRONT_ROOT."Cinema/button"?> " method="post">
+
+      <div id="btnImportant" class="" style="position: absolute; right: 15%; top: 21%; color:black;">  
+
+       </div>
+
         <table style="text-align:center;">
           <thead>
             <tr>
-           
+            <?php if ($message) { echo "<h3>" . $message . "</h3><br>";} ?>
             <th style="width: 20%;">Name</th>
             <th style="width: 20%;">Adress</th>
-            <th style="width: 30%;" > Action</th>
+            <th style="width: 30%;" >Action</th>
             </tr>
+            <td style="background-color: #1a1c20;">
+            <span style="color: white; background-color: ; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT."Cinema/ShowAddCinemaView" ?>">+Add</a></span>
+          </td>
+          <td style="background-color: #1a1c20">
+            - - - -
+          </td>
+          <td style="background-color: #1a1c20"> 
+            - - - - 
+          </td>
           </thead>
           <tbody>
-          <?php foreach($cinemaList as $Cinema)
+          <?php if(is_array($cinemaList)) {foreach($cinemaList as $Cinema)
           {
                ?>
             <tr>
                 <td> <?php echo $Cinema->GetName(); ?> </td>
-                <td> <?php echo $Cinema->GetAddress(); ?> </td>
-                           
+                <td> <?php echo $Cinema->GetAddress(); ?> </td>         
                 <td>
                 <button type="submit" name="id_remove" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> Remove </button>
                 <button type="submit" name="id_modify" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> modify </button>
-                <button type="submit" name="id_listScreening" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="margin-left: 10px, font-size: 8px"> Show Functions </button>
-                </td>
-                
+                <button type="submit" name="add_room" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> add Romm </button>
+                </td>  
             </tr> 
           <?php 
-        }
+        }}
          ?>                
         </tbody></form>
+        <tfoot>
+          
+        </tfoot>
         </table> 
       </div>
     </div>

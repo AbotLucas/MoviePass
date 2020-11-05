@@ -19,11 +19,27 @@
 
         public function ShowSignUpView($message = "")
         {
-            require_once(VIEWS_PATH."signup.php");
+            if(!isset($_SESSION["loginUser"])){
+                $message = "";
+                require_once(VIEWS_PATH."signup.php");
+            }
+            else {
+            $id_movie = $message;
+            $message = "";
+            require_once(VIEWS_PATH."movie-list.php");
+            }
         } 
         public function ShowLogInView($message = "")
         {
-            require_once(VIEWS_PATH."login.php");
+            if(!isset($_SESSION["loginUser"])){
+                $message = "";
+                require_once(VIEWS_PATH."login.php");
+            }
+            else {
+            $id_movie = $message;
+            $message = "";
+            require_once(VIEWS_PATH."movie-list.php");
+            }
         }       
        
 

@@ -11,17 +11,22 @@ class CinemaBdDao {
     private $movieDAO;
     private $tableName = "cinema";
     private $connection;
+    private static $instance = null;
 
-    /*  create table if not exists cinema(
-        id_cinema BIGINT UNSIGNED not null auto_increment ,
-        name  VARCHAR(30) not null ,
-        address VARCHAR(30) not null,
-        constraint pk_idcinema PRIMARY KEY(id_cinema)
-        ); */
  
     public function __construct(){
         
     }
+
+    public static function GetInstance()
+    {
+        if(self::$instance == null)
+            self::$instance = new CinemaBdDao();
+
+        return self::$instance;
+    }
+
+    
 
     public function getAllCinema() {
 
@@ -81,10 +86,9 @@ class CinemaBdDao {
             throw $ex;
         }
 
-        foreach($results as $cinema)
-        {
-           $return = $this->mapear($cinema);
-        }
+        
+        $return = $this->mapear($results);
+        
 
         return $return;
     }  
@@ -120,10 +124,8 @@ class CinemaBdDao {
         }
     }
 
-    
-    
-
     protected function mapear($value) {
+
 
         $value = is_array($value) ? $value : [];
 

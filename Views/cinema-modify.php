@@ -3,35 +3,28 @@
  include('nav-bar.php');
 ?>
 
-<div class="wrapper row4">
+<div class="wrapper row4 diseño" style="position: fixed;top: 23%; background-color: rgba(0,0,0,0);" >
 <main class="container clear"> 
     <div class="content"> 
       <div id="comments" >
-        <h2>MODIFY CINEMA</h2>
+      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Modify Cinema</span></h2>
         <form action="<?php echo  FRONT_ROOT."Cinema/modify"?>" method="post" style="padding: 2rem !important;">
-          <table> 
+          <table style="width:60%"> 
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Adress</th>
-                <th>Capacity</th>
-                  <th>Ticket Value</th>
+                <th>New Name</th>
+                <th>New Address</th>
               </tr>
             </thead>
             <tbody align="center">
               <tr>
-                <td style="max-width: 100px;">
+                <td style="width: 25%;">
                   <input type="text" name="name" min="1" max="30" size="30"  placeholder="Name of the cinema" required>
                 </td>
-                <td>
+                <td style="width: 25%">
                   <input type="text" name="address" size="20" min="1" max="30" placeholder="Address of the cinema" required>
                 </td>
-                  <td>
-                      <input type="number" name="capacity" size="10" min="50" max="200" placeholder="Max capacity" required>
-                  </td>
-                  <td>
-                  <input type="number" name="ticketValue" size="10" min ="300" max="700" placeholder="Value per ticket" required>
-                </td>         
+                        
               </tr>
               </tbody>
           </table>

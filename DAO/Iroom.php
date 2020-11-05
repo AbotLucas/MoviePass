@@ -5,8 +5,8 @@ use Models\Room as Room;
 
 interface Iroom
 {
-    function addRoom(Room $Room);
-    function deleteRoom($id_room);
+    function SaveRoomInBd($Room);
+    function DeleteRoomInDB($id_room);
     function getAllRoom();
 }
 ?>

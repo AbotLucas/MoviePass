@@ -1,8 +1,11 @@
 <?php
 
+use DAO\CinemaBdDao;
 use DAO\MovieDao;
 
 include('nav-bar.php');
+
+
 ?>
 <div class="wrapper row4 portada" style="position: fixed;top: 20%;">
 <main class="container clear" style="color:black;"> 
