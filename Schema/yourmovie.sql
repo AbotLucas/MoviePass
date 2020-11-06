@@ -3,12 +3,12 @@ use yourmovie ;
 
 CREATE TABLE role(
 id_role TINYINT UNSIGNED AUTO_INCREMENT NOT NULL,
-preority VARCHAR(30),
+priority VARCHAR(30),
 CONSTRAINT pk_id_rol PRIMARY KEY (id_role)
 );
 
-INSERT INTO role (preority) VALUES ('Administrator');
-INSERT INTO role (preority) VALUES ('Customer');
+INSERT INTO role (priority) VALUES ('Administrator');
+INSERT INTO role (priority) VALUES ('Customer');
 
 
 create table if not exists User(
