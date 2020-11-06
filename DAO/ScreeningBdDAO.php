@@ -22,12 +22,15 @@ use FFI\Exception;
 
         private $connection;
         private $tableName = "screening";
+        private $listScreening = [];
+
+
 
         public function SaveScreeningInBd(Screening $screening) {
 
-            $sql = "INSERT INTO " .$this->tableName. "(idcinema, idmovie, date_screening, hour_screening) VALUES (:idcinema, :idmovie, :date_screening, :hour_screening)";
+            $sql = "INSERT INTO " .$this->tableName. "(idroom, idmovie, date_screening, hour_screening) VALUES (:idroom, :idmovie, :date_screening, :hour_screening)";
 
-            $parameters["idcinema"] = $screening->getCinema()->getId_Cinema();
+            $parameters["idroom"] = $screening->getRoom()->getId_Cinema();
             $parameters["idmovie"] = $screening->getMovie()->getId_movie();
             $parameters["date_screening"] = $screening->getDate_screening();
             $parameters["hour_screening"] = $screening->getHour_screening();
@@ -62,13 +65,13 @@ use FFI\Exception;
                 
                 $result = $this->mapear($screeningArray);
                 if(is_array($result)) {
-                    $this->cinemasList = $result;
+                    $this->listScreening = $result;
                 }
                 else {
                     $arrayResult[0] = $result;
-                    $this->cinemasList = $arrayResult;
+                    $this->listScreening = $arrayResult;
                 }
-                return $this->cinemasList;
+                return $this->listScreening;
             }
             else {
                 return $errorArray[0] = "Error al leer la base de datos.";
@@ -110,14 +113,7 @@ use FFI\Exception;
 
 
 
-
-
-
-
-
     }
-
-
 
 
 ?>

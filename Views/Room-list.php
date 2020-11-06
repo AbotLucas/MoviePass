@@ -5,37 +5,38 @@
   <main class="hoc container clear" style="background-color: rgba(0, 0, 0, 0);"> 
     <div class="content" style="background-color: rgba(0, 0, 0, 0);"> 
       <div class="scrollable">
-      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Cinemas List</span></h2>
+     
       <br>
-      <form action="<?php echo FRONT_ROOT."Room/ShowListRoomView"?> " method="post">
+      <form action="<?php echo FRONT_ROOT."Room/modifyANDremover"?> " method="post">
+      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px"> Room List </span></h2>
         <table style="text-align:center;">
           <thead>
             <tr>
-           
+            <?php if ($message) { echo "<h3>" . $message . "</h3><br>";} ?>
             <th style="width: 20%;">Name</th>
             <th style="width: 20%;">Capacity</th>
-            <th style="width: 30%;">ticketValue</th>
-            <th style="width: 30%;">Cinema</th>
+            <th style="width: 20%;">ticketValue</th>
+            <th style="width: 20%;">Cinema</th>
+            <th style="width: 30%;" >Action</th>
             </tr>
           </thead>
           <tbody>
-          <?php foreach($roomList as $Room)
+          <?php if(is_array($roomList)) {foreach($roomList as $Room)
           {
                ?>
             <tr>
                 <td> <?php echo $Room->GetName(); ?> </td>
                 <td> <?php echo $Room->GetCapacity(); ?> </td>
                 <td> <?php echo $Room->GetTicketValue(); ?> </td>
-                <td> <?php echo $Room->GetCinema(); ?> </td>          
+                <td> <?php echo $Room->GetCinema()->getName() ?> </td>          
                 <td>
                 <button type="submit" name="id_remove" class="btn" value="<?php echo $Room->getId_room() ?>"style="font-size: 12px"> Remove </button>
-                <button type="submit" name="id_modify" class="btn" value="<?php echo $Cinema->getId_room() ?>"style="font-size: 12px"> modify </button>
-            
-                </td>
-                
+                <button type="submit" name="id_modify" class="btn" value="<?php echo $Room->getId_room() ?>"style="font-size: 12px"> modify </button>
+                </td> 
             </tr> 
           <?php 
         }
+      }
          ?>                
         </tbody></form>
         </table> 
