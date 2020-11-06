@@ -60,7 +60,7 @@ $count = 0; $count2 = 0;
           <?php while($count<=5){ while($count2<$count*4) {?>
 
             <td style="text-align: center;">
-                <a href="<?php echo FRONT_ROOT."Screening/ShowAddScreeningView/"."?id_movie=".$MovieList[$count2]->getId_movie();?>">
+                <a href="<?php echo FRONT_ROOT."Movie/ShowMovieSheet/"."?id_movie=".$MovieList[$count2]->getId_movie();?>">
                     
                         <div class="div-img">
                             <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $MovieList[$count2]->getUrlImage();?>" alt="<?php echo $MovieList[$count2]->getTitle(); ?>">

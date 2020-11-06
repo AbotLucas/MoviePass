@@ -22,7 +22,7 @@
             <th style="width: 30%;" >Action</th>
             </tr>
             <td style="background-color: #1a1c20;">
-            <span style="color: white; background-color: ; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT."Cinema/ShowAddCinemaView" ?>">+Add</a></span>
+            <span style="color: yellow; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT."Cinema/ShowAddCinemaView" ?>">+Add</a></span>
           </td>
           <td style="background-color: #1a1c20">
             - - - -

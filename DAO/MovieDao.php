@@ -120,7 +120,24 @@ class MovieDao implements Imovie{
 		file_put_contents($this->fileJsonMovie, $jsonContent);
     }
 
-    /* Funciones de BDD */
+    //Devuelve un Array con toda la info de la movie
+    public function GetFullMovieInfoFromJson($id_Movie) {
+
+        if(file_exists($this->fileJsonMovie)) {
+            
+            $jsonContent = file_get_contents($this->fileJsonMovie);
+            $arrayDePelis = ($jsonContent) ? json_decode($jsonContent, true) : array();
+            $arrayDePelis = $arrayDePelis["results"];
+
+            foreach($arrayDePelis as $peli) {
+                if($peli["id"] == $id_Movie) {
+                    return $peli;
+                }
+            }
+        
+        }
+
+    }
 
     
     
