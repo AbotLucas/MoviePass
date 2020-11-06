@@ -23,7 +23,7 @@
                   <input type="text" name="name" min="1" max="30" size="30"  placeholder="Name of the Room" required>
                 </td>
                 <td style="width: 30%;">
-                  <input type="number" name="capacity"  min="50" max="300" size="20" placeholder="Capacity of the room" required>
+                  <input type="number" name="capacity"  min="30" max="300" size="20" placeholder="Capacity of the room" required>
                 </td> 
                 <td style="width: 30%;">
                   <input type="number" name="ticketValue" min="50" max="1500" size="20"  placeholder="Ticket Value" required>

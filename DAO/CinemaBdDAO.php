@@ -13,12 +13,6 @@ class CinemaBdDao {
     private $connection;
     private static $instance = null;
 
-    /*  create table if not exists cinema(
-        id_cinema BIGINT UNSIGNED not null auto_increment ,
-        name  VARCHAR(30) not null ,
-        address VARCHAR(30) not null,
-        constraint pk_idcinema PRIMARY KEY(id_cinema)
-        ); */
  
     public function __construct(){
         

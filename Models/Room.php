@@ -11,7 +11,7 @@
         private $ticketValue;
         private  $cinema;
 
-        public function __construct($name, $capacity, $ticketValue,  $cinema)
+        public function __construct($name, $capacity, $ticketValue,Cinema $cinema)
 	{
         $this->name = $name;
         $this->capacity = $capacity;
@@ -28,7 +28,7 @@
         public function getTicketValue(){ return $this->ticketValue;}
         public function setTicketValue($ticketValue){ $this->ticketValue = $ticketValue;}
         public function getCinema() { return $this->cinema; }
-        public function setCinema($cinema) {  $this->cinema = $cinema;}
+        public function setCinema($cinema) { $this->cinema = $cinema;}
     }
 
 

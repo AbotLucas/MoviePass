@@ -2,18 +2,16 @@
     namespace Controllers;
 
     use Models\Cinema as Cinema;
-    use DAO\CinemaDao as CinemaDAO;
     use DAO\CinemaBdDao as CinemaBdDAO;
-use Controllers\Functions;
-use PDOException;
+    use Controllers\Functions;
+    use PDOException;
 
-class CinemaController
-    {       
-        private $cinemaDAO;
+   class CinemaController
+    {      
         private $cinemaBdDAO;
 
         public function __construct() {
-            $this->cinemaDAO = new CinemaDAO(); 
+
             $this->cinemaBdDAO = new CinemaBdDAO();
         }
 
@@ -56,8 +54,37 @@ class CinemaController
         public function ShowLisSceening(){
             require_once(VIEWS_PATH."screening-list.php");
         }
-        public function ShowAddRoom($message =""){
+        public function ShowAddRoom($message = ""){
+            if(!isset($_SESSION["loginUser"])){
+                $message = "";
+                require_once(VIEWS_PATH."login.php");
+            }
+            else {
+            $id_cinema = $message;
+            $message = "";
             require_once(VIEWS_PATH."room-add.php");
+            }
+            
+        }
+
+        public function button($id){
+
+            if(isset($_POST['id_remove'])){
+
+            $this->RemoveCinemaFromDB($id);
+
+              }elseif(isset($_POST['id_modify'])){
+               $_SESSION['id'] = $id;
+               $this->ShowModififyView();
+               
+                }elseif(isset($_POST['add_room'])){
+                    $_SESSION['id'] = $id;
+                    $this->ShowAddRoom();
+
+                     }else {
+                         $_SESSION['id'] = $id;
+                          $this->ShowLisSceening();
+                    }
         }
 
         public function AddCinema($name, $address)
@@ -67,7 +94,7 @@ class CinemaController
             if($_POST) {
                 try{
                     $result = $this->cinemaBdDAO->SaveCinemaInDB($newCinema);
-                    if($result == 1) {
+                    if($result) {
                         $message = "Cinema added succesfully!";
                         $this->ShowListCinemaView($message);
                      }
@@ -110,23 +137,13 @@ class CinemaController
                 $this->ShowListcinemaView();
             }
         }
+
         public function getCinemasList() {
 
             return $this->cinemaBdDAO->getAllCinema();
         }
     
-    public function modifyANDremover($id){
-
-        if(isset($_POST['id_remove'])){
-        $this->RemoveCinemaFromDB($id);
-        }elseif(isset($_POST['id_modify'])){
-           $_SESSION['id'] = $id;
-           $this->ShowModififyView();
-         }else {
-             $_SESSION['id'] = $id;
-             $this->ShowLisSceening();
-         }
-    }
+    
 
     public function modify($name,$address,$capacity,$ticketValue){
         $id = $_SESSION['id'];

@@ -13,7 +13,7 @@ INSERT INTO role (priority) VALUES ('Customer');
 
 create table if not exists User(
 user_id BIGINT UNSIGNED NOT NULL auto_increment unique,
-username VARCHAR(50) not null unique,
+username VARCHAR(50) not null,
 password VARCHAR(50) not null,
 role VARCHAR(50) not null,
 constraint pk_iduser PRIMARY kEY(user_id) ,
@@ -25,28 +25,28 @@ INSERT INTO user (username,password ,role) VALUES ('agustinjlapenna@gmail.com',9
 
 create table if not exists cinema(
 id_cinema BIGINT UNSIGNED not null auto_increment ,
-name  VARCHAR(30) not null ,
+name  VARCHAR(30) not null unique,
 address VARCHAR(30) not null,
-constraint pk_idcinema PRIMARY KEY(id_cinema));
+constraint pk_idcinema PRIMARY KEY(id_cinema)
+);
 
 create table if not exists movie(
-id_movie BIGINT UNSIGNED not null unique,
+id_movie BIGINT UNSIGNED not null ,
 title VARCHAR(50) not null ,
 language TINYTEXT not null,
-url_image LONGBLOB not null ,
-overview varchar(1500),
+ulr_image LONGBLOB not null ,
 duration VARCHAR(10) ,
 constraint pk_idmovie primary key(id_movie)
-);
+); 
 
 create table if not exists room(
 id_room BIGINT UNSIGNED not null auto_increment,
 name VARCHAR(30) not null,
 capacity BIGINT UNSIGNED not null ,
 ticketvalue FLOAT UNSIGNED not null,
-idcinema BIGINT UNSIGNED not null,
+idcinema BIGINT UNSIGNED not null ,
 constraint pk_idroom primary key (id_room),
-constraint fk_cinema foreign key(idcinema) references cinema(id_cinema)
+constraint fk_cinema foreign key(idcinema) references cinema(id_cinema) on update cascade on delete cascade
 );
 create table if not exists screening(
 id_screening BIGINT UNSIGNED not null auto_increment,
@@ -55,8 +55,6 @@ idmovie BIGINT UNSIGNED not null ,
 date_screening DATE not null,
 hour_screening TIME not null,
 constraint pk_idscreenig PRIMARY KEY (id_screening),
-constraint fk_idmovie FOREIGN KEY (idmovie) references movie(id_movie),
-constraint fk_idroom FOREIGN KEY (idroom) references room(id_room)
+constraint fk_idmovie FOREIGN KEY (idmovie) references movie(id_movie) on delete cascade on update cascade ,
+constraint fk_idroom FOREIGN KEY (idroom) references room(id_room) on delete cascade on update cascade 
 );
-
-
