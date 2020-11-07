@@ -25,66 +25,76 @@
             require_once(VIEWS_PATH."cinema-add.php");
             }
         }
-        public function ShowModififyView($message =""){
+
+        public function ShowModififyView($id_cinema){
+
+            $cinema = CinemaBdDAO::MapearCinema($id_cinema);
             
             if(!isset($_SESSION["loginUser"])){
-                $message = "";
+                $message = "Upps, needs to be logged! ;)";
                 require_once(VIEWS_PATH."login.php");
             }
             else {
-            $id_movie = $message;
-            $message = "";
-            require_once(VIEWS_PATH."cinema-modify.php");
+                require_once(VIEWS_PATH."cinema-modify.php");
             }
         }
+
         public function ShowListCinemaView($message="")
         {   
             $this->cinemaBdDAO = new CinemaBdDAO();
             $cinemaList = $this->cinemaBdDAO->getAllCinema();
             
             if(!isset($_SESSION["loginUser"])){
-                $message = "";
+                $message = "Upps, needs to be logged! ;)";
                 require_once(VIEWS_PATH."login.php");
             }
             else {
-            $message = "";
             require_once(VIEWS_PATH."cinema-list.php");
             }
         }
+
         public function ShowLisSceening(){
             require_once(VIEWS_PATH."screening-list.php");
         }
-        public function ShowAddRoom($message = ""){
+
+        public function ShowAddRoom($id_cinema){
+
+            $cinema = CinemaBdDAO::MapearCinema($id_cinema);
+            
             if(!isset($_SESSION["loginUser"])){
-                $message = "";
+                $message = "Upps, needs to be logged! ;)";
                 require_once(VIEWS_PATH."login.php");
             }
             else {
-            $id_cinema = $message;
-            $message = "";
-            require_once(VIEWS_PATH."room-add.php");
+                require_once(VIEWS_PATH."room-add.php");
             }
             
         }
 
-        public function button($id){
+        public function button($id_cinema){
 
             if(isset($_POST['id_remove'])){
 
-            $this->RemoveCinemaFromDB($id);
+                $this->RemoveCinemaFromDB($id_cinema);
 
-              }elseif(isset($_POST['id_modify'])){
-               $_SESSION['id'] = $id;
-               $this->ShowModififyView();
+            }elseif(isset($_POST['id_modify'])){
                
-                }elseif(isset($_POST['add_room'])){
-                    $_SESSION['id'] = $id;
-                    $this->ShowAddRoom();
+                $this->ShowModififyView($id_cinema);
+               
+            }elseif(isset($_POST['add_room'])){
 
-                     }else {
-                         $_SESSION['id'] = $id;
-                          $this->ShowLisSceening();
-                    }
+                $this->ShowAddRoom($id_cinema);
+
+            }else if(isset($_POST['show_rooms'])){
+                
+                $roomController = new RoomController();
+                $roomController->ShowRoomListCinemas($id_cinema);
+
+            }else {
+                
+              $this->ShowListCinemaView("No pudimos ver que habias presionado!");
+                    
+            }
         }
 
         public function AddCinema($name, $address)
@@ -145,10 +155,12 @@
     
     
 
-    public function modify($name,$address,$capacity,$ticketValue){
-        $id = $_SESSION['id'];
-      $this->cinemaDAO->modifyCinema($id,$name,$address,$capacity,$ticketValue);
-      $this->ShowListCinemaView("Cinema modify succesfully!");
+    public function modify($name, $address){
+
+         $id = $_SESSION['id'];
+         $this->cinemaBdDAO->ModifyCinemaInBd($_SESSION["id"], $name, $address);
+         $this->ShowListCinemaView("Cinema modify succesfully!");
+
         }
     
 }

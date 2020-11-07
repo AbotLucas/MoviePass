@@ -51,6 +51,42 @@ class MovieBdDao {
         return $return;
     }  
 
+    public function getAllMovies() {
+
+        $moviesArray = $this->getMoviesFromDB();
+        if(!empty($moviesArray)) {
+            
+            $result = $this->mapear($moviesArray);
+            if(is_array($result)) {
+                $this->listMovie = $result;
+            }
+            else {
+                $arrayResult[0] = $result;
+                $this->listMovie = $arrayResult;
+            }
+            return $this->listMovie;
+        }
+        else {
+            return $errorArray[0] = "Error al leer la base de datos.";
+        }
+
+    }
+
+    protected function getMoviesFromDB() {
+        
+        $query = "SELECT * FROM " . $this->tableName;
+        try {
+            $this->connection = Connection::GetInstance();
+            $result = $this->connection->Execute($query);
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        
+        return $result;
+    
+    }
+
     public function SaveMovieInDB($movie) {
 
         $sql = "INSERT INTO movie (id_movie, title, language, url_image, overview, duration) VALUES (:id_movie, :title, :language, :url_image, :overview, :duration)";

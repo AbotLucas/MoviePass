@@ -1,5 +1,4 @@
 <?php 
- include('header.php');
  include('nav-bar.php');
 ?>
 
@@ -19,14 +18,19 @@
             <tbody align="center">
               <tr>
                 <td style="width: 25%;">
-                  <input type="text" name="name" min="1" max="30" size="30"  placeholder="Name of the cinema" required>
+                  <input type="text" name="name" min="1" max="30" size="30"  placeholder="New name of the cinema" required>
                 </td>
                 <td style="width: 25%">
-                  <input type="text" name="address" size="20" min="1" max="30" placeholder="Address of the cinema" required>
+                  <input type="text" name="address" size="20" min="1" max="30" placeholder="New address of the cinema" required>
                 </td>
                         
               </tr>
               </tbody>
+              <tfoot>
+                
+              <td style="background-color: #1a1c20; text-align: center; font-weight: bold;"><?php echo "Old Name:  '".$cinema->getName()."'"; ?></td>
+              <td style="background-color: #1a1c20; text-align: center; font-weight: bold;"><?php echo "Old Address:  '".$cinema->getAddress()."'"; ?></td>
+              </tfoot>
           </table>
           <div>
             <input type="submit" class="btn" value="Add Cinema" style="background-color:#DC8E47;color:white;"/>
@@ -37,6 +41,3 @@
     </div>
   </main>
 </div>
-<?php 
-  include('footer.php');
-?>

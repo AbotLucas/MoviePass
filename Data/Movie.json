@@ -1,8 +1,8 @@
 {
     "results": [
         {
-            "popularity": 2517.138,
-            "vote_count": 65,
+            "popularity": 2115.001,
+            "vote_count": 72,
             "video": false,
             "poster_path": "\/ugZW8ocsrfgI95pnQ7wrmKDxIe.jpg",
             "id": 724989,
@@ -15,14 +15,38 @@
                 53
             ],
             "title": "Hard Kill",
-            "vote_average": 4.7,
+            "vote_average": 4.8,
             "overview": "The work of billionaire tech CEO Donovan Chalmers is so valuable that he hires mercenaries to protect it, and a terrorist group kidnaps his daughter just to get it.",
             "release_date": "2020-10-23",
             "duration": 98
         },
         {
-            "popularity": 1768.318,
-            "vote_count": 486,
+            "popularity": 1986.559,
+            "vote_count": 38,
+            "video": false,
+            "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+            "id": 635302,
+            "adult": false,
+            "backdrop_path": "\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg",
+            "original_language": "ja",
+            "original_title": "\u5287\u5834\u7248\u300c\u9b3c\u6ec5\u306e\u5203\u300d\u7121\u9650\u5217\u8eca\u7de8",
+            "genre_ids": [
+                16,
+                28,
+                36,
+                12,
+                14,
+                18
+            ],
+            "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
+            "vote_average": 6.7,
+            "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
+            "release_date": "2020-10-16",
+            "duration": 117
+        },
+        {
+            "popularity": 1718.028,
+            "vote_count": 507,
             "video": false,
             "poster_path": "\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
             "id": 531219,
@@ -44,8 +68,8 @@
             "duration": 106
         },
         {
-            "popularity": 1601.355,
-            "vote_count": 247,
+            "popularity": 1438.567,
+            "vote_count": 254,
             "video": false,
             "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
             "id": 528085,
@@ -65,32 +89,8 @@
             "duration": 114
         },
         {
-            "popularity": 1418.971,
-            "vote_count": 34,
-            "video": false,
-            "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
-            "id": 635302,
-            "adult": false,
-            "backdrop_path": "\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg",
-            "original_language": "ja",
-            "original_title": "\u5287\u5834\u7248\u300c\u9b3c\u6ec5\u306e\u5203\u300d\u7121\u9650\u5217\u8eca\u7de8",
-            "genre_ids": [
-                16,
-                28,
-                36,
-                12,
-                14,
-                18
-            ],
-            "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
-            "vote_average": 6.8,
-            "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
-            "release_date": "2020-10-16",
-            "duration": 117
-        },
-        {
-            "popularity": 1071.169,
-            "vote_count": 87,
+            "popularity": 1075.915,
+            "vote_count": 94,
             "video": false,
             "poster_path": "\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
             "id": 741074,
@@ -105,33 +105,14 @@
                 10751
             ],
             "title": "Once Upon a Snowman",
-            "vote_average": 7.7,
+            "vote_average": 7.5,
             "overview": "The previously untold origins of Olaf, the innocent and insightful, summer-loving snowman are revealed as we follow Olaf\u2019s first steps as he comes to life and searches for his identity in the snowy mountains outside Arendelle.",
             "release_date": "2020-10-23",
             "duration": 12
         },
         {
-            "popularity": 912.258,
-            "vote_count": 4,
-            "video": false,
-            "poster_path": "\/j8D3jXHtA9cNb4epzvmA6hymKQ4.jpg",
-            "id": 499338,
-            "adult": false,
-            "backdrop_path": "\/fUxq6ilPW01roOpqB5g9SOS3zZv.jpg",
-            "original_language": "en",
-            "original_title": "I Believe",
-            "genre_ids": [
-                10751
-            ],
-            "title": "I Believe",
-            "vote_average": 3.8,
-            "overview": "A 9 year old boy experiences God's power in a supernatural way.",
-            "release_date": "2020-11-05",
-            "duration": 90
-        },
-        {
-            "popularity": 896.903,
-            "vote_count": 261,
+            "popularity": 867.566,
+            "vote_count": 281,
             "video": false,
             "poster_path": "\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
             "id": 560050,
@@ -152,7 +133,7 @@
             "duration": 100
         },
         {
-            "popularity": 705.325,
+            "popularity": 684.236,
             "vote_count": 162,
             "video": false,
             "poster_path": "\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
@@ -171,8 +152,8 @@
             "duration": 82
         },
         {
-            "popularity": 660.175,
-            "vote_count": 703,
+            "popularity": 662.037,
+            "vote_count": 710,
             "video": false,
             "poster_path": "\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
             "id": 581392,
@@ -192,8 +173,27 @@
             "duration": 114
         },
         {
-            "popularity": 611.262,
-            "vote_count": 573,
+            "popularity": 647.673,
+            "vote_count": 6,
+            "video": false,
+            "poster_path": "\/oAuBztpKuTIHb8nLl6miXIy0Sj9.jpg",
+            "id": 499338,
+            "adult": false,
+            "backdrop_path": "\/AuZgtWv4ZRhqD8u9JJMxTQbhz9q.jpg",
+            "original_language": "en",
+            "original_title": "I Believe",
+            "genre_ids": [
+                10751
+            ],
+            "title": "I Believe",
+            "vote_average": 3.2,
+            "overview": "A 9 year old boy experiences God's power in a supernatural way.",
+            "release_date": "2020-11-05",
+            "duration": 90
+        },
+        {
+            "popularity": 591.484,
+            "vote_count": 576,
             "video": false,
             "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
             "id": 539885,
@@ -208,14 +208,14 @@
                 53
             ],
             "title": "Ava",
-            "vote_average": 5.8,
+            "vote_average": 5.7,
             "overview": "A black ops assassin is forced to fight for her own survival after a job goes dangerously wrong.",
             "release_date": "2020-07-02",
             "duration": 96
         },
         {
-            "popularity": 601.528,
-            "vote_count": 270,
+            "popularity": 568.36,
+            "vote_count": 276,
             "video": false,
             "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
             "id": 590223,
@@ -236,7 +236,7 @@
             "duration": 109
         },
         {
-            "popularity": 560.202,
+            "popularity": 528.516,
             "vote_count": 338,
             "video": false,
             "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
@@ -258,8 +258,8 @@
             "duration": 106
         },
         {
-            "popularity": 495.854,
-            "vote_count": 1398,
+            "popularity": 483.162,
+            "vote_count": 1451,
             "video": false,
             "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
             "id": 613504,
@@ -278,8 +278,8 @@
             "duration": 105
         },
         {
-            "popularity": 469.664,
-            "vote_count": 164,
+            "popularity": 412.102,
+            "vote_count": 165,
             "video": false,
             "poster_path": "\/3eg0kGC2Xh0vhydJHO37Sp4cmMt.jpg",
             "id": 531499,
@@ -299,8 +299,8 @@
             "duration": 95
         },
         {
-            "popularity": 379.519,
-            "vote_count": 42,
+            "popularity": 348.446,
+            "vote_count": 43,
             "video": false,
             "poster_path": "\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
             "id": 595149,
@@ -312,32 +312,13 @@
                 27
             ],
             "title": "Death of Me",
-            "vote_average": 5.7,
+            "vote_average": 5.6,
             "overview": "A couple on holiday on a remote South Pacific island awaken one morning with a hang over and no recollection of what transpired. When playing back a video of the previous night, they see they participated in a local ritual that somehow ends with him murdering her.",
             "release_date": "2020-10-02",
             "duration": 95
         },
         {
-            "popularity": 348.825,
-            "vote_count": 62,
-            "video": false,
-            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
-            "id": 509635,
-            "adult": false,
-            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
-            "original_language": "en",
-            "original_title": "Alone",
-            "genre_ids": [
-                53
-            ],
-            "title": "Alone",
-            "vote_average": 6,
-            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
-            "release_date": "2020-09-10",
-            "duration": 98
-        },
-        {
-            "popularity": 317.099,
+            "popularity": 317.541,
             "vote_count": 1260,
             "video": false,
             "poster_path": "\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
@@ -361,7 +342,26 @@
             "duration": 91
         },
         {
-            "popularity": 300.419,
+            "popularity": 311.478,
+            "vote_count": 71,
+            "video": false,
+            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
+            "id": 509635,
+            "adult": false,
+            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
+            "original_language": "en",
+            "original_title": "Alone",
+            "genre_ids": [
+                53
+            ],
+            "title": "Alone",
+            "vote_average": 6.3,
+            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
+            "release_date": "2020-09-10",
+            "duration": 98
+        },
+        {
+            "popularity": 281.023,
             "vote_count": 104,
             "video": false,
             "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
@@ -382,7 +382,7 @@
             "duration": 94
         },
         {
-            "popularity": 262.993,
+            "popularity": 268.517,
             "vote_count": 93,
             "video": false,
             "poster_path": "\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
@@ -402,7 +402,7 @@
             "duration": 84
         },
         {
-            "popularity": 261.444,
+            "popularity": 216.281,
             "vote_count": 3,
             "video": false,
             "poster_path": "\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
@@ -422,10 +422,10 @@
         }
     ],
     "page": 1,
-    "total_results": 1489,
+    "total_results": 1475,
     "dates": {
-        "maximum": "2020-11-10",
-        "minimum": "2020-09-23"
+        "maximum": "2020-11-11",
+        "minimum": "2020-09-24"
     },
-    "total_pages": 75
+    "total_pages": 74
 }

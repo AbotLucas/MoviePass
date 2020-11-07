@@ -46,12 +46,15 @@ use FFI\Exception;
         private function getScreeningsFromDB(){
         
             $query = "SELECT * FROM " . $this->tableName;
+
             try {
+            
                 $this->connection = Connection::GetInstance();
                 $result = $this->connection->Execute($query);
     
             } catch (Exception $ex) {
-                throw $ex;
+
+                return null;
             }
             
             return $result;
@@ -61,16 +64,21 @@ use FFI\Exception;
         public function getAllScreening() {
 
             $screeningArray = $this->getScreeningsFromDB();
+
             if(!empty($screeningArray)) {
                 
                 $result = $this->mapear($screeningArray);
+                
                 if(is_array($result)) {
+                    
                     $this->listScreening = $result;
                 }
                 else {
+                    
                     $arrayResult[0] = $result;
                     $this->listScreening = $arrayResult;
                 }
+                
                 return $this->listScreening;
             }
             else {

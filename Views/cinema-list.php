@@ -36,12 +36,13 @@
           {
                ?>
             <tr>
-                <td> <?php echo $Cinema->GetName(); ?> </td>
+                <td> <a href="<?php echo FRONT_ROOT . "Room/ShowRoomListCinemas/" . "?id_cinema=" . $Cinema->getId_Cinema();?>"><?php echo $Cinema->GetName(); ?></a> </td>
                 <td> <?php echo $Cinema->GetAddress(); ?> </td>         
                 <td>
                 <button type="submit" name="id_remove" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> Remove </button>
-                <button type="submit" name="id_modify" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> modify </button>
-                <button type="submit" name="add_room" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> add Romm </button>
+                <button type="submit" name="id_modify" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> Modify </button>
+                <button type="submit" name="add_room" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> Add Room </button>
+                <button type="submit" name="show_rooms" class="btn" value="<?php echo $Cinema->GetId_Cinema() ?>"style="font-size: 12px"> Show Rooms </button>
                 </td>  
             </tr> 
           <?php 

@@ -53,7 +53,7 @@ class RoomBdDAO {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            $room = new Room($p['name'],$p['capacity'],$p['ticketvalue'],CinemaBdDao::MapearCinema($p["idcinema"]));
+            $room = new Room($p['name'], $p['capacity'], $p['ticketvalue'], CinemaBdDao::MapearCinema($p["idcinema"]));
             $room->setId_room($p['id_room']);
             return $room;
 
@@ -105,7 +105,7 @@ class RoomBdDAO {
             return $return;
         }  
         public function DeleteRoomInDB($id_room) {
-  
+
             $sql = "DELETE FROM "  . $this->tableName . " WHERE (id_room = :id_room) ";
       
             $parameters["id_room"] = $id_room;
@@ -113,18 +113,78 @@ class RoomBdDAO {
             try {
     
                 $this->connection = Connection::GetInstance();
-                return $this->connection->ExecuteNonQuery($sql, $parameters);
-    
+                $result = $this->connection->ExecuteNonQuery($sql, $parameters);
+                return $result;
+
             }catch (Exception $ex){
                 throw $ex;
             }
         }
+        
         public static function MapearRoom($idRoomToMapear) {
             $roomDAOBdAux = new RoomBdDAO();
             return $roomDAOBdAux->GetRoomById($idRoomToMapear);
         }
+
+        public function GetRoomsXCinemaFromBd($id_cinema) {
+
+            $query = "SELECT * FROM " . $this->tableName . " WHERE (idcinema = :idcinema) ";
+    
+            $parameters["idcinema"] = $id_cinema;
+    
+            try{
+    
+                $this->connection = Connection::GetInstance();
+                return $this->connection->Execute($query, $parameters);
+            
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+
+        }
         
-       
+        public function GetRoomsFromCinema($id_cinema) {
+
+            $roomsXCinema = $this->GetRoomsXCinemaFromBd($id_cinema);
+
+            if(!empty($roomsXCinema)) {
+            
+                $result = $this->mapear($roomsXCinema);
+
+                if(is_array($result)) {
+                    $this->roomList = $result;
+                }
+                else {
+                    $arrayResult[0] = $result;
+                    $this->roomList = $arrayResult;
+                }
+                return $this->roomList;
+            }
+            else {
+                return $errorArray[0] = "Error al leer la base de datos.";
+            }
+            
+        }
+        public function ModifyRoomInBd($name, $capacity, $ticketValue, $id_room) {
+
+            /* Update clientes Set nombre='José' Where nombre='Pepe' */
+    
+            //$query = "UPDATE " . $this->tableName . " SET name=$name, address=$address WHERE id_cinema=1";
+            $query = "UPDATE " . $this->tableName . " SET name=:name, capacity=:capacity, ticketValue=:ticketValue WHERE (id_room=:id_room)";
+            
+            $parameters["name"] = $name;
+            $parameters["capacity"] = $capacity;
+            $parameters["ticketValue"] = $ticketValue;
+            $parameters["id_room"] = intval($id_room);
+    
+            try {
+                $this->connection = Connection::GetInstance();
+                return $this->connection->ExecuteNonQuery($query, $parameters);
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+    
+        }
         
         
         

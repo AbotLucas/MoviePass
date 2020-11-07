@@ -51,7 +51,7 @@
         }
         
         public function ExecuteNonQuery($query, $parameters = array(), $queryType = QueryType::Query)
-	    {            
+	    {         
             try
             {
                 $this->Prepare($query);

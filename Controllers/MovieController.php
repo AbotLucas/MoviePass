@@ -2,21 +2,23 @@
 
     namespace Controllers;
 
-use DAO\MovieBdDao;
-use Models\Movie as Movie;
+    use DAO\MovieBdDao as MovieBdDao;
+    use Models\Movie as Movie;
     use DAO\MovieDao as MovieDAO;
-use DAO\ScreeningBdDAO;
+    use DAO\ScreeningBdDAO;
 
 class MovieController { 
 
     private $movieDAO;
+    private $movieBdDao;
 
     public function __construct() {
         $this->movieDAO = new MovieDAO(); 
+        $this->movieBdDao = new MovieBdDao(); 
     }
 
-    public function getAPIList() {
-        return $this->movieDAO->getAPI();
+    public function getMoviesList() {
+        return $this->movieBdDao->GetAllMovies();
     }
 
     public function listMovies($message = "") {
@@ -24,7 +26,7 @@ class MovieController {
     }
     
     public function ShowMovieSheet($id_movie) {
-        $screeningList = ScreeningBdDAO::GetScreeningsFromMovie($id_movie);
+        //$screeningList = ScreeningBdDAO::GetScreeningsFromMovie($id_movie);
         $movie = MovieBdDao::MapearMovie($id_movie);
 
         $movieInArray = $this->movieDAO->GetFullMovieInfoFromJson($id_movie);
@@ -38,5 +40,3 @@ class MovieController {
     }
 
 }
-
-?>

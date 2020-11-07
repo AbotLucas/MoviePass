@@ -5,8 +5,9 @@
     use DAO\RoomBdDAO as RoomBdDAO;
     use Controllers\CinemaController as CinemaController;
     use DAO\CinemaBdDAO as CinemaBdDAO;
+use PDOException;
 
-    class RoomController
+class RoomController
     {       
         
         private $roomBdDAO;
@@ -15,25 +16,41 @@
             
             $this->roomBdDAO = new RoomBdDAO();
         }
-        public function ShowListRoomView($message ="")
-        {   
 
-           $roomList = $this->roomBdDAO->getAllRoom();
-            require_once(VIEWS_PATH."Room-list.php");
+        public function ShowRoomListCinemas($id_cinema) {
+            $this->ShowListRoomView(" ", $id_cinema);
+        }
+
+        public function ShowListRoomView($message="", $id_cinema)
+        {   
+            $this->roomBdDAO = new RoomBdDAO();
+            $cinema = CinemaBdDAO::MapearCinema($id_cinema);
+
+            
+            $roomList = $this->roomBdDAO->GetRoomsFromCinema($id_cinema);
+            
+            if(!isset($_SESSION["loginUser"])){
+                $message = "Upps, needs to be logged! ;)";
+                require_once(VIEWS_PATH."login.php");
+            }
+            else {
+                if(!is_array($roomList)) {
+                    
+                }
+                require_once(VIEWS_PATH."room-list.php");
+            }
         }
        
-        public function Addroom($name, $capacity , $ticketValue)
-        {
-            $id_cinema = $_SESSION['id'];
-
-            $newRoom = new Room($name,$capacity,$ticketValue,CinemaBdDao::MapearCinema($id_cinema));
+        public function Addroom($name, $capacity , $ticketValue, $id_cinema)
+        {   
+            $newRoom = new Room($name, $capacity, $ticketValue,CinemaBdDao::MapearCinema($id_cinema));
             $newShowListCinema = new CinemaController();
-            if($_POST) {
+
                 try{
                     $result = $this->roomBdDAO->SaveRoomInBd($newRoom);
                     if($result == 1) {
                         $message = "Room added succesfully!";
-                        $this->ShowListRoomView($message);
+                        $this->ShowListRoomView($message, $id_cinema);
                      }
                     else
                     {
@@ -47,57 +64,65 @@
                         $newShowListCinema->ShowListCinemaView($message);
                     }
                 }
-            }
-            else
-            {
-                $newShowListCinema->ShowListCinemaView("Failed in cinema adding!");
-            }
+            
         }  
         
-        public function RemoveRommFromDB($id)
-        {
-    
-            $result = $this->roomBdDAO->DeleteRoomInDB($id);
+        public function RemoveRoomFromDB($id_cinema, $id_room)
+        {   
+            $result = $this->roomBdDAO->DeleteRoomInDB($id_room);
 
             if($result == 1) {
                 $message = "Room Deleted Succefully!";
-                $this->ShowListRoomView($message); 
+                $this->ShowListRoomView($message, $id_cinema); 
             }
             else
             {
                 $message = "ERROR: Failed in room delete, reintente";
-                $this->ShowListRoomView($message);
+                $this->ShowListRoomView($message, $id_cinema);
             }
         }
        
-   public function modifyANDremover($id){
+   public function modifyANDremover($id_room, $id_cinema){
 
+            
             if(isset($_POST['id_remove'])){
 
-            $this->RemoveRommFromDB($id);
+                $this->RemoveRoomFromDB($id_room, $id_cinema);
             
             }
             else if (isset($_POST['id_modify'])) {
                
-                $_SESSION['id'] = $id;
-                $this->ShowModififyView();
+                $this->ShowModififyView($id_cinema);
              
             }
         }
-        
-        public function modify($name,$address,$capacity,$ticketValue){
-            $id = $_SESSION['id'];
-          $this->cinemaDAO->modifyCinema($id,$name,$address,$capacity,$ticketValue);
-          $this->ShowListCinemaView("Cinema modify succesfully!");
+
+        public function ShowModififyView($id_room){
+            $room = RoomBdDAO::MapearRoom($id_room);
+            
+            if(!isset($_SESSION["loginUser"])){
+                $message = "Upps, needs to be logged! ;)";
+                require_once(VIEWS_PATH."login.php");
             }
-        public function ShowAddRoomView($message = "") {
-            require_once(VIEWS_PATH."validate-session.php");
+            else {
+                require_once(VIEWS_PATH."room-modify.php");
+            }
+        }
+        
+        public function modify($name, $capacity, $ticketValue, $id_room){
+
+            $this->roomBdDAO->ModifyRoomInBd($name, $capacity, $ticketValue, $id_room);
+            $room = RoomBdDAO::MapearRoom($id_room);
+            $this->ShowListRoomView("Room modify succesfully!", $room->getCinema()->getId_Cinema());
+   
+           }
+
+        public function ShowAddRoomView($id_cinema) {
+            
+            $cinema = CinemaBdDAO::MapearCinema($id_cinema);
             require_once(VIEWS_PATH."room-add.php");
         }
-        public function ShowAddScreeningView($message = "") {
-            require_once(VIEWS_PATH."validate-session.php");
-            require_once(VIEWS_PATH."screening-add.php");
-        }
+
         
       
     } 

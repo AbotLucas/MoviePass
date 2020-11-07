@@ -7,6 +7,13 @@
       <div class="scrollable">
       <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Screenings List</span></h2>
       <br>
+
+      <div>
+          <?php  if($message){ echo "<span style='color:red; font-weight: bold;' >". $message ."</span><br><br>";}?>
+      </div>
+
+
+
       <form action="<?php  echo FRONT_ROOT."Screening/modifyANDremove".$id ?> " method="post">
         <table style="text-align:center;">
           <thead>
@@ -18,10 +25,24 @@
             <th style="width: 15%;" >Hour</th>
             <th style="width: 25%;" >Action</th>
             </tr>
+            <td style="background-color: #1a1c20;">
+            <span style="color: yellow; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT."Screening/ShowAddScreeningView" ?>">+Add</a></span>
+          </td>
+          <td style="background-color: #1a1c20">
+            - - - -
+          </td>
+          <td style="background-color: #1a1c20"> 
+            - - - - 
+          </td>
+          <td style="background-color: #1a1c20"> 
+            - - - - 
+          </td>
+          <td style="background-color: #1a1c20"> 
+            - - - - 
+          </td>
           </thead>
           <tbody>
-          <?php foreach($screeningList as $Screening)
-          {
+          <?php var_dump($screeningList); if(is_array($screeningList)){ foreach($screeningList as $Screening){
                ?>
             <tr>
                 <td> <?php echo $Screening->GetCinema()->getName(); ?> </td>
@@ -38,7 +59,7 @@
                 
             </tr> 
           <?php 
-        }
+            }}
          ?>                
         </tbody></form>
         </table> 

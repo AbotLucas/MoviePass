@@ -58,16 +58,23 @@
             $this->screeningBdDAO = new ScreeningBdDao();
             $screeningList = $this->screeningBdDAO->getAllScreening();
 
-            if(!isset($_SESSION["loginUser"])){
+            
+            
+            if(!isset($_SESSION["loginUser"]) && $_SESSION["loginUser"]->getRole() != 1){
+               
                 $message = "";
                 require_once(VIEWS_PATH."login.php");
             }
             else {
                 
-            $id_movie = $message;
-            $message = "";
-            require_once(VIEWS_PATH."screening-list.php");
-        }
+                $id_movie = $message;
+                if(!is_array($screeningList)) {
+                    $message = $screeningList;
+                }
+                
+                require_once(VIEWS_PATH."screening-list.php");
+            
+            }
         }
 
         public function ApplyFilters() 
@@ -96,7 +103,8 @@
             else {
 
                 $message = "Screening added FAIL!";
-                require_once(VIEWS_PATH."screening-add.php");            }
+                require_once(VIEWS_PATH."screening-add.php");           
+            }
 
         }
 

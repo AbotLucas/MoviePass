@@ -4,14 +4,15 @@
 <main class="container clear"> 
     <div class="content"> 
       <div id="comments" >
-        <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Add New Room</span></h2>
+        <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Add New Room for <a href="#"><?php echo $cinema->getName(); ?></a></h2>
         <form action="<?php echo  FRONT_ROOT."Room/AddRoom"?>" method="post" style="padding: 2rem !important;" >
           <table style="max-width: 60%"> 
             <thead>
               <tr>
-              <?php if($message){ echo "<h3>". $message ."</h3><br>";}?>
+              <?php if(isset($message)){ echo "<h3>". $message ."</h3><br>";}?>
               </tr>
               <tr>
+                
                 <th>Name</th>
                 <th>Capacity</th>
                 <th>ticketValue</th>
@@ -34,6 +35,7 @@
           <div>
             <br>
             <input type="submit" class="btn" value="Add Room" style="background-color:#DC8E47;color:white;"/>
+            <input id="id_cinema" name="id_cinema" type="hidden" value="<?php echo $cinema->getId_Cinema();?>">
             <br>
           </div>
         </form>
