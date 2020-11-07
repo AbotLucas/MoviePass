@@ -33,7 +33,8 @@
               </tfoot>
           </table>
           <div>
-            <input type="submit" class="btn" value="Add Cinema" style="background-color:#DC8E47;color:white;"/>
+            <input type="submit" class="btn" value="Modify" style="background-color:#DC8E47;color:white;"/>
+            <input type="submit" class="btn" value="cancel" name="cancel" style="background-color: black;color: #dc8e47;"/>
             <br>
           </div>
         </form>

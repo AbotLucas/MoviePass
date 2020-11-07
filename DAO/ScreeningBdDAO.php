@@ -5,6 +5,7 @@
     use DAO\MovieBdDao as MovieBdDAO;
     use DAO\RoomBdDao as RoomBdDAO;
 use FFI\Exception;
+use Models\Room;
 
 /*  create table if not exists screening(
         id_screening BIGINT UNSIGNED not null auto_increment,
@@ -30,7 +31,7 @@ use FFI\Exception;
 
             $sql = "INSERT INTO " .$this->tableName. "(idroom, idmovie, date_screening, hour_screening) VALUES (:idroom, :idmovie, :date_screening, :hour_screening)";
 
-            $parameters["idroom"] = $screening->getRoom()->getId_Cinema();
+            $parameters["idroom"] = $screening->getRoom()->getId_room();
             $parameters["idmovie"] = $screening->getMovie()->getId_movie();
             $parameters["date_screening"] = $screening->getDate_screening();
             $parameters["hour_screening"] = $screening->getHour_screening();
@@ -110,7 +111,7 @@ use FFI\Exception;
             $value = is_array($value) ? $value : [];
 
             $resp = array_map(function($p){
-                $cinema = new Screening($p['date_screening'], $p['hour_screening'], MovieBdDAO::MapearMovie($p["idmovie"]) ,CinemaBdDao::MapearCinema($p["idcinema"]));
+                $cinema = new Screening($p['date_screening'], $p['hour_screening'], MovieBdDAO::MapearMovie($p["idmovie"]) ,RoomBdDAO::MapearRoom($p["idroom"]));
                 $cinema->setId_screening($p['id_screening']);
                 return $cinema;
     

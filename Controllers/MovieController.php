@@ -39,4 +39,8 @@ class MovieController {
         require_once(VIEWS_PATH. "movie-sheet.php");
     }
 
+    public function GetMoviesWithoutScreening() {
+        return $this->movieBdDao->GetMoviesWithOutScreening();
+    }
+
 }

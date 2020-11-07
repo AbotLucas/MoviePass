@@ -157,12 +157,21 @@
 
     public function modify($name, $address){
 
-         $id = $_SESSION['id'];
-         $this->cinemaBdDAO->ModifyCinemaInBd($_SESSION["id"], $name, $address);
-         $this->ShowListCinemaView("Cinema modify succesfully!");
+        if(isset($_POST["cancel"])){
+
+            $this->ShowListCinemaView();
 
         }
+        else {
+
+            $id = $_SESSION['id'];
+            $this->cinemaBdDAO->ModifyCinemaInBd($_SESSION["id"], $name, $address);
+            $this->ShowListCinemaView("Cinema modify succesfully!");
+
+        }
+    }
     
 }
+    
     
 ?>

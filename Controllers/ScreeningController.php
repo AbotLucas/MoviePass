@@ -4,7 +4,8 @@
 
     use DAO\CinemaBdDao;
     use DAO\MovieBdDao as MovieBdDao;
-    use Models\Screening as Screening;
+use DAO\RoomBdDAO;
+use Models\Screening as Screening;
     use DAO\ScreeningBdDao as ScreeningBdDao;
 
     class ScreeningController {
@@ -57,10 +58,8 @@
 
             $this->screeningBdDAO = new ScreeningBdDao();
             $screeningList = $this->screeningBdDAO->getAllScreening();
-
             
-            
-            if(!isset($_SESSION["loginUser"]) && $_SESSION["loginUser"]->getRole() != 1){
+            if(!isset($_SESSION["loginUser"])){
                
                 $message = "";
                 require_once(VIEWS_PATH."login.php");
@@ -82,16 +81,16 @@
 
         }
 
-        public function AddScreening($id_movie, $cinema_screening, /* $room_screening */ $date_screening, $hour_screening) {
+        public function AddScreening($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening) {
 
+            
             /* Mapeo un cine con el id recibido */
-            $cinema = CinemaBdDao::GetInstance();
-            $cinema = $cinema->GetCinemaById($cinema_screening);
+            $room = RoomBdDAO::MapearRoom($id_room);
             /* Mapeo una movie con el id recibido */
             $movie = MovieBdDao::MapearMovie($id_movie);   
 
             /* Cargo un Screening */
-            $newScreening = new Screening($date_screening, $hour_screening, $movie /* $room_screening */, $cinema);
+            $newScreening = new Screening($date_screening, $hour_screening, $movie, $room);
             /* Cargo el screen en la BD*/
             $this->screeningBdDAO = new ScreeningBdDao();
             $result = $this->screeningBdDAO->SaveScreeningInBd($newScreening);
@@ -105,6 +104,21 @@
                 $message = "Screening added FAIL!";
                 require_once(VIEWS_PATH."screening-add.php");           
             }
+
+        }
+
+        
+
+        public function AddScreeningFromRoom($id_cinema, $id_room) {
+
+            $movieController = new MovieController();
+            $movieList = $movieController->GetMoviesWithoutScreening();
+            $room = RoomBdDAO::MapearRoom($id_room);
+            $cinema = CinemaBdDao::MapearCinema($id_cinema);
+
+            require_once(VIEWS_PATH."screening-add-from-room.php");
+
+
 
         }
 

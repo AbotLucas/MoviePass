@@ -35,6 +35,7 @@
           <div>
             <br>
             <input type="submit" class="btn" value="Add Room" style="background-color:#DC8E47;color:white;"/>
+            <input type="submit" class="btn" value="cancel" name="cancel" style="background-color: black;color: #dc8e47;"/>
             <input id="id_cinema" name="id_cinema" type="hidden" value="<?php echo $cinema->getId_Cinema();?>">
             <br>
           </div>

@@ -6,7 +6,7 @@
     <!-- Add path routes below -->
     <nav id="mainav" class="fl_right fixed-top">
       <ul class="clear">
-        <li class="active"> <a href="<?php echo FRONT_ROOT . "Home/MostrarHome"; ?>">Main Menu</a> </li>
+        <li class="active"> <a href="<?php echo FRONT_ROOT . "Home/Index"; ?>">Main Menu</a> </li>
 
         <li>
         <a href="<?php echo FRONT_ROOT . "Movie/listMovies" ?>">Movies</a>
@@ -24,7 +24,7 @@
         } else {
         ?>
           <li><a href="<?php echo FRONT_ROOT . "Cinema/ShowListCinemaView" ?>">Cinemas</a></li>
-          <li><a href="<?php echo FRONT_ROOT . "Screening/ShowListScreeningView" ?>">Screenings</a></li>
+          <!-- <li><a href="<?php //echo FRONT_ROOT . "Screening/ShowListScreeningView" ?>">Screenings</a></li> -->
           <li><a class="drop" href="#">Session</a>
             <ul>
               <li><a href="<?php echo FRONT_ROOT . "Session/SessionDestroy" ?>">Log Out</a></li>

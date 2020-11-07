@@ -15,10 +15,10 @@ require_once('nav-bar.php');
                 <?php if (isset($message)) {
                   echo "<h3>" . $message . "</h3><br>";
                 } ?>
-                <th style="width: 20%;">Name</th>
-                <th style="width: 20%;">Capacity</th>
-                <th style="width: 20%;">ticketValue</th>
-                <th style="width: 20%;">Cinema</th>
+                <th style="width: 10%;">Name</th>
+                <th style="width: 10%;">Capacity</th>
+                <th style="width: 10%;">ticketValue</th>
+                <th style="width: 10%;">Cinema</th>
                 <th style="width: 30%;">Action</th>
               </tr>
               <td style="background-color: #1a1c20;">
@@ -46,10 +46,14 @@ require_once('nav-bar.php');
                     <td> <?php echo $Room->GetCapacity(); ?> </td>
                     <td> <?php echo $Room->GetTicketValue(); ?> </td>
                     <td> <?php echo $Room->GetCinema()->getName() ?> </td>
-                    <td>
-                    <input id="id_cinema" name="id_cinema" type="hidden" value="<?php echo $cinema->getId_Cinema();?>">
+                    <td><?php if($_SESSION["loginUser"]->getRole()==1){ ?>
+                      <input id="id_cinema" name="id_cinema" type="hidden" value="<?php echo $cinema->getId_Cinema();?>">
                       <button type="submit" name="id_remove" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Remove </button>
                       <button type="submit" name="id_modify" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Modify </button>
+                      <button type="submit" name="id_add_screenings" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Add Screenings </button>
+                    <?php } ?>
+                      <button type="submit" name="id_show_screenings" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Show Screenings </button>
+                      
                       
                     </td>
                   </tr>

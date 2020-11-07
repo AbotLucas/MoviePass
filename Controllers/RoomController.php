@@ -43,6 +43,14 @@ class RoomController
        
         public function Addroom($name, $capacity , $ticketValue, $id_cinema)
         {   
+            if(isset($_POST["cancel"])){
+
+                $cinemaController = new CinemaController();
+                $cinemaController->ShowListCinemaView();
+
+            }
+            else
+            {
             $newRoom = new Room($name, $capacity, $ticketValue,CinemaBdDao::MapearCinema($id_cinema));
             $newShowListCinema = new CinemaController();
 
@@ -64,7 +72,7 @@ class RoomController
                         $newShowListCinema->ShowListCinemaView($message);
                     }
                 }
-            
+            }
         }  
         
         public function RemoveRoomFromDB($id_cinema, $id_room)
@@ -94,6 +102,18 @@ class RoomController
                
                 $this->ShowModififyView($id_cinema);
              
+            }
+            else if (isset($_POST['id_add_screenings'])) {
+
+                $screeningController = new ScreeningController();
+                $screeningController->AddScreeningFromRoom($id_room, $id_cinema);
+
+            }
+            else if (isset($_POST['id_show_screenings'])) {
+
+                $screeningController = new ScreeningController();
+                $screeningController->ShowScreeningsOfRoom($id_room);
+
             }
         }
 

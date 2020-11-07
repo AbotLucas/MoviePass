@@ -106,6 +106,48 @@ class MovieBdDao {
         }
     }
 
+    public function GetMoviesWithOutScreeningFromDb() {
+
+        $query =    "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview FROM movie m
+                     inner join screening s
+                     on s.idmovie != m.id_movie;";
+        $parameters = [];
+
+        try {
+            $this->connection = Connection::GetInstance();
+            return $this->connection->Execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+
+    }
+
+    public function GetMoviesWithOutScreening() {
+
+        $moviesArray = $this->GetMoviesWithOutScreeningFromDb();
+
+        if(!empty($moviesArray)) {
+                
+            $result = $this->mapear($moviesArray);
+            
+            if(is_array($result)) {
+                
+                $this->listMovie = $result;
+            }
+            else {
+                
+                $arrayResult[0] = $result;
+                $this->listMovie = $arrayResult;
+            }
+            
+            return $this->listMovie;
+        }
+        else {
+            return $errorArray[0] = "Error al leer la base de datos.";
+        }
+        
+    }
+
     public function MigrateMoviesToDB() {
         $this->movieDAO = new MovieDao();
         $this->listMovie = $this->movieDAO->getAPI();
