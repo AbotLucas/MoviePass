@@ -112,7 +112,7 @@ class RoomController
             else if (isset($_POST['id_show_screenings'])) {
 
                 $screeningController = new ScreeningController();
-                $screeningController->ShowScreeningsOfRoom($id_room);
+                $screeningController->ShowScreeningsOfRoom(" ", $id_room, $id_cinema);
 
             }
         }
@@ -142,6 +142,8 @@ class RoomController
             $cinema = CinemaBdDAO::MapearCinema($id_cinema);
             require_once(VIEWS_PATH."room-add.php");
         }
+
+        
 
         
       

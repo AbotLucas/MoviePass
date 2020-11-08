@@ -2,7 +2,8 @@
 
     namespace Controllers;
 
-    use DAO\MovieBdDao as MovieBdDao;
+use DAO\CinemaBdDao;
+use DAO\MovieBdDao as MovieBdDao;
     use Models\Movie as Movie;
     use DAO\MovieDao as MovieDAO;
     use DAO\ScreeningBdDAO;
@@ -18,10 +19,14 @@ class MovieController {
     }
 
     public function getMoviesList() {
-        return $this->movieBdDao->GetAllMovies();
+        return $this->movieBdDao->getAllMoviesWithScreening();
     }
 
     public function listMovies($message = "") {
+        $MovieController = new MovieController();
+        $MovieList = $MovieController->getMoviesList();
+        $count = 0;
+        $count2 = 0;
         require_once(VIEWS_PATH. "movie-list.php");
     }
     
@@ -29,18 +34,15 @@ class MovieController {
         //$screeningList = ScreeningBdDAO::GetScreeningsFromMovie($id_movie);
         $movie = MovieBdDao::MapearMovie($id_movie);
 
-        $movieInArray = $this->movieDAO->GetFullMovieInfoFromJson($id_movie);
+        $screeningController = new ScreeningController();
+        $screeningList = $screeningController->GetAllScreeningsFromMovie($id_movie);
+        $cinemaName = $screeningList[0]->getRoom()->getCinema()->getName();
 
-
-        /* $movieVideo = 
-
-
-        https://www.youtube.com/watch?v= */
         require_once(VIEWS_PATH. "movie-sheet.php");
     }
 
-    public function GetMoviesWithoutScreening() {
-        return $this->movieBdDao->GetMoviesWithOutScreening();
+    public function GetMoviesWithoutScreening($id_room) {
+        return $this->movieBdDao->GetMoviesWithOutScreening($id_room);
     }
 
 }

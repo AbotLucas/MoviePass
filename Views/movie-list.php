@@ -1,25 +1,5 @@
 <?php require_once('nav-bar.php');
 
-use Controllers\MovieController;
-use Models\Movie;
-use DAO\MovieBdDao as MovieBdDAO;
-
-$MovieController = new MovieController();
-$MovieList = $MovieController->getMoviesList();
-$count = 0;
-$count2 = 0;
-
-/* $count=0;
-        $count2=0;
-        while($count<=3){
-            while($count2<$count*3){
-                echo $list[$count2];
-                $count2 ++;
-            }
-            echo "<br>";
-            $count++;
-        } */
-
 ?>
 <div style="text-align: -webkit-center">
     <br>
@@ -29,11 +9,6 @@ $count2 = 0;
         </div>
 
         <div>
-            <?php  /* $MovieBdDAO = new MovieBdDAO();
-            $MovieBdDAO->MigrateMoviesToDB();
-            if (isset($message)) {
-                echo "<h6>" . $message . "<h6>";
-            }  */?>
             <?php  if($message){ echo "<span style='color:red; font-weight: bold;' >". $message ."</span><br><br>";}?>
         </div>
 
@@ -58,20 +33,20 @@ $count2 = 0;
             </form>
         </div>
     </div>
-    <table class="homeTable" style="max-width: 70%; margin-top: 40px">
+    <table class="homeTable" style="width: auto; max-width: 70%; margin-top: 40px">
         <thead>
-
+            <th colspan="4">Cartelera</th>
         </thead>
         <tbody>
             <tr>
-                <?php while ($count <= 5) {
+                <?php if(count($MovieList)>4){ while ($count <= 5) {
                     while ($count2 < $count * 4) { ?>
 
-                        <td style="text-align: center; padding: 10px;">
+                        <td style="text-align: center; padding: 10px; max-width: calc(70%*0.25)">
                             <a href="<?php echo FRONT_ROOT . "Movie/ShowMovieSheet/" . "?id_movie=" . $MovieList[$count2]->getId_movie(); ?>">
 
                                 <div class="div-img">
-                                    <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $MovieList[$count2]->getUrlImage(); ?>" alt="<?php echo $MovieList[$count2]->getTitle(); ?>">
+                                    <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $MovieList[$count2]->getUrlImage(); ?>" alt="<?php echo $MovieList[$count2]->getTitle(); ?>" style="max-width: 200px; max-height:300px">
                                 </div>
                             </a>
                             <br>
@@ -83,8 +58,26 @@ $count2 = 0;
                     <?php $count2++;
                     } ?>
             </tr>
+            <tr>
         <?php $count++;
-                } ?>
+                }} else { foreach($MovieList as $movie){ ?>
+                
+                <td style="text-align: center; padding: 10px; ">
+                            <a href="<?php echo FRONT_ROOT . "Movie/ShowMovieSheet/" . "?id_movie=" . $movie->getId_movie(); ?>">
+
+                                <div class="div-img">
+                                    <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $movie->getUrlImage(); ?>" alt="<?php echo $movie->getTitle(); ?>" style="max-width: 200px; max-height:300px">
+                                </div>
+                            </a>
+                            <br>
+                            <a href="#" style="font-weight: bold;"><?php echo $movie->getTitle(); ?></a>
+
+
+                        </td>
+                
+                <?php }}?>
+                </tr>
+
         </tbody>
         <tfoot>
 

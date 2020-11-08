@@ -5,7 +5,7 @@
   <main class="hoc container clear" style="background-color: rgba(0, 0, 0, 0);"> 
     <div class="content" style="background-color: rgba(0, 0, 0, 0);"> 
       <div class="scrollable">
-      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Screenings List</span></h2>
+      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Screenings List From <a href="#" style="font-size: 16px;"><?php echo $room->getName() . " - " . $cinema->getName(); ?></a></span></h2>
       <br>
 
       <div>
@@ -14,13 +14,13 @@
 
 
 
-      <form action="<?php  echo FRONT_ROOT."Screening/modifyANDremove".$id ?> " method="post">
+      <form action="<?php  echo FRONT_ROOT."Screening/modifyANDremove" ?> " method="post">
         <table style="text-align:center;">
           <thead>
             <tr>
            
-            <th style="width: 15%;">Cinema</th>
-            <th style="width: 30%;">Movie</th>
+            <th style="width: 20%;">Cinema/Room</th>
+            <th style="width: 25%;">Movie</th>
             <th style="width: 15%;" >Date</th>
             <th style="width: 15%;" >Hour</th>
             <th style="width: 25%;" >Action</th>
@@ -42,15 +42,16 @@
           </td>
           </thead>
           <tbody>
-          <?php var_dump($screeningList); if(is_array($screeningList)){ foreach($screeningList as $Screening){
+          <?php if(is_array($screeningList)){ foreach($screeningList as $Screening){
                ?>
             <tr>
-                <td> <?php echo $Screening->GetCinema()->getName(); ?> </td>
+                <td> <?php echo $cinema->getName()."/".$Screening->GetRoom()->getName(); ?> </td>
                 <td> <?php echo $Screening->GetMovie()->getTitle(); ?> </td>
                 <td> <?php echo $Screening->GetDate_screening(); ?> </td>
                 <td> <?php echo $Screening->GetHour_screening(); ?> </td>
                            
                 <td>
+                <input id="id_room" name="id_room" type="hidden" value="<?php echo $room->getId_room();?>">
                 <button type="submit" name="id_remove" class="btn" value="<?php echo $Screening->getId_screening() ?>"style="font-size: 12px"> Remove </button>
                 &nbsp;
                 <button type="submit" name="id_modify" class="btn" value="<?php echo $Screening->getId_screening() ?>"style="font-size: 12px"> Modify </button>

@@ -87,6 +87,43 @@ class MovieBdDao {
     
     }
 
+    public function getAllMoviesWithScreening() {
+
+        $moviesArray = $this->getMoviesWithScreeningFromDB();
+        if(!empty($moviesArray)) {
+            
+            $result = $this->mapear($moviesArray);
+            if(is_array($result)) {
+                $this->listMovie = $result;
+            }
+            else {
+                $arrayResult[0] = $result;
+                $this->listMovie = $arrayResult;
+            }
+            return $this->listMovie;
+        }
+        else {
+            return $errorArray[0] = "Error al leer la base de datos.";
+        }
+
+    }
+
+    
+    protected function getMoviesWithScreeningFromDB() {
+        
+        $query = "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview FROM " . $this->tableName . " m INNER JOIN SCREENING ON SCREENING.idmovie = m.id_movie";
+        try {
+            $this->connection = Connection::GetInstance();
+            $result = $this->connection->Execute($query);
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        
+        return $result;
+    
+    }
+
     public function SaveMovieInDB($movie) {
 
         $sql = "INSERT INTO movie (id_movie, title, language, url_image, overview, duration) VALUES (:id_movie, :title, :language, :url_image, :overview, :duration)";
@@ -106,25 +143,28 @@ class MovieBdDao {
         }
     }
 
-    public function GetMoviesWithOutScreeningFromDb() {
+    public function GetMoviesWithOutScreeningFromDb($id_room) {
+        /*CONSULTO LAS PELICULAS QUE NO TIENEN SCREENING O QUE SI TIENEN PERTENECEN A ESTE ROOM (A-a1)*/ 
+        $query =    "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview
+                     FROM movie m
+                     LEFT JOIN screening s
+                     ON m.id_movie = s.idmovie
+                     WHERE (s.idmovie is null) OR (s.idroom = :id_room);";
 
-        $query =    "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview FROM movie m
-                     inner join screening s
-                     on s.idmovie != m.id_movie;";
-        $parameters = [];
+        $parameters["id_room"] = $id_room;
 
         try {
             $this->connection = Connection::GetInstance();
-            return $this->connection->Execute($query);
+            return $this->connection->Execute($query, $parameters);
         } catch (Exception $ex) {
             throw $ex;
         }
 
     }
 
-    public function GetMoviesWithOutScreening() {
+    public function GetMoviesWithOutScreening($id_room) {
 
-        $moviesArray = $this->GetMoviesWithOutScreeningFromDb();
+        $moviesArray = $this->GetMoviesWithOutScreeningFromDb($id_room);
 
         if(!empty($moviesArray)) {
                 

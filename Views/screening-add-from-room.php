@@ -24,28 +24,28 @@ include("nav-bar.php");
                         </thead>
                         <tbody align="center">
                             <tr>
-                                <td style="max-width: 10%;">
-                                    <select name="movie" id="movie">
+                                <td style="max-width: 10%; align-items: center; vertical-align: middle;">
+                                    <select name="movie" id="movie" style="width: 100%;">
                                             <option value="" disable_selected>--Choose a Movie--</option>
                                         <?php foreach($movieList as $movie){?>
                                             <option value="<?php echo $movie->getId_Movie(); ?>"><?php echo $movie->getTitle(); ?></option>
                                         <?php } ?>
                                     </select>
                                 </td>
-                                <td style="max-width: 25%; align-items: center;">
+                                <td style="max-width: 25%; align-items: center; vertical-align: middle;">
                                     <span><?php echo $cinema->getName(); ?></span>
                                     <input type="hidden" value="<?php echo $cinema->getId_Cinema(); ?>" name="id_cinema">
                                 </td>
                                 </td>
-                                <td style="max-width: 25%; align-items: center;">
+                                <td style="max-width: 25%; align-items: center; vertical-align: middle;">
                                     <span><?php echo $room->getName(); ?></span>
                                     <input type="hidden" value="<?php echo $room->getId_room(); ?>" name="id_room">
                                 </td>
-                                <td style="max-width: 25%; align-items: center;">
-                                <input type="date" name="date_screening" id="date_screening" style="width: 100%;" required>
+                                <td style="max-width: 25%; align-items: center; vertical-align: middle;">
+                                <input type="date" min="<?php echo $actualDate ?>" max="<?php echo $maxDate ?>" name="date_screening" id="date_screening" style="width: 100%;" required>
                                 </td>
-                                <td style="max-width: 25%; align-items: center;">
-                                <select name="hour_screening" id="hour_screening" style="width: 100%; margin-top: 10px;" required>
+                                <td style="max-width: 25%; align-items: center; vertical-align: middle;">
+                                <select name="hour_screening" id="hour_screening" style="width: 100%;" required>
                                             <option value="" disable_selected>--Choose an Hour--</option>
                                             <option value="14:00">14:00</option>
                                             <option value="15:00">15:00</option>

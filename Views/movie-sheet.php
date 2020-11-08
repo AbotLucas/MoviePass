@@ -19,28 +19,25 @@
                         "<br> Duration: " . $movie->getduration() . " min." .
                         "<br> Language: " . $movie->getLanguage(); ?>
                 </p>
-
                 <details style="background-color:rgba(50, 31, 40, 0.9); padding: 4%">
                     <summary>Screenings</summary>
+                    
+                    <?php foreach($screeningList as $screening) { ?>
+                    
+                        &nbsp;&nbsp;
+                            <?php echo "Date: " . $screening->getDate_screening() . " || " . 
+                            "Hour: " . $screening->getHour_screening() . " || Cinema: " . 
+                            $screening->getRoom()->getCinema()->getName() . " || Room: " . $screening->getRoom()->getName();?>
+                        &nbsp;<b><a href="<?php echo FRONT_ROOT."Ticket/GetTicket/?id_screening=" . $screening->getId_screening();?>">Get ticket!</a></b>
+                        <br>
+                        
 
-                    <details>
-                        <summary>Cinema1</summary>
-                        <b>&nbsp;&nbsp;Funcion1 <a href="">Get ticket!</a></b> <br>
-                        <b>&nbsp;&nbsp;Funcion2 <a href="">Get ticket!</a></b>
-                    </details>
-                    <details>
-                        <summary>Cinema2</summary>
-                        <p>Fucion 1</p>
-                        <p>Funcion2</p>
-                        <p>Funcion3</p>
-                        <p>Funcion4</p>
-                    </details>
-
+                    <?php } ?>
+                        
                 </details>
 
             </div>
         </div>
-
     </div>
 
 </div>

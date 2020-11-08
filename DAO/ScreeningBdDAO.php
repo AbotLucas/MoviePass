@@ -88,6 +88,98 @@ use Models\Room;
     
         }
 
+        private function getScreeningsFromARoomDB($id_room){
+        
+            $query = "SELECT * FROM " . $this->tableName . " WHERE idroom = :idroom";
+
+            $parameters["idroom"] = intval($id_room);
+
+            try {
+            
+                $this->connection = Connection::GetInstance();
+                $result = $this->connection->Execute($query, $parameters);
+    
+            } catch (Exception $ex) {
+
+                return null;
+            }
+            
+            return $result;
+        
+        }
+
+        public function GetScreeningsFromARoom($id_room) {
+
+            $screeningArray = $this->getScreeningsFromARoomDB($id_room);
+
+            if(!empty($screeningArray)) {
+                
+                $result = $this->mapear($screeningArray);
+                
+                if(is_array($result)) {
+                    
+                    $this->listScreening = $result;
+                }
+                else {
+                    
+                    $arrayResult[0] = $result;
+                    $this->listScreening = $arrayResult;
+                }
+                
+                return $this->listScreening;
+            }
+            else {
+                return $errorArray[0] = "Error al leer la base de datos.";
+            }
+    
+        }
+
+        private function getScreeningsFromAMovieDB($id_movie){
+        
+            $query = "SELECT * FROM " . $this->tableName . " WHERE idmovie = :idmovie ORDER BY date_screening ASC";
+
+            $parameters["idmovie"] = intval($id_movie);
+
+            try {
+            
+                $this->connection = Connection::GetInstance();
+                $result = $this->connection->Execute($query, $parameters);
+    
+            } catch (Exception $ex) {
+
+                return null;
+            }
+            
+            return $result;
+        
+        }
+
+        public function GetScreeningsFromAMovie($id_movie) {
+
+            $screeningArray = $this->getScreeningsFromAMovieDB($id_movie);
+
+            if(!empty($screeningArray)) {
+                
+                $result = $this->mapear($screeningArray);
+                
+                if(is_array($result)) {
+                    
+                    $this->listScreening = $result;
+                }
+                else {
+                    
+                    $arrayResult[0] = $result;
+                    $this->listScreening = $arrayResult;
+                }
+                
+                return $this->listScreening;
+            }
+            else {
+                return $errorArray[0] = "Error al leer la base de datos.";
+            }
+
+        }
+
         public function DeleteScreeningInDB($id_screening) {
   
             $sql = "DELETE FROM screening WHERE id_screening = :id_screening";
