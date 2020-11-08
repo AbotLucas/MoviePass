@@ -5,6 +5,8 @@
     use DAO\RoomBdDAO as RoomBdDAO;
     use Controllers\CinemaController as CinemaController;
     use DAO\CinemaBdDAO as CinemaBdDAO;
+    use Controllers\Functions;
+    use PDOException;
 
     class RoomController
     {       
@@ -19,7 +21,7 @@
         {   
 
            $roomList = $this->roomBdDAO->getAllRoom();
-            require_once(VIEWS_PATH."Room-list.php");
+          require_once(VIEWS_PATH."Room-list.php");
         }
        
         public function Addroom($name, $capacity , $ticketValue)
@@ -30,6 +32,7 @@
             $newShowListCinema = new CinemaController();
             if($_POST) {
                 try{
+                    
                     $result = $this->roomBdDAO->SaveRoomInBd($newRoom);
                     if($result == 1) {
                         $message = "Room added succesfully!";
@@ -44,7 +47,7 @@
                     $message = $ex->getMessage();
                     if(Functions::contains_substr($message, "Duplicate entry")) {
                         $message = "Alguno de los datos ingresados ya existe en la BD. Reintente.";
-                        $newShowListCinema->ShowListCinemaView($message);
+                        $this->ShowAddRoomView($message);
                     }
                 }
             }
@@ -58,6 +61,10 @@
         {
     
             $result = $this->roomBdDAO->DeleteRoomInDB($id);
+
+             echo "<script> if(confirm('you have associated data you want to delete anyway'));";
+             echo "window.location = ". require_once(VIEWS_PATH."Room-list.php") ." ;
+              </script>";
 
             if($result == 1) {
                 $message = "Room Deleted Succefully!";

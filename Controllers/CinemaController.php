@@ -47,21 +47,22 @@
                 require_once(VIEWS_PATH."login.php");
             }
             else {
-            $message = "";
+            #$message = "";
             require_once(VIEWS_PATH."cinema-list.php");
             }
         }
+
         public function ShowLisSceening(){
             require_once(VIEWS_PATH."screening-list.php");
         }
         public function ShowAddRoom($message = ""){
             if(!isset($_SESSION["loginUser"])){
-                $message = "";
+               $message = "";
                 require_once(VIEWS_PATH."login.php");
             }
             else {
             $id_cinema = $message;
-            $message = "";
+            #$message = "";
             require_once(VIEWS_PATH."room-add.php");
             }
             

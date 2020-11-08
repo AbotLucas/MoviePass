@@ -1,8 +1,32 @@
 {
     "results": [
         {
-            "popularity": 2517.138,
-            "vote_count": 65,
+            "popularity": 2629.605,
+            "vote_count": 51,
+            "video": false,
+            "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+            "id": 635302,
+            "adult": false,
+            "backdrop_path": "\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg",
+            "original_language": "ja",
+            "original_title": "\u5287\u5834\u7248\u300c\u9b3c\u6ec5\u306e\u5203\u300d\u7121\u9650\u5217\u8eca\u7de8",
+            "genre_ids": [
+                16,
+                28,
+                36,
+                12,
+                14,
+                18
+            ],
+            "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
+            "vote_average": 6.6,
+            "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
+            "release_date": "2020-10-16",
+            "duration": 117
+        },
+        {
+            "popularity": 2025.862,
+            "vote_count": 86,
             "video": false,
             "poster_path": "\/ugZW8ocsrfgI95pnQ7wrmKDxIe.jpg",
             "id": 724989,
@@ -15,14 +39,14 @@
                 53
             ],
             "title": "Hard Kill",
-            "vote_average": 4.7,
+            "vote_average": 4.8,
             "overview": "The work of billionaire tech CEO Donovan Chalmers is so valuable that he hires mercenaries to protect it, and a terrorist group kidnaps his daughter just to get it.",
             "release_date": "2020-10-23",
             "duration": 98
         },
         {
-            "popularity": 1768.318,
-            "vote_count": 486,
+            "popularity": 1867.444,
+            "vote_count": 530,
             "video": false,
             "poster_path": "\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
             "id": 531219,
@@ -44,8 +68,8 @@
             "duration": 106
         },
         {
-            "popularity": 1601.355,
-            "vote_count": 247,
+            "popularity": 1399.085,
+            "vote_count": 262,
             "video": false,
             "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
             "id": 528085,
@@ -59,38 +83,14 @@
                 18
             ],
             "title": "2067",
-            "vote_average": 5.1,
+            "vote_average": 5,
             "overview": "A lowly utility worker is called to the future by a mysterious radio signal, he must leave his dying wife to embark on a journey that will force him to face his deepest fears in an attempt to change the fabric of reality and save humankind from its greatest environmental crisis yet.",
             "release_date": "2020-10-01",
             "duration": 114
         },
         {
-            "popularity": 1418.971,
-            "vote_count": 34,
-            "video": false,
-            "poster_path": "\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
-            "id": 635302,
-            "adult": false,
-            "backdrop_path": "\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg",
-            "original_language": "ja",
-            "original_title": "\u5287\u5834\u7248\u300c\u9b3c\u6ec5\u306e\u5203\u300d\u7121\u9650\u5217\u8eca\u7de8",
-            "genre_ids": [
-                16,
-                28,
-                36,
-                12,
-                14,
-                18
-            ],
-            "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
-            "vote_average": 6.8,
-            "overview": "Tanjir\u014d Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Ky\u014djur\u014d Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
-            "release_date": "2020-10-16",
-            "duration": 117
-        },
-        {
-            "popularity": 1071.169,
-            "vote_count": 87,
+            "popularity": 1263.069,
+            "vote_count": 100,
             "video": false,
             "poster_path": "\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
             "id": 741074,
@@ -100,38 +100,19 @@
             "original_title": "Once Upon a Snowman",
             "genre_ids": [
                 16,
+                10751,
                 35,
-                14,
-                10751
+                14
             ],
             "title": "Once Upon a Snowman",
-            "vote_average": 7.7,
+            "vote_average": 7.6,
             "overview": "The previously untold origins of Olaf, the innocent and insightful, summer-loving snowman are revealed as we follow Olaf\u2019s first steps as he comes to life and searches for his identity in the snowy mountains outside Arendelle.",
             "release_date": "2020-10-23",
             "duration": 12
         },
         {
-            "popularity": 912.258,
-            "vote_count": 4,
-            "video": false,
-            "poster_path": "\/j8D3jXHtA9cNb4epzvmA6hymKQ4.jpg",
-            "id": 499338,
-            "adult": false,
-            "backdrop_path": "\/fUxq6ilPW01roOpqB5g9SOS3zZv.jpg",
-            "original_language": "en",
-            "original_title": "I Believe",
-            "genre_ids": [
-                10751
-            ],
-            "title": "I Believe",
-            "vote_average": 3.8,
-            "overview": "A 9 year old boy experiences God's power in a supernatural way.",
-            "release_date": "2020-11-05",
-            "duration": 90
-        },
-        {
-            "popularity": 896.903,
-            "vote_count": 261,
+            "popularity": 999.326,
+            "vote_count": 296,
             "video": false,
             "poster_path": "\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
             "id": 560050,
@@ -152,8 +133,27 @@
             "duration": 100
         },
         {
-            "popularity": 705.325,
-            "vote_count": 162,
+            "popularity": 906.742,
+            "vote_count": 7,
+            "video": false,
+            "poster_path": "\/oAuBztpKuTIHb8nLl6miXIy0Sj9.jpg",
+            "id": 499338,
+            "adult": false,
+            "backdrop_path": "\/AuZgtWv4ZRhqD8u9JJMxTQbhz9q.jpg",
+            "original_language": "en",
+            "original_title": "I Believe",
+            "genre_ids": [
+                10751
+            ],
+            "title": "I Believe",
+            "vote_average": 3.9,
+            "overview": "A 9 year old boy experiences God's power in a supernatural way.",
+            "release_date": "2020-11-05",
+            "duration": 90
+        },
+        {
+            "popularity": 691.509,
+            "vote_count": 164,
             "video": false,
             "poster_path": "\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
             "id": 694919,
@@ -171,8 +171,8 @@
             "duration": 82
         },
         {
-            "popularity": 660.175,
-            "vote_count": 703,
+            "popularity": 670.916,
+            "vote_count": 714,
             "video": false,
             "poster_path": "\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
             "id": 581392,
@@ -192,8 +192,8 @@
             "duration": 114
         },
         {
-            "popularity": 611.262,
-            "vote_count": 573,
+            "popularity": 593.367,
+            "vote_count": 581,
             "video": false,
             "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
             "id": 539885,
@@ -208,14 +208,34 @@
                 53
             ],
             "title": "Ava",
-            "vote_average": 5.8,
+            "vote_average": 5.7,
             "overview": "A black ops assassin is forced to fight for her own survival after a job goes dangerously wrong.",
             "release_date": "2020-07-02",
             "duration": 96
         },
         {
-            "popularity": 601.528,
-            "vote_count": 270,
+            "popularity": 528.354,
+            "vote_count": 1497,
+            "video": false,
+            "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
+            "id": 613504,
+            "adult": false,
+            "backdrop_path": "\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg",
+            "original_language": "en",
+            "original_title": "After We Collided",
+            "genre_ids": [
+                10749,
+                18
+            ],
+            "title": "After We Collided",
+            "vote_average": 7.4,
+            "overview": "Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever.",
+            "release_date": "2020-09-02",
+            "duration": 105
+        },
+        {
+            "popularity": 509.995,
+            "vote_count": 284,
             "video": false,
             "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
             "id": 590223,
@@ -236,8 +256,8 @@
             "duration": 109
         },
         {
-            "popularity": 560.202,
-            "vote_count": 338,
+            "popularity": 504.61,
+            "vote_count": 340,
             "video": false,
             "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
             "id": 718444,
@@ -258,28 +278,8 @@
             "duration": 106
         },
         {
-            "popularity": 495.854,
-            "vote_count": 1398,
-            "video": false,
-            "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
-            "id": 613504,
-            "adult": false,
-            "backdrop_path": "\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg",
-            "original_language": "en",
-            "original_title": "After We Collided",
-            "genre_ids": [
-                10749,
-                18
-            ],
-            "title": "After We Collided",
-            "vote_average": 7.4,
-            "overview": "Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever.",
-            "release_date": "2020-09-02",
-            "duration": 105
-        },
-        {
-            "popularity": 469.664,
-            "vote_count": 164,
+            "popularity": 377.665,
+            "vote_count": 167,
             "video": false,
             "poster_path": "\/3eg0kGC2Xh0vhydJHO37Sp4cmMt.jpg",
             "id": 531499,
@@ -299,8 +299,8 @@
             "duration": 95
         },
         {
-            "popularity": 379.519,
-            "vote_count": 42,
+            "popularity": 324.301,
+            "vote_count": 44,
             "video": false,
             "poster_path": "\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
             "id": 595149,
@@ -312,32 +312,13 @@
                 27
             ],
             "title": "Death of Me",
-            "vote_average": 5.7,
+            "vote_average": 5.5,
             "overview": "A couple on holiday on a remote South Pacific island awaken one morning with a hang over and no recollection of what transpired. When playing back a video of the previous night, they see they participated in a local ritual that somehow ends with him murdering her.",
             "release_date": "2020-10-02",
             "duration": 95
         },
         {
-            "popularity": 348.825,
-            "vote_count": 62,
-            "video": false,
-            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
-            "id": 509635,
-            "adult": false,
-            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
-            "original_language": "en",
-            "original_title": "Alone",
-            "genre_ids": [
-                53
-            ],
-            "title": "Alone",
-            "vote_average": 6,
-            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
-            "release_date": "2020-09-10",
-            "duration": 98
-        },
-        {
-            "popularity": 317.099,
+            "popularity": 323.707,
             "vote_count": 1260,
             "video": false,
             "poster_path": "\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
@@ -361,28 +342,29 @@
             "duration": 91
         },
         {
-            "popularity": 300.419,
-            "vote_count": 104,
+            "popularity": 301.606,
+            "vote_count": 106,
             "video": false,
-            "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
-            "id": 425001,
+            "poster_path": "\/rUAztxhGWKPeXZFrqjzaFk1uQir.jpg",
+            "id": 671039,
             "adult": false,
-            "backdrop_path": "\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg",
-            "original_language": "en",
-            "original_title": "The War with Grandpa",
+            "backdrop_path": "\/gnf4Cb2rms69QbCnGFJyqwBWsxv.jpg",
+            "original_language": "fr",
+            "original_title": "Bronx",
             "genre_ids": [
-                35,
-                10751,
-                18
+                53,
+                28,
+                18,
+                80
             ],
-            "title": "The War with Grandpa",
-            "vote_average": 6,
-            "overview": "Sixth-grader Peter is pretty much your average kid\u2014he likes gaming, hanging with his friends and his beloved pair of Air Jordans. But when his recently widowed grandfather Ed  moves in with Peter\u2019s family, the boy is forced to give up his most prized possession of all, his bedroom. Unwilling to let such an injustice stand, Peter devises a series of increasingly elaborate pranks to drive out the interloper, but Grandpa Ed won\u2019t go without a fight.",
-            "release_date": "2020-08-27",
-            "duration": 94
+            "title": "Rogue City",
+            "vote_average": 6.2,
+            "overview": "Caught in the crosshairs of police corruption and Marseille\u2019s warring gangs, a loyal cop must protect his squad by taking matters into his own hands.",
+            "release_date": "2020-10-30",
+            "duration": 0
         },
         {
-            "popularity": 262.993,
+            "popularity": 298.482,
             "vote_count": 93,
             "video": false,
             "poster_path": "\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
@@ -402,30 +384,51 @@
             "duration": 84
         },
         {
-            "popularity": 261.444,
-            "vote_count": 3,
+            "popularity": 296.63,
+            "vote_count": 83,
             "video": false,
-            "poster_path": "\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
-            "id": 748224,
+            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
+            "id": 509635,
             "adult": false,
-            "backdrop_path": "\/flNp7NdzBC1UGctzuubQveuVSF5.jpg",
+            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
             "original_language": "en",
-            "original_title": "Reaptown",
+            "original_title": "Alone",
             "genre_ids": [
-                27
+                53
             ],
-            "title": "Reaptown",
-            "vote_average": 7.3,
-            "overview": "In this supernatural horror film, Carrie Baldwin is freed from prison under the conditions of a work-release program in Reaptown, Nevada. As she struggles to find her missing sister while working the night shift as a security guard for the Reaptown Railway Museum, Carrie soon finds herself in the presence of evil. Could the Railway hold the clues to her sister's mysterious disappearance?",
-            "release_date": "2020-09-28",
-            "duration": 77
+            "title": "Alone",
+            "vote_average": 6.4,
+            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
+            "release_date": "2020-09-10",
+            "duration": 98
+        },
+        {
+            "popularity": 292.959,
+            "vote_count": 105,
+            "video": false,
+            "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
+            "id": 425001,
+            "adult": false,
+            "backdrop_path": "\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg",
+            "original_language": "en",
+            "original_title": "The War with Grandpa",
+            "genre_ids": [
+                35,
+                10751,
+                18
+            ],
+            "title": "The War with Grandpa",
+            "vote_average": 6,
+            "overview": "Sixth-grader Peter is pretty much your average kid\u2014he likes gaming, hanging with his friends and his beloved pair of Air Jordans. But when his recently widowed grandfather Ed  moves in with Peter\u2019s family, the boy is forced to give up his most prized possession of all, his bedroom. Unwilling to let such an injustice stand, Peter devises a series of increasingly elaborate pranks to drive out the interloper, but Grandpa Ed won\u2019t go without a fight.",
+            "release_date": "2020-08-27",
+            "duration": 94
         }
     ],
     "page": 1,
-    "total_results": 1489,
+    "total_results": 1443,
     "dates": {
-        "maximum": "2020-11-10",
-        "minimum": "2020-09-23"
+        "maximum": "2020-11-12",
+        "minimum": "2020-09-25"
     },
-    "total_pages": 75
+    "total_pages": 73
 }
