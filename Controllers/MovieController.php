@@ -3,10 +3,12 @@
     namespace Controllers;
 
 use DAO\CinemaBdDao;
+use DAO\GenreBdDAO;
 use DAO\MovieBdDao as MovieBdDao;
     use Models\Movie as Movie;
     use DAO\MovieDao as MovieDAO;
     use DAO\ScreeningBdDAO;
+use Models\Genre;
 
 class MovieController { 
 
@@ -19,6 +21,10 @@ class MovieController {
     }
 
     public function getMoviesList() {
+
+        /* $genreBdDao = new GenreBdDAO();
+        $listGenres = $genreBdDao->GetGenresFromAPI(); */
+
         return $this->movieBdDao->getAllMoviesWithScreening();
     }
 

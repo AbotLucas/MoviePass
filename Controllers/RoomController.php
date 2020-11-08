@@ -90,7 +90,7 @@ class RoomController
             }
         }
        
-   public function modifyANDremover($id_room, $id_cinema){
+   public function modifyANDremover($id_cinema, $id_room){
 
             
             if(isset($_POST['id_remove'])){
@@ -110,7 +110,7 @@ class RoomController
 
             }
             else if (isset($_POST['id_show_screenings'])) {
-
+                 
                 $screeningController = new ScreeningController();
                 $screeningController->ShowScreeningsOfRoom(" ", $id_room, $id_cinema);
 

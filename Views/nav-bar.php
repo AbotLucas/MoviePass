@@ -27,6 +27,7 @@
           <!-- <li><a href="<?php //echo FRONT_ROOT . "Screening/ShowListScreeningView" ?>">Screenings</a></li> -->
           <li><a class="drop" href="#">Session</a>
             <ul>
+              <li><a href="<?php echo FRONT_ROOT. "Home/ShowWeAreWorkingView"?>">My profile</a></li>
               <li><a href="<?php echo FRONT_ROOT . "Session/SessionDestroy" ?>">Log Out</a></li>
             </ul>
           </li>

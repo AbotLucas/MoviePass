@@ -52,7 +52,7 @@ class UserBdDAO{
 
 
     protected function mapear($value) {
-
+        
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){

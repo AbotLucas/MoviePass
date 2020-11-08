@@ -9,8 +9,9 @@ class Movie {
     private $url_image;
     private $overview;
     private $duration;
+    private $genre;
 
-    public function __construct($id_movie, $title, $language, $url_image, $overview, $duration)
+    public function __construct($id_movie, $title, $language, $url_image, $overview, $duration, Genre $genre)
 	{
         $this->id_movie = $id_movie;
         $this->title = $title;
@@ -18,6 +19,7 @@ class Movie {
         $this->url_image = $url_image;
         $this->overview = $overview;
         $this->duration = $duration;
+        $this->genre = $genre;
     }
     
     public function getId_movie()
@@ -81,6 +83,16 @@ class Movie {
     public function setDuration($duration)
     {
         $this->duration = $duration;
+    }
+    
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
     }
 }
 

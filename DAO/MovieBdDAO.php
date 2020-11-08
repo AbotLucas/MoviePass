@@ -12,6 +12,7 @@ class MovieBdDao {
     private $tableName = "movie";
     private $connection;
     private static $instance = null;
+    private $fileJsonMovie = ROOT."/Data/Movie.json";
 
     /* id_movie BIGINT UNSIGNED not null unique,
     title VARCHAR(50) not null ,
@@ -55,7 +56,6 @@ class MovieBdDao {
 
         $moviesArray = $this->getMoviesFromDB();
         if(!empty($moviesArray)) {
-            
             $result = $this->mapear($moviesArray);
             if(is_array($result)) {
                 $this->listMovie = $result;
@@ -111,7 +111,7 @@ class MovieBdDao {
     
     protected function getMoviesWithScreeningFromDB() {
         
-        $query = "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview FROM " . $this->tableName . " m INNER JOIN SCREENING ON SCREENING.idmovie = m.id_movie";
+        $query = "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview, m.idgenre FROM " . $this->tableName . " m INNER JOIN SCREENING ON SCREENING.idmovie = m.id_movie";
         try {
             $this->connection = Connection::GetInstance();
             $result = $this->connection->Execute($query);
@@ -126,7 +126,7 @@ class MovieBdDao {
 
     public function SaveMovieInDB($movie) {
 
-        $sql = "INSERT INTO movie (id_movie, title, language, url_image, overview, duration) VALUES (:id_movie, :title, :language, :url_image, :overview, :duration)";
+        $sql = "INSERT INTO movie (id_movie, title, language, url_image, overview, duration, idgenre) VALUES (:id_movie, :title, :language, :url_image, :overview, :duration, :idgenre)";
 
         $parameters["id_movie"] = $movie->getId_movie();
         $parameters["title"] = $movie->getTitle();
@@ -134,6 +134,7 @@ class MovieBdDao {
         $parameters["url_image"] = $movie->getUrlImage();
         $parameters["overview"] = $movie->getOverview();
         $parameters["duration"] = $movie->getDuration();
+        $parameters["idgenre"] = $movie->getGenre()->getId_genre();
 
         try {
             $this->connection = Connection::GetInstance();
@@ -145,7 +146,7 @@ class MovieBdDao {
 
     public function GetMoviesWithOutScreeningFromDb($id_room) {
         /*CONSULTO LAS PELICULAS QUE NO TIENEN SCREENING O QUE SI TIENEN PERTENECEN A ESTE ROOM (A-a1)*/ 
-        $query =    "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview
+        $query =    "SELECT DISTINCT m.id_movie, m.title, m.language, m.url_image, m.duration, m.overview, m.idgenre
                      FROM movie m
                      LEFT JOIN screening s
                      ON m.id_movie = s.idmovie
@@ -216,10 +217,58 @@ class MovieBdDao {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            return new Movie($p['id_movie'], $p['title'], $p['language'], $p['url_image'], $p['overview'], $p['duration']);
+            return new Movie($p['id_movie'], $p['title'], $p['language'], $p['url_image'], $p['overview'], $p['duration'], GenreBdDAO::MapearGenre($p['idgenre']));
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];
+    }
+
+    public function GetNowPlayingFromAPI() {
+        $this->retrieveAPI();
+        return $this->listMovie;
+    }
+
+    private function GetMovieDuration($idMovie) {
+        $jsonContent = file_get_contents("https://api.themoviedb.org/3/movie/".$idMovie."?api_key=1b6861e202a1e52c6537b73132864511&language=en-US");
+        $movie = ($jsonContent) ? json_decode($jsonContent, true) : array();
+        return $movie["runtime"];
+    }
+
+    private function retrieveAPI() //Trae las peliculas "now_playing" de la API
+    {
+        
+        $moviesWithDuration = [];
+
+        $listMovies = array();
+
+        $jsonContent = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=1b6861e202a1e52c6537b73132864511&language=en-US&page=1");
+
+            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+
+            $arrayDePelis = $arrayToDecode["results"]; // Decodifico el array de resultados, porque la api trae otro que se llama "DATA"
+
+            //Lo recorro y cargo una movie en un array por cada posicion del array
+            foreach ($arrayDePelis as $movie) 
+            {        
+                    $movieDuration = $this->GetMovieDuration($movie["id"]);
+                    $movie["duration"] = $movieDuration;
+                    array_push($moviesWithDuration, $movie);
+
+                    $genres = $movie["genre_ids"];
+                    $genre = $genres[0];
+                    
+                    $movie = new Movie($movie["id"], $movie["original_title"], $movie["original_language"], $movie["poster_path"], $movie["overview"], $movieDuration, GenreBdDAO::MapearGenre($genre));               
+                    array_push($listMovies, $movie);
+                    $this->listMovie = $listMovies;
+                    $this->SaveMovieInDB($movie);
+
+            }
+            //Cambio el array que trae la api por uno con la duracion como atributo añadido
+            $arrayToDecode["results"] = $moviesWithDuration;
+            //Al finalizar guardo el array que traje al principio en un json
+            $jsonContent = json_encode($arrayToDecode, JSON_PRETTY_PRINT);
+            file_put_contents($this->fileJsonMovie, $jsonContent);
+
     }
 
 }

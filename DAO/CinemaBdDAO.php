@@ -70,7 +70,7 @@ class CinemaBdDao {
     }
 
     public function GetCinemaById($idCinemaABuscar)
-    {
+    {    
         $cinema = null;
 
         $query = "SELECT * FROM " . $this->tableName . " WHERE (id_cinema = :id_cinema) ";

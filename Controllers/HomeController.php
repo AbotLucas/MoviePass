@@ -16,5 +16,9 @@
             else{
                 require_once(VIEWS_PATH."movie-list.php");
             } */
-        }  
+        }
+        
+        public function ShowWeAreWorkingView() {
+            require_once(VIEWS_PATH."we-are-working-error.php");
+        }
     }

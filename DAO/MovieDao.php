@@ -49,7 +49,7 @@ class MovieDao implements Imovie{
            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true):array();
 
            foreach($arrayToDecode as $movie){
-            $movie = new Movie($movie["id"], $movie["original_title"], $movie["original_language"], $movie["poster_path"], $movie["overview"], $movie["duration"]);
+            $movie = new Movie($movie["id"], $movie["original_title"], $movie["original_language"], $movie["poster_path"], $movie["overview"], $movie["duration"], $movie->genres[0]);
                array_push($this->listMovie, $movie);
            }
 
@@ -81,7 +81,7 @@ class MovieDao implements Imovie{
                     $movie["duration"] = $movieDuration;
                     array_push($moviesWithDuration, $movie);
             
-                    $movie = new Movie($movie["id"], $movie["original_title"], $movie["original_language"], $movie["poster_path"], $movie["overview"], $movieDuration);               
+                    $movie = new Movie($movie["id"], $movie["original_title"], $movie["original_language"], $movie["poster_path"], $movie["overview"], $movieDuration, $movie->genres[0]);               
                     array_push($movieList, $movie);
                     $this->listMovie = $movieList;
 

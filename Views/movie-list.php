@@ -39,7 +39,7 @@
         </thead>
         <tbody>
             <tr>
-                <?php if(count($MovieList)>4){ while ($count <= 5) {
+                <?php if(!is_array($MovieList)){echo $MovieList; $MovieList=array();} if(count($MovieList)>4){ while ($count <= 5) {
                     while ($count2 < $count * 4) { ?>
 
                         <td style="text-align: center; padding: 10px; max-width: calc(70%*0.25)">
