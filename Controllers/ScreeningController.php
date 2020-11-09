@@ -8,8 +8,9 @@ use DAO\MovieBdDao as MovieBdDao;
     use DAO\RoomBdDAO;
     use Models\Screening as Screening;
     use DAO\ScreeningBdDao as ScreeningBdDao;
+use DateTime;
 
-    class ScreeningController {
+class ScreeningController {
 
         private $screeningBdDAO;
 /*     <li><a href="<?php echo FRONT_ROOT."Screening/ShowAddScreeningView" ?>">Add Screening</a></li>
@@ -159,6 +160,102 @@ use DAO\MovieBdDao as MovieBdDao;
             }
             require_once(VIEWS_PATH. "movie-list.php");
         }
+
+        public function ValidateDateAndHour($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening) { 
+            
+            $screeningsOfRoom = $this->screeningBdDAO->getScreeningsFromARoom($id_room);
+
+            $screeningsOfRoomOnDate = [];
+
+            if(!empty($screeningsOfRoom)) {
+
+                foreach($screeningsOfRoom as $screening) {
+                    if($screening->getDate_screening()==$date_screening) {
+
+                        array_push($screeningsOfRoomOnDate, $screening);
+
+                    }
+                }
+
+                if(!empty($screeningsOfRoomOnDate)) {
+
+                    /* Traigo la hora de el nuevo screening y lo formateo en DateTime */
+                    $newScreeningHour = date("H:i:s", strtotime($hour_screening));
+                    $newScreeningHour = new DateTime($newScreeningHour);
+                    $newScreeningEndHour = $newScreeningHour;
+                    $newScreeningHour = strval($newScreeningHour->format("H:i"));
+                    /* Calculo la hora de finalizacion del  nuevo screening*/
+                    $newScreeningEndHour->modify("+". MovieBdDao::MapearMovie($id_movie)->getDuration() . " min");
+                    $newScreeningEndHour = strval($newScreeningEndHour->format("H:i"));
+
+                    $flag = false;
+
+                    foreach($screeningsOfRoomOnDate as $screeningOnDate) {
+                        
+                        /* Por cada screening calculo la hora de funcion en DateTime*/
+                        $hourOfScreening = date("H:i:s", strtotime($screeningOnDate->getHour_screening()));
+                        $hourOfScreening = new DateTime($hourOfScreening);
+                        $hourOfEndScreening = $hourOfScreening;
+                        $hourOfScreening = strval($hourOfScreening->format("H:i"));
+                        /* Por cada screening calculo la hora de finalizacion de la funcion en DateTime*/
+                        $hourOfEndScreening->modify('+15 min');
+                        $hourOfEndScreening->modify("+" . $screeningOnDate->getMovie()->getDuration() . "min");
+                        $hourOfEndScreening = strval($hourOfEndScreening->format("H:i"));
+                        /* Si la hora de comienozo de nuestra nueva screening esta entre el comienzo y final de otra screening, flag = true */
+                        if($this->hourIsBetween($hourOfScreening, $hourOfEndScreening, $newScreeningHour)) {
+                            $message = "Inicio de movie: " . $hourOfScreening . "|| Inicio Nueva Movie:" . $newScreeningHour . "|| Fin de Movie:" . $hourOfEndScreening .
+                            " <br>Movie Conflictiva: " . $screeningOnDate->getMovie()->getTitle();
+                            $flag = true;
+                        }
+                        else
+                        {   
+                            /* Si la hora de final de nustra nueva screening esta entre el comienzo y final de otra screening, flag = true */
+                            if($this->hourIsBetween($hourOfScreening, $hourOfEndScreening, $newScreeningEndHour)){
+                                $message = "Inicio de movie: " . $hourOfScreening . "|| Fin Nueva Movie:" . $newScreeningEndHour . "|| Fin de Movie:" . $hourOfEndScreening . 
+                                " <br>Movie Conflictiva: " . $screeningOnDate->getMovie()->getTitle();
+                                $flag = true;
+                            }
+                            else {
+                                $flag = false;
+                            }
+                        }
+                        
+
+                    }
+
+                    if($flag == false) {
+
+                        $this->AddScreening($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening);
+                    }
+                    else {
+
+                        $this->ShowScreeningsOfRoom("No se pudo cargar la screening, hay otras funciones en ese horario."."<br>".$message, $id_cinema, $id_room);
+
+                    }
+
+                }
+                else {
+                    $this->AddScreening($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening);
+                }
+
+            } else {
+                $this->AddScreening($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening);
+            }
+
+
+        }
+
+
+    private function hourIsBetween($from, $to, $input)
+    {
+        $dateFrom = DateTime::createFromFormat('!H:i', $from);
+        $dateTo = DateTime::createFromFormat('!H:i', $to);
+        $dateInput = DateTime::createFromFormat('!H:i', $input);
+        if ($dateFrom > $dateTo
+        ) $dateTo->modify('+1 day');
+        return ($dateFrom <= $dateInput && $dateInput <= $dateTo) || ($dateFrom <= $dateInput->modify('+1 day') && $dateInput <= $dateTo);
+    }
+
 
         public function AddScreening($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening) {
 

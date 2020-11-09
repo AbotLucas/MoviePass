@@ -29,7 +29,8 @@ class UserController {
                 require_once(VIEWS_PATH."login.php");
             }
             else{
-                require_once("");
+                $homeController = new HomeController();
+                $homeController->Index("ERROR: No puede acceder a esa ruta");
             }
         } 
 
@@ -57,7 +58,7 @@ class UserController {
         }
 
         public function LogInValidate($email,  $password) {
-
+            if(!isset($_SESSION["loginUser"])){
             $user = $this->userBdDAO->GetByUserName($email);
             if($user) {
                 if($user->getPassword() == $password) {
@@ -71,6 +72,9 @@ class UserController {
             }
             else {
                 $this->ShowLogInView("ERROR: The entered email is not registered");
+            }}
+            else {
+                $this->ShowLogInView("ERROR: You are already logged in!");
             }
         }
 

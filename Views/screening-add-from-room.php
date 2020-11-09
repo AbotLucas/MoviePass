@@ -6,7 +6,7 @@ include("nav-bar.php");
         <div class="content">
             <div id="comments">
             <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Add New Screening in <a href="#" style="font-size: 16px;"><?php echo $room->getName() . " - " . $cinema->getName(); ?></a></span></h2>
-                <form action="<?php echo  FRONT_ROOT . "Screening/AddScreening/"?>" method="post" style="padding: 2rem !important;">
+                <form action="<?php echo  FRONT_ROOT . "Screening/ValidateDateAndHour/"?>" method="post" style="padding: 2rem !important;">
                     <table style="width: 75%;">
                         <thead>
                             <tr>

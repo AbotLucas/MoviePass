@@ -17,29 +17,46 @@ class RoomController
             $this->roomBdDAO = new RoomBdDAO();
         }
 
-        public function ShowRoomListCinemas($id_cinema) {
-            $this->ShowListRoomView(" ", $id_cinema);
-        }
+        public function ShowRoomListCinemas($id_cinema="") {
 
-        public function ShowListRoomALLView($message ="")
-        {  
-               $this->roomBdDAO = new RoomBdDAO();
 
-           $roomList = $this->roomBdDAO->getAllRoom();
+            if (!isset($_SESSION["loginUser"]) || ($_SESSION["loginUser"]->getRole() != 1)) {
 
-           if(!isset($_SESSION["loginUser"])){
-
-            $message = "Upps, needs to be logged! ;)";
-            require_once(VIEWS_PATH."login.php");
-        }
-        else {
-            if($roomList) {
-                require_once(VIEWS_PATH."cinemaANDroom-list.php");     
+                if (isset($_SESSION["loginUser"])) {
+                    $message = "Upps, needs to be Admin! ;)";
+                } else {
+                    $message = "Upps, needs to be logged! ;)";
+                }
+    
+                require_once(VIEWS_PATH . "login.php");
+            } else {
+                $this->ShowListRoomView(" ", $id_cinema);
             }
-           
+
+            
         }
-         
+
+    public function ShowListRoomALLView($message = "")
+    {
+        $this->roomBdDAO = new RoomBdDAO();
+
+        $roomList = $this->roomBdDAO->getAllRoom();
+
+        if (!isset($_SESSION["loginUser"]) || ($_SESSION["loginUser"]->getRole() != 1)) {
+
+            if (isset($_SESSION["loginUser"])) {
+                $message = "Upps, needs to be Admin! ;)";
+            } else {
+                $message = "Upps, needs to be logged! ;)";
+            }
+
+            require_once(VIEWS_PATH . "login.php");
+        } else {
+            if ($roomList) {
+                require_once(VIEWS_PATH . "cinemaANDroom-list.php");
+            }
         }
+    }
 
         public function ShowListRoomView($message="", $id_cinema)
         {   

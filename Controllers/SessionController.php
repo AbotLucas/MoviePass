@@ -36,9 +36,8 @@
                 require_once(VIEWS_PATH."login.php");
             }
             else {
-            $id_movie = $message;
-            $message = "";
-            require_once(VIEWS_PATH."movie-list.php");
+                $homeController = new HomeController();
+                $homeController->Index("ERROR: No puede acceder a esa ruta");
             }
         }       
        

@@ -22,7 +22,6 @@
             }
             catch(Exception $ex)
             {   
-                echo "Creando DATABASE";
                 $this->createDatabase();
             }
         }

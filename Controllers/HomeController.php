@@ -12,7 +12,7 @@ class HomeController
         {   
             $this->InicSystem();
             $MovieController = new MovieController();
-            $MovieController->listMovies();
+            $MovieController->listMovies($message);
            
             
         }
