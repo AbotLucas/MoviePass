@@ -311,6 +311,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 	-o-background-size: cover;
 	background-size: cover;
 	height: 100%;
+	display: inherit;
 
  }
 

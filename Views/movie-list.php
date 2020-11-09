@@ -77,7 +77,9 @@
 
                         </td>
 
-                <?php $count++;}} ?>
+                <?php $count++;
+                    }
+                } ?>
                 </tr>
 
             </tbody>
@@ -85,36 +87,44 @@
 
             </tfoot>
         </table>
+
+
         <table class="homeTable" style="width: 70%; margin-top: 40px; max-height: 270px;">
-    <?php if(is_array($upcomingList) && !empty($upcomingList)){?>
-        
-        <thead>
-            <th colspan="6">Upcoming!</th>
-        </thead>
-        <tbody>
-            <tr>
-        <?php $count = 0; foreach($upcomingList as $movie){ if($count==6){break;} ?>
-        
-                <td style="text-align: center; padding: 10px; ">
-                            <a href="<?php echo FRONT_ROOT . "Movie/ShowIncomingInfo/" . "?id_movie=" . $movie->getId_movie(); ?>">
+            <?php if (is_array($upcomingList) && !empty($upcomingList)) { ?>
 
-                                <div class="div-img">
-                                    <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $movie->getUrlImage(); ?>" alt="<?php echo $movie->getTitle(); ?>" style="max-width: 91.2px; max-height:136.8px">
-                                </div>
-                            </a>
-                            <br>
-                            <a href="#" style="font-weight: bold;"><?php echo $movie->getTitle(); ?></a>
+                <thead>
+                    <th colspan="6">Upcoming!</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <?php $count = 0;
+                        foreach ($upcomingList as $movie) {
+                            if ($count == 6) {
+                                break;
+                            } ?>
+
+                            <td style="text-align: center; padding: 10px; ">
+                                <a href="<?php echo FRONT_ROOT . "Movie/ShowIncomingInfo/" . "?id_movie=" . $movie->getId_movie(); ?>">
+
+                                    <div class="div-img">
+                                        <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $movie->getUrlImage(); ?>" alt="<?php echo $movie->getTitle(); ?>" style="max-width: 91.2px; max-height:136.8px">
+                                    </div>
+                                </a>
+                                <br>
+                                <a href="#" style="font-weight: bold;"><?php echo $movie->getTitle(); ?></a>
 
 
-                        </td>
-                
-                <?php $count++; }}?>
-                </tr>
+                            </td>
 
-        </tbody>
-        <tfoot>
+                    <?php $count++;
+                        }
+                    } ?>
+                    </tr>
 
-        </tfoot>
-    </table>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+        </table>
 
 </div>

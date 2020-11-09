@@ -26,7 +26,7 @@
             <th style="width: 25%;" >Action</th>
             </tr>
             <td style="background-color: #1a1c20;">
-            <span style="color: yellow; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT."Screening/ShowAddScreeningView" ?>">+Add</a></span>
+            <span style="color: yellow; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT . "Screening/AddScreeningFromRoom" . "?id_cinema=" . $cinema->getId_Cinema() . "&id_room=" . $room->getId_room(); ?>">+Add</a></span>
           </td>
           <td style="background-color: #1a1c20">
             - - - -

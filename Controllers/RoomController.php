@@ -95,12 +95,12 @@ class RoomController
             
             if(isset($_POST['id_remove'])){
 
-                $this->RemoveRoomFromDB($id_room, $id_cinema);
+                $this->RemoveRoomFromDB($id_cinema, $id_room);
             
             }
             else if (isset($_POST['id_modify'])) {
                
-                $this->ShowModififyView($id_cinema);
+                $this->ShowModififyView($id_room);
              
             }
             else if (isset($_POST['id_add_screenings'])) {
@@ -119,6 +119,7 @@ class RoomController
 
         public function ShowModififyView($id_room){
             $room = RoomBdDAO::MapearRoom($id_room);
+            $cinema = CinemaBdDAO::MapearCinema($room->getCinema()->getId_Cinema());
             
             if(!isset($_SESSION["loginUser"])){
                 $message = "Upps, needs to be logged! ;)";

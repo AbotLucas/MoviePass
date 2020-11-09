@@ -22,7 +22,7 @@ require_once('nav-bar.php');
                 <th style="width: 30%;">Action</th>
               </tr>
               <td style="background-color: #1a1c20;">
-                <span style="color: yellow; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT . "Room/ShowAddRoomView" . "?id_cinema=" . $cinema->getId_Cinema(); ?>">+Add</a></span>
+                <span style="color: yellow; padding: 2px; font-weight: bold"><a href="<?php echo FRONT_ROOT . "Room/ShowAddRoom" . "?id_cinema=" . $cinema->getId_Cinema(); ?>">+Add</a></span>
               </td>
               <td style="background-color: #1a1c20">
                 - - - -
