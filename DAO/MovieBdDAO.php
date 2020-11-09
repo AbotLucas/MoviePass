@@ -271,4 +271,73 @@ class MovieBdDao {
 
     }
 
+    public function GetUpcomingMoviesFromAPI() {
+        return $this->GetUpcomingMoviesFromAPIDB();
+    }
+
+    private function GetUpcomingMoviesFromAPIDB() {
+
+        $listMovies = array();
+
+        $value = strval(random_int(4,10));
+
+        $jsonContent = file_get_contents("https://api.themoviedb.org/3/movie/upcoming?api_key=edb67d13cecee476561844a5ab40881c&language=en-US&page=".$value);
+
+            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+
+            $arrayDePelis = $arrayToDecode["results"]; // Decodifico el array de resultados, porque la api trae otro que se llama "DATA"
+            $count = 0;
+            //Lo recorro y cargo una movie en un array por cada posicion del array
+            foreach ($arrayDePelis as $movie) 
+            {        
+                    if($count == 6){
+                        break;
+                    }
+
+                    $movieDuration = $this->GetMovieDuration($movie["id"]);
+                    $movie["duration"] = $movieDuration;
+
+                    $genres = $movie["genre_ids"];
+                    if(!empty($genres)){
+                     
+                        $genre = $genres[0];
+                    
+                    }
+                    else {
+                        $genre = 10770;
+                    }
+                    $movie = new Movie($movie["id"], $movie["original_title"], $movie["original_language"], $movie["poster_path"], $movie["overview"], $movieDuration, GenreBdDAO::MapearGenre($genre));               
+
+                    array_push($listMovies, $movie);
+                    
+                    $count++;
+                    
+
+            }
+
+            return $listMovies;
+            //Cambio el array que trae la api por uno con la duracion como atributo añadido
+            /* $arrayToDecode["results"] = $moviesWithDuration; */
+            //Al finalizar guardo el array que traje al principio en un json
+            /* $jsonContent = json_encode($arrayToDecode, JSON_PRETTY_PRINT);
+            file_put_contents($this->fileJsonMovie, $jsonContent); */
+        
+    }
+    
+    public function GetPageOfIncomingMovieFromAPI($id_movie) {
+        $jsonContent = file_get_contents("https://api.themoviedb.org/3/movie/".$id_movie."?api_key=edb67d13cecee476561844a5ab40881c&language=en-US");
+
+        $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+
+        if(!empty($arrayToDecode["homepage"])){
+
+            return $arrayToDecode["homepage"];
+            
+        }
+        else
+        {
+            return "";
+        }
+    }
+
 }

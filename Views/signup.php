@@ -29,6 +29,11 @@ include_once('nav-bar.php');
             <label style="font-weight: bold;">Confirm Password</label>
             <input name="password2" type="password" placeholder="Insert yor password again" style="max-width: 20%;" required />
           </div>
+
+          <div>
+            <span style="font-weight: bold;"> Ya estas registrado? <a href="<?php echo FRONT_ROOT."Session/ShowLogInView"?>">Hace click acá!</a></span>
+          </div> 
+          <br>
           
           <input type="submit" value="Sign Up" class="btn" style="background-color:#DC8E47;color:white;" />
 

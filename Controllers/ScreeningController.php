@@ -3,7 +3,8 @@
     namespace Controllers;
 
     use DAO\CinemaBdDao;
-    use DAO\MovieBdDao as MovieBdDao;
+use DAO\GenreBdDAO;
+use DAO\MovieBdDao as MovieBdDao;
     use DAO\RoomBdDAO;
     use Models\Screening as Screening;
     use DAO\ScreeningBdDao as ScreeningBdDao;
@@ -102,7 +103,61 @@
 
         public function ApplyFilters() 
         {
+            
+            if(isset($_POST["filter_radio"])){
+                if(($_POST["filter_radio"]=="date")&&(!empty($_POST["date"]))){
+                    $this->listMoviesWithFilter("date", $_POST["date"]);
+                }
+                else if (($_POST["filter_radio"]=="genre")&&(!empty($_POST["genre"]))){
+                    $this->listMoviesWithFilter("genre", $_POST["genre"]);
+                }
+                else {
+                    $movieController = new MovieController();
+                    $message = "Si desea filtrar las peliculas en cartelera<br>Recuerde asignar correctamente los filtros.<br>(Date->Date // Genre->Genre)";
+                    $movieController->listMovies($message);
+                }
+            }
 
+        }
+        
+        public function listMoviesWithFilter($filter, $value) {
+
+            $MovieList = [];
+            $MovieController = new MovieController();
+            $allMoviesWithScreening = $MovieController->getMoviesList();
+
+            
+
+            if($filter == "date") {
+
+                $allScreenings = $this->screeningBdDAO->GetScreeningsFromDate($value);
+                foreach($allScreenings as $screening) {
+                    array_push($MovieList, $screening->getMovie());
+                }
+                $filterMessage = " || Date: " .  $value;
+
+            }
+            else if($filter == "genre") {
+                foreach($allMoviesWithScreening as $movie) {
+                    if($movie->getGenre()->getId_genre() == $value){
+                        array_push($MovieList, $movie);
+                    }
+                }
+                $value = GenreBdDAO::MapearGenre($value);
+                $filterMessage = " || Genre: " .  $value->getGenreName();
+            }
+
+            $screeningController = new ScreeningController();
+            $genresOfScreenings = $screeningController->GetGenresOfScreenings();
+            $datesOfScreenings = $screeningController->GetDatesOfScreenings();
+    
+            $upcomingList = $MovieController->GetUpcomingMoviesFromAPI();
+
+            $count = 0;
+            if(is_array($MovieList) && !empty($MovieList)) {
+            $cantidadDeMovies = count($MovieList);
+            }
+            require_once(VIEWS_PATH. "movie-list.php");
         }
 
         public function AddScreening($id_movie, $id_cinema, $id_room, $date_screening, $hour_screening) {
@@ -173,12 +228,6 @@
         public function GetDatesOfScreenings() {
             return $this->screeningBdDAO->GetDatesOfScreenings();
         }
-
-        
-
-
-
-
 
 }
 

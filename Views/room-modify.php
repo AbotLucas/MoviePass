@@ -1,12 +1,15 @@
-<?php 
- include('nav-bar.php');
+<?php
+
+use Models\Room;
+
+include('nav-bar.php');
 ?>
 
 <div class="wrapper row4 diseño" style="position: fixed;top: 23%; background-color: rgba(0,0,0,0);" >
 <main class="container clear"> 
     <div class="content"> 
       <div id="comments" >
-      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Modify Room</span></h2>
+      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Modify Room <?php echo $room->getName()." || ". $cinema->getName();?></span></h2>
         <form action="<?php echo  FRONT_ROOT."Room/modify"?>" method="post" style="padding: 2rem !important;">
           <table style="width:60%"> 
             <thead>
