@@ -3,6 +3,7 @@
 
     use Models\Cinema as Cinema;
     use DAO\CinemaBdDao as CinemaBdDAO;
+    use Controllers\RoomController as RoomController;
     use Controllers\Functions;
     use PDOException;
 
@@ -26,10 +27,12 @@
             }
         }
 
-        public function ShowModififyView($id_cinema){
+        public function ShowModififyView($message ="",$id_cinema){
 
             $cinema = CinemaBdDAO::MapearCinema($id_cinema);
-            
+
+            $_SESSION['id']= $id_cinema;
+
             if(!isset($_SESSION["loginUser"])){
                 $message = "Upps, needs to be logged! ;)";
                 require_once(VIEWS_PATH."login.php");
@@ -79,7 +82,7 @@
 
             }elseif(isset($_POST['id_modify'])){
                
-                $this->ShowModififyView($id_cinema);
+                $this->ShowModififyView($message ="",$id_cinema);
                
             }elseif(isset($_POST['add_room'])){
 
@@ -116,7 +119,8 @@
                 } catch (PDOException $ex){
                     $message = $ex->getMessage();
                     if(Functions::contains_substr($message, "Duplicate entry")) {
-                        $message = "Alguno de los datos ingresados (Address/Name) ya existe en la BD. Reintente.";
+                        
+                        $message = "some of the data entered (Address/Name) already exists . repeated";
                         $this->ShowAddCinemaView($message);
                     }
                 }
@@ -157,21 +161,28 @@
 
     public function modify($name, $address){
 
-        if(isset($_POST["cancel"])){
+               $id = $_SESSION['id'];
 
-            $this->ShowListCinemaView();
+               if(isset($_POST['cancel'])){
 
+                $this->ShowListCinemaView("operacion cancelada!"); 
+
+               }elseif(isset($_POST['Modify'])){
+
+               try{
+             $this->cinemaBdDAO->ModifyCinemaInBd($id,$name, $address);
+             $this->ShowListCinemaView("Cinema modify succesfully!");
+           }catch (PDOException $ex){
+                $message = $ex->getMessage();
+                if(Functions::contains_substr($message, "Duplicate entry")) {
+                    $message = "some of the data entered (Address/Name) already exists . repeated";
+                    $this->ShowModififyView($message,$id);
+                }
+            }
+        } else{
+            $this->ShowListCinemaView("Failed in cinema adding!");
         }
-        else {
-
-            $id = $_SESSION['id'];
-            $this->cinemaBdDAO->ModifyCinemaInBd($_SESSION["id"], $name, $address);
-            $this->ShowListCinemaView("Cinema modify succesfully!");
-
-        }
-    }
-    
 }
-    
+}  
     
 ?>

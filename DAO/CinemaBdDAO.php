@@ -130,10 +130,10 @@ class CinemaBdDao {
 
         //$query = "UPDATE " . $this->tableName . " SET name=$name, address=$address WHERE id_cinema=1";
         $query = "UPDATE " . $this->tableName . " SET name=:name, address=:address WHERE (id_cinema=:id_cinema)";
-        
+      
         $parameters["name"] = $name;
         $parameters["address"] = $address;
-        $parameters["id_cinema"] = intval($id_cinema);
+        $parameters["id_cinema"] =$id_cinema;
         try {
             $this->connection = Connection::GetInstance();
             return $this->connection->ExecuteNonQuery($query, $parameters);

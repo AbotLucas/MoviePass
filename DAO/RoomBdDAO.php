@@ -171,11 +171,12 @@ class RoomBdDAO {
     
             //$query = "UPDATE " . $this->tableName . " SET name=$name, address=$address WHERE id_cinema=1";
             $query = "UPDATE " . $this->tableName . " SET name=:name, capacity=:capacity, ticketValue=:ticketValue WHERE (id_room=:id_room)";
-            
+           
+      
             $parameters["name"] = $name;
             $parameters["capacity"] = $capacity;
             $parameters["ticketValue"] = $ticketValue;
-            $parameters["id_room"] = intval($id_room);
+            $parameters["id_room"] = $id_room;
     
             try {
                 $this->connection = Connection::GetInstance();

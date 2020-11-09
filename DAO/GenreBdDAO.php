@@ -4,7 +4,7 @@
 use Exception;
 use Models\Genre as Genre;
 
-    class GenreBdDAO {
+    class GenreBdDAO{
 
         private $tableName = "genre";
         private $connection;

@@ -21,6 +21,26 @@ class RoomController
             $this->ShowListRoomView(" ", $id_cinema);
         }
 
+        public function ShowListRoomALLView($message ="")
+        {  
+               $this->roomBdDAO = new RoomBdDAO();
+
+           $roomList = $this->roomBdDAO->getAllRoom();
+
+           if(!isset($_SESSION["loginUser"])){
+
+            $message = "Upps, needs to be logged! ;)";
+            require_once(VIEWS_PATH."login.php");
+        }
+        else {
+            if($roomList) {
+                require_once(VIEWS_PATH."cinemaANDroom-list.php");     
+            }
+           
+        }
+         
+        }
+
         public function ShowListRoomView($message="", $id_cinema)
         {   
             $this->roomBdDAO = new RoomBdDAO();
@@ -68,7 +88,7 @@ class RoomController
                 } catch (PDOException $ex){
                     $message = $ex->getMessage();
                     if(Functions::contains_substr($message, "Duplicate entry")) {
-                        $message = "Alguno de los datos ingresados ya existe en la BD. Reintente.";
+                        $message = "some of the data entered";
                         $newShowListCinema->ShowListCinemaView($message);
                     }
                 }
@@ -131,11 +151,22 @@ class RoomController
         
         public function modify($name, $capacity, $ticketValue, $id_room){
 
+            try{
+
             $this->roomBdDAO->ModifyRoomInBd($name, $capacity, $ticketValue, $id_room);
             $room = RoomBdDAO::MapearRoom($id_room);
             $this->ShowListRoomView("Room modify succesfully!", $room->getCinema()->getId_Cinema());
-   
-           }
+
+              }catch (PDOException $ex){
+                   $message = $ex->getMessage();
+                   if(Functions::contains_substr($message, "Duplicate entry")) {
+                       $message = "some of the data entered (Address/Name) already exists . repeated";
+                       $this->ShowListRoomView("Room modify succesfully!", $room->getCinema()->getId_Cinema());
+                   }else{
+                    $this->ShowListCinemaView("Failed in cinema adding!");
+                   }
+           } 
+        }
 
         public function ShowAddRoomView($id_cinema) {
             $cinema = CinemaBdDAO::MapearCinema($id_cinema);
