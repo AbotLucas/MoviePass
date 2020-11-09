@@ -3,6 +3,8 @@
 
 use DAO\GenreBdDAO;
 use Exception;
+use Controllers\MovieController as MovieController;
+
 
 class HomeController
     {
@@ -11,6 +13,7 @@ class HomeController
             $this->InicSystem();
             $MovieController = new MovieController();
             $MovieController->listMovies();
+           
             
         }
         

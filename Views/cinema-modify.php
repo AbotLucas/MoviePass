@@ -10,6 +10,7 @@
         <form action="<?php echo  FRONT_ROOT."Cinema/modify"?>" method="post" style="padding: 2rem !important;">
           <table style="width:60%"> 
             <thead>
+            <?php if ($message) { echo "<h3>" . $message . "</h3><br>";} ?>
               <tr>
                 <th>New Name</th>
                 <th>New Address</th>
@@ -18,22 +19,22 @@
             <tbody align="center">
               <tr>
                 <td style="width: 25%;">
-                  <input type="text" name="name" min="1" max="30" size="30"  placeholder="New name of the cinema" required>
+                  <input type="text" name="name" min="1" max="30" size="30"  placeholder="New name of the cinema" >
                 </td>
                 <td style="width: 25%">
-                  <input type="text" name="address" size="20" min="1" max="30" placeholder="New address of the cinema" required>
+                  <input type="text" name="address" size="20" min="1" max="30" placeholder="New address of the cinema" >
                 </td>
                         
               </tr>
               </tbody>
               <tfoot>
                 
-              <td style="background-color: #1a1c20; text-align: center; font-weight: bold;"><?php echo "Old Name:  '".$cinema->getName()."'"; ?></td>
+              <td style="background-color: #1a1c20; text-align: center; font-weight: bold;"><?php echo "Old Name:  '". $cinema->getName() ."'"; ?></td>
               <td style="background-color: #1a1c20; text-align: center; font-weight: bold;"><?php echo "Old Address:  '".$cinema->getAddress()."'"; ?></td>
               </tfoot>
           </table>
           <div>
-            <input type="submit" class="btn" value="Modify" style="background-color:#DC8E47;color:white;"/>
+            <input type="submit" class="btn" value="Modify" name="Modify" style="background-color:#DC8E47;color:white;"/>
             <input type="submit" class="btn" value="cancel" name="cancel" style="background-color: black;color: #dc8e47;"/>
             <br>
           </div>

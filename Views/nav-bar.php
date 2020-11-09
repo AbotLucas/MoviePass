@@ -23,7 +23,12 @@
         <?php
         } else { if($_SESSION["loginUser"]->getRole() == 1){
         ?>
-          <li><a href="<?php echo FRONT_ROOT . "Cinema/ShowListCinemaView" ?>">Cinemas</a></li>
+         <li><a class="drop" href="#">Cinemas</a>
+              <ul>
+              <li><a href="<?php echo FRONT_ROOT."Cinema/ShowListCinemaView" ?>">Show List Cinema</a></li>
+              <li><a href="<?php echo FRONT_ROOT."Room/ShowListRoomALLView" ?>">Show List Room</a></li>
+              </ul>
+            </li>
         <?php }?>
           <!-- <li><a href="<?php //echo FRONT_ROOT . "Screening/ShowListScreeningView" ?>">Screenings</a></li> -->
           <li><a class="drop" href="#">Session</a>
