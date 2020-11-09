@@ -292,6 +292,50 @@ use Models\Room;
             }
 
         }
+        public function GetScreeningsFromDate($date_screening) {
+            $screeningArray = $this->GetScreeningsFromDateDB($date_screening);
+
+            if(!empty($screeningArray)) {
+                
+                $result = $this->mapear($screeningArray);
+                
+                if(is_array($result)) {
+                    
+                    $this->listScreening = $result;
+                }
+                else {
+                    
+                    $arrayResult[0] = $result;
+                    $this->listScreening = $arrayResult;
+                }
+                
+                return $this->listScreening;
+            }
+            else {
+                return $errorArray[0] = "Error al leer la base de datos.";
+            }
+
+        }
+
+        private function GetScreeningsFromDateDB($date_screening) {
+
+            $query = "SELECT * FROM screening WHERE date_screening = :date_screening";
+
+            $parameters["date_screening"] = $date_screening;
+
+            try{
+
+                $this->connection = Connection::GetInstance();
+                return $this->connection->Execute($query, $parameters);
+
+
+            } catch (Exception $ex) {
+
+                throw $ex->getMessage();
+            }
+
+
+        }
 
 
 

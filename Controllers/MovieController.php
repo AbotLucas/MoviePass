@@ -34,6 +34,8 @@ class MovieController {
         $genresOfScreenings = $screeningController->GetGenresOfScreenings();
         $datesOfScreenings = $screeningController->GetDatesOfScreenings();
 
+        $upcomingList = $this->movieBdDao->GetUpcomingMoviesFromAPI();
+
         $MovieController = new MovieController();
         $MovieList = $MovieController->getMoviesList();
         $count = 0;
@@ -42,6 +44,7 @@ class MovieController {
         }
         require_once(VIEWS_PATH. "movie-list.php");
     }
+    
     
     public function ShowMovieSheet($id_movie) {
         //$screeningList = ScreeningBdDAO::GetScreeningsFromMovie($id_movie);
@@ -60,6 +63,22 @@ class MovieController {
 
     public function GetNowPlayingFromAPI() {
         $this->movieBdDao->GetNowPlayingFromAPI();
+    }
+
+    public function GetUpComingMoviesFromAPI() {
+        return $this->movieBdDao->GetUpcomingMoviesFromAPI();
+    }
+
+    public function ShowIncomingInfo($id_movie) {
+        
+        $url = $this->movieBdDao->GetPageOfIncomingMovieFromAPI($id_movie);
+
+        if(!empty($url)){
+            header('location:' . $url);
+        }
+        else {
+            $this->listMovies("We havent info about that movie yet! Sorry!");
+        }
     }
 
 }
