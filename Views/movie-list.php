@@ -16,52 +16,46 @@
             <form action="<?php echo FRONT_ROOT . "/Screening/ApplyFilters" ?>" method="POST" style="background-color: #321f28; padding: 5px; display:flex">
                 
                 <div>
-                    <label for="date">Date</label>
-                    <input type="date" id="date">
-                </div>
-                &nbsp;
-                <div>
-                    <label for="gender">Gender</label>
-                    <select name="gender" id="gender">
-                        <option value="">Genero1</option>
-                        <option value="">Genero2</option>
-                        <option value="">Genero3</option>
+                    Date
+                    <input type="radio" value="" id="date" name="filter_radio" style="margin: auto; display: inline-flex;width: 10px;" required>
+                    <select name="date" id="date">
+                        <option value="" disable_selected>--Select a Date--</option>
+                        <?php foreach($datesOfScreenings as $date){?> 
+
+                            <option value="<?php echo $date['date_screening']; ?>"><?php echo $date['date_screening']; ?></option>
+                            
+                        <?php } ?>
                     </select>
                 </div>
                 &nbsp;
-                <button type="submit" class="" style="width: 50px; height:25px; align-self: flex-end;;">Apply</button>
+                <div>
+                    Genre
+                    <input type="radio" value="" id="genre" name="filter_radio" style="margin: auto; display: inline-flex;width: 10px;">
+                    <select name="gender" id="gender">
+                        <option value="" disable_selected>--Select a Genre--</option>
+                        <?php foreach($genresOfScreenings as $genre){?>
+
+                        <option value="<?php echo $genre->getId_genre(); ?>"><?php echo $genre->getGenreName(); ?></option>
+                        
+                        <?php } ?>
+                    </select>
+                </div>
+                &nbsp;
+                <button type="submit" style="width: 50px; height:25px; align-self: flex-end;;">Apply</button>
             </form>
         </div>
     </div>
-    <table class="homeTable" style="width: auto; max-width: 70%; margin-top: 40px">
+    
+               
+        <?php if(is_array($MovieList) && !empty($MovieList)){?>
+        <table class="homeTable" style="width: 70%; margin-top: 40px">
         <thead>
-            <th colspan="4">Cartelera</th>
+            <th colspan="6">Cartelera</th>
         </thead>
         <tbody>
             <tr>
-                <?php if(!is_array($MovieList)){echo $MovieList; $MovieList=array();} if(count($MovieList)>4){ while ($count <= 5) {
-                    while ($count2 < $count * 4) { ?>
-
-                        <td style="text-align: center; padding: 10px; max-width: calc(70%*0.25)">
-                            <a href="<?php echo FRONT_ROOT . "Movie/ShowMovieSheet/" . "?id_movie=" . $MovieList[$count2]->getId_movie(); ?>">
-
-                                <div class="div-img">
-                                    <img class="img" src="http://image.tmdb.org/t/p/w200<?php echo $MovieList[$count2]->getUrlImage(); ?>" alt="<?php echo $MovieList[$count2]->getTitle(); ?>" style="max-width: 200px; max-height:300px">
-                                </div>
-                            </a>
-                            <br>
-                            <a href="#" style="font-weight: bold;"><?php echo $MovieList[$count2]->getTitle(); ?></a>
-
-
-                        </td>
-
-                    <?php $count2++;
-                    } ?>
-            </tr>
-            <tr>
-        <?php $count++;
-                }} else { foreach($MovieList as $movie){ ?>
-                
+        <?php foreach($MovieList as $movie){ if($count==6) { echo "</tr><tr>"; $count = 0;}?>
+        
                 <td style="text-align: center; padding: 10px; ">
                             <a href="<?php echo FRONT_ROOT . "Movie/ShowMovieSheet/" . "?id_movie=" . $movie->getId_movie(); ?>">
 
@@ -75,7 +69,7 @@
 
                         </td>
                 
-                <?php }}?>
+                <?php $count++; }}?>
                 </tr>
 
         </tbody>

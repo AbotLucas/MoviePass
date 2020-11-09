@@ -29,10 +29,17 @@ class MovieController {
     }
 
     public function listMovies($message = "") {
+        /* Levanto los genres y dates de las screening para el filterform */
+        $screeningController = new ScreeningController();
+        $genresOfScreenings = $screeningController->GetGenresOfScreenings();
+        $datesOfScreenings = $screeningController->GetDatesOfScreenings();
+
         $MovieController = new MovieController();
         $MovieList = $MovieController->getMoviesList();
         $count = 0;
-        $count2 = 0;
+        if(is_array($MovieList) && !empty($MovieList)) {
+        $cantidadDeMovies = count($MovieList);
+        }
         require_once(VIEWS_PATH. "movie-list.php");
     }
     
@@ -49,6 +56,10 @@ class MovieController {
 
     public function GetMoviesWithoutScreening($id_room) {
         return $this->movieBdDao->GetMoviesWithOutScreening($id_room);
+    }
+
+    public function GetNowPlayingFromAPI() {
+        $this->movieBdDao->GetNowPlayingFromAPI();
     }
 
 }

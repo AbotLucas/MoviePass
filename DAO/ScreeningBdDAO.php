@@ -212,6 +212,87 @@ use Models\Room;
             return count($resp) > 1 ? $resp : $resp['0'];
         }
 
+        public function GetGenresOfScreenings() {
+            
+            $genderList = $this->BringGenresOfScreeningsDb();
+            $result = [];
+
+            if(!empty($genderList)) {
+                
+                foreach($genderList as $genre) {
+                    array_push($result, GenreBdDAO::MapearGenre($genre["id_genre"]));
+                }
+                
+                if(is_array($result)) {
+                    
+                    return $result;
+                }
+                else {
+                    
+                    $arrayResult[0] = $result;
+                    return $arrayResult;
+                }
+            }
+            else {
+                return $errorArray[0] = "No hay generos cargados. ERROR";
+            }
+
+        }
+
+        private function BringGenresOfScreeningsDb() {
+
+            $query = "select distinct g.id_genre, g.genrename 
+                        FROM movie m
+                        inner join screening s
+                        on m.id_movie = s.idmovie
+                        inner join genre g
+                        on m.idgenre = g.id_genre;";
+
+            try{
+
+                $this->connection = Connection::GetInstance();
+                return $this->connection->Execute($query);
+
+
+            } catch (Exception $ex) {
+
+                throw $ex->getMessage();
+            }
+
+        }
+        public function GetDatesOfScreenings() {
+            
+            $datesList = $this->BringDatesOfScreeningsDb();
+
+            if(!empty($datesList)) {
+
+                return $datesList;
+                
+            }
+            else {
+                return $errorArray[0] = "No hay generos cargados. ERROR";
+            }
+
+        }
+
+        private function BringDatesOfScreeningsDb() {
+
+            $query = "select distinct s.date_screening
+                        from screening s;";
+
+            try{
+
+                $this->connection = Connection::GetInstance();
+                return $this->connection->Execute($query);
+
+
+            } catch (Exception $ex) {
+
+                throw $ex->getMessage();
+            }
+
+        }
+
 
 
     }

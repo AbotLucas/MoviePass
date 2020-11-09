@@ -20,7 +20,7 @@
                         "<br> Language: " . $movie->getLanguage().
                         "<br> Genre: " . $movie->getGenre()->getGenreName(); ?>
                 </p>
-                <details style="background-color:rgba(50, 31, 40, 0.9); padding: 4%, font-size:10px;">
+                <details style="background-color:rgba(50, 31, 40, 0.9); padding: 4%">
                     <summary>Screenings</summary>
                     
                     <?php foreach($screeningList as $screening) { ?>

@@ -166,6 +166,14 @@
 
         }
 
+        public function GetGenresOfScreenings() {
+           return $this->screeningBdDAO->GetGenresOfScreenings();
+        }
+
+        public function GetDatesOfScreenings() {
+            return $this->screeningBdDAO->GetDatesOfScreenings();
+        }
+
         
 
 
