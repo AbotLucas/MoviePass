@@ -216,7 +216,6 @@ use DAO\MovieBdDao as MovieBdDao;
         }
 
         public function GetAllScreeningsFromMovie($id_movie) {
-
             return $this->screeningBdDAO->GetScreeningsFromAMovie($id_movie);
 
         }

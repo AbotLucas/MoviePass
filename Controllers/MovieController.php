@@ -49,9 +49,11 @@ class MovieController {
     public function ShowMovieSheet($id_movie) {
         //$screeningList = ScreeningBdDAO::GetScreeningsFromMovie($id_movie);
         $movie = MovieBdDao::MapearMovie($id_movie);
-
+        
         $screeningController = new ScreeningController();
+
         $screeningList = $screeningController->GetAllScreeningsFromMovie($id_movie);
+        
         $cinemaName = $screeningList[0]->getRoom()->getCinema()->getName();
 
         require_once(VIEWS_PATH. "movie-sheet.php");

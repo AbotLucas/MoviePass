@@ -133,25 +133,6 @@
             "duration": 100
         },
         {
-            "popularity": 609.644,
-            "vote_count": 32,
-            "video": false,
-            "poster_path": "\/oAuBztpKuTIHb8nLl6miXIy0Sj9.jpg",
-            "id": 499338,
-            "adult": false,
-            "backdrop_path": "\/AuZgtWv4ZRhqD8u9JJMxTQbhz9q.jpg",
-            "original_language": "en",
-            "original_title": "I Believe",
-            "genre_ids": [
-                10751
-            ],
-            "title": "I Believe",
-            "vote_average": 6.5,
-            "overview": "A 9 year old boy experiences God's power in a supernatural way.",
-            "release_date": "2017-11-07",
-            "duration": 90
-        },
-        {
             "popularity": 921.649,
             "vote_count": 723,
             "video": false,
@@ -214,28 +195,6 @@
             "duration": 96
         },
         {
-            "popularity": 587.276,
-            "vote_count": 304,
-            "video": false,
-            "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
-            "id": 590223,
-            "adult": false,
-            "backdrop_path": "\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg",
-            "original_language": "en",
-            "original_title": "Love and Monsters",
-            "genre_ids": [
-                28,
-                12,
-                35,
-                878
-            ],
-            "title": "Love and Monsters",
-            "vote_average": 7.7,
-            "overview": "Seven years after the Monsterpocalypse, Joel Dawson, along with the rest of humanity, has been living underground ever since giant creatures took control of the land. After reconnecting over radio with his high school girlfriend Aimee, who is now 80 miles away at a coastal colony, Joel begins to fall for her again. As Joel realizes that there\u2019s nothing left for him underground, he decides against all logic to venture out to Aimee, despite all the dangerous monsters that stand in his way.",
-            "release_date": "2020-10-16",
-            "duration": 109
-        },
-        {
             "popularity": 626.221,
             "vote_count": 343,
             "video": false,
@@ -258,24 +217,23 @@
             "duration": 106
         },
         {
-            "popularity": 480.108,
-            "vote_count": 1579,
+            "popularity": 609.644,
+            "vote_count": 32,
             "video": false,
-            "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
-            "id": 613504,
+            "poster_path": "\/oAuBztpKuTIHb8nLl6miXIy0Sj9.jpg",
+            "id": 499338,
             "adult": false,
-            "backdrop_path": "\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg",
+            "backdrop_path": "\/AuZgtWv4ZRhqD8u9JJMxTQbhz9q.jpg",
             "original_language": "en",
-            "original_title": "After We Collided",
+            "original_title": "I Believe",
             "genre_ids": [
-                10749,
-                18
+                10751
             ],
-            "title": "After We Collided",
-            "vote_average": 7.4,
-            "overview": "Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever.",
-            "release_date": "2020-09-02",
-            "duration": 105
+            "title": "I Believe",
+            "vote_average": 6.5,
+            "overview": "A 9 year old boy experiences God's power in a supernatural way.",
+            "release_date": "2017-11-07",
+            "duration": 90
         },
         {
             "popularity": 591.147,
@@ -300,6 +258,28 @@
             "duration": 116
         },
         {
+            "popularity": 587.276,
+            "vote_count": 304,
+            "video": false,
+            "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
+            "id": 590223,
+            "adult": false,
+            "backdrop_path": "\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg",
+            "original_language": "en",
+            "original_title": "Love and Monsters",
+            "genre_ids": [
+                28,
+                12,
+                35,
+                878
+            ],
+            "title": "Love and Monsters",
+            "vote_average": 7.7,
+            "overview": "Seven years after the Monsterpocalypse, Joel Dawson, along with the rest of humanity, has been living underground ever since giant creatures took control of the land. After reconnecting over radio with his high school girlfriend Aimee, who is now 80 miles away at a coastal colony, Joel begins to fall for her again. As Joel realizes that there\u2019s nothing left for him underground, he decides against all logic to venture out to Aimee, despite all the dangerous monsters that stand in his way.",
+            "release_date": "2020-10-16",
+            "duration": 109
+        },
+        {
             "popularity": 492.096,
             "vote_count": 169,
             "video": false,
@@ -319,6 +299,26 @@
             "overview": "David Cuevas is a family man who works as a gangland tax collector for high ranking Los Angeles gang members. He makes collections across the city with his partner Creeper making sure people pay up or will see retaliation. An old threat returns to Los Angeles that puts everything David loves in harm\u2019s way.",
             "release_date": "2020-08-07",
             "duration": 95
+        },
+        {
+            "popularity": 480.108,
+            "vote_count": 1579,
+            "video": false,
+            "poster_path": "\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
+            "id": 613504,
+            "adult": false,
+            "backdrop_path": "\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg",
+            "original_language": "en",
+            "original_title": "After We Collided",
+            "genre_ids": [
+                10749,
+                18
+            ],
+            "title": "After We Collided",
+            "vote_average": 7.4,
+            "overview": "Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever.",
+            "release_date": "2020-09-02",
+            "duration": 105
         },
         {
             "popularity": 432.31,
@@ -345,6 +345,27 @@
             "duration": 91
         },
         {
+            "popularity": 428.919,
+            "vote_count": 108,
+            "video": false,
+            "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
+            "id": 425001,
+            "adult": false,
+            "backdrop_path": "\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg",
+            "original_language": "en",
+            "original_title": "The War with Grandpa",
+            "genre_ids": [
+                35,
+                10751,
+                18
+            ],
+            "title": "The War with Grandpa",
+            "vote_average": 6,
+            "overview": "Sixth-grader Peter is pretty much your average kid\u2014he likes gaming, hanging with his friends and his beloved pair of Air Jordans. But when his recently widowed grandfather Ed moves in with Peter\u2019s family, the boy is forced to give up his most prized possession of all, his bedroom. Unwilling to let such an injustice stand, Peter devises a series of increasingly elaborate pranks to drive out the interloper, but Grandpa Ed won\u2019t go without a fight.",
+            "release_date": "2020-08-27",
+            "duration": 94
+        },
+        {
             "popularity": 405.629,
             "vote_count": 94,
             "video": false,
@@ -363,25 +384,6 @@
             "overview": "It's been ten years since the creation of the Great Truce, an elaborate joint-species surveillance system designed and monitored by cats and dogs to keep the peace when conflicts arise. But when a tech-savvy villain hacks into wireless networks to use frequencies only heard by cats and dogs, he manipulates them into conflict and the worldwide battle between cats and dogs is BACK ON. Now, a team of inexperienced and untested agents will have to use their old-school animal instincts to restore order and peace between cats and dogs everywhere.",
             "release_date": "2020-10-02",
             "duration": 84
-        },
-        {
-            "popularity": 396.948,
-            "vote_count": 90,
-            "video": false,
-            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
-            "id": 509635,
-            "adult": false,
-            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
-            "original_language": "en",
-            "original_title": "Alone",
-            "genre_ids": [
-                53
-            ],
-            "title": "Alone",
-            "vote_average": 6.3,
-            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
-            "release_date": "2020-09-10",
-            "duration": 98
         },
         {
             "popularity": 405.092,
@@ -403,32 +405,30 @@
             "duration": 95
         },
         {
-            "popularity": 428.919,
-            "vote_count": 108,
+            "popularity": 396.948,
+            "vote_count": 90,
             "video": false,
-            "poster_path": "\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
-            "id": 425001,
+            "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
+            "id": 509635,
             "adult": false,
-            "backdrop_path": "\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg",
+            "backdrop_path": "\/obExOU9qDnMcxvWPumoD14oxup5.jpg",
             "original_language": "en",
-            "original_title": "The War with Grandpa",
+            "original_title": "Alone",
             "genre_ids": [
-                35,
-                10751,
-                18
+                53
             ],
-            "title": "The War with Grandpa",
-            "vote_average": 6,
-            "overview": "Sixth-grader Peter is pretty much your average kid\u2014he likes gaming, hanging with his friends and his beloved pair of Air Jordans. But when his recently widowed grandfather Ed moves in with Peter\u2019s family, the boy is forced to give up his most prized possession of all, his bedroom. Unwilling to let such an injustice stand, Peter devises a series of increasingly elaborate pranks to drive out the interloper, but Grandpa Ed won\u2019t go without a fight.",
-            "release_date": "2020-08-27",
-            "duration": 94
+            "title": "Alone",
+            "vote_average": 6.3,
+            "overview": "A recently widowed traveler is kidnapped by a cold blooded killer, only to escape into the wilderness where she is forced to battle against the elements as her pursuer closes in on her.",
+            "release_date": "2020-09-10",
+            "duration": 98
         }
     ],
     "page": 1,
-    "total_results": 1552,
+    "total_results": 1561,
     "dates": {
         "maximum": "2020-11-07",
         "minimum": "2020-09-20"
     },
-    "total_pages": 78
+    "total_pages": 79
 }

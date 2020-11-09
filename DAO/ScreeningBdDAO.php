@@ -157,6 +157,7 @@ use Models\Room;
         public function GetScreeningsFromAMovie($id_movie) {
 
             $screeningArray = $this->getScreeningsFromAMovieDB($id_movie);
+            
 
             if(!empty($screeningArray)) {
                 

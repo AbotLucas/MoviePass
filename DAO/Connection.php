@@ -14,14 +14,29 @@
         private function __construct()
         {
             try
-            {
+            {   
                 $this->pdo = new PDO("mysql:host=".DB_HOST."; dbname=".DB_NAME, DB_USER, DB_PASS);
+                
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
             }
             catch(Exception $ex)
-            {
+            {   
+                echo "Creando DATABASE";
+                $this->createDatabase();
+            }
+        }
+
+        private function createDatabase() {
+
+            try {
+                 $this->pdo = new PDO("mysql:host=" . DB_HOST, DB_USER, DB_PASS);
+                 $sql = file_get_contents(ROOT."Schema/yourmovie.sql");
+                $qr = $this->pdo->exec($sql);
+            } catch (Exception $ex) {
                 throw $ex;
             }
+            
         }
 
         public static function GetInstance()
