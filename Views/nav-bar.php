@@ -21,9 +21,10 @@
               <a href="<?php echo FRONT_ROOT . "Session/ShowSignUpView" ?>">Sign Up</a>
               </li>
         <?php
-        } else {
+        } else { if($_SESSION["loginUser"]->getRole() == 1){
         ?>
           <li><a href="<?php echo FRONT_ROOT . "Cinema/ShowListCinemaView" ?>">Cinemas</a></li>
+        <?php }?>
           <!-- <li><a href="<?php //echo FRONT_ROOT . "Screening/ShowListScreeningView" ?>">Screenings</a></li> -->
           <li><a class="drop" href="#">Session</a>
             <ul>

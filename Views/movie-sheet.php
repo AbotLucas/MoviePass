@@ -17,7 +17,8 @@
                 <p style="background-color:rgba(50, 31, 40, 0.9); padding: 4%">
                     <?php echo "Overview: " . "<br>" . $movie->getOverview() .
                         "<br> Duration: " . $movie->getduration() . " min." .
-                        "<br> Language: " . $movie->getLanguage(); ?>
+                        "<br> Language: " . $movie->getLanguage().
+                        "<br> Genre: " . $movie->getGenre()->getGenreName(); ?>
                 </p>
                 <details style="background-color:rgba(50, 31, 40, 0.9); padding: 4%, font-size:10px;">
                     <summary>Screenings</summary>
@@ -27,8 +28,8 @@
                         
                         <p style="font-size: 12px;">&nbsp;&nbsp;<?php echo "Date: " . $screening->getDate_screening() . " || " . 
                             "Hour: " . $screening->getHour_screening() . " || Cinema: " . 
-                            $screening->getRoom()->getCinema()->getName() . " || Room: " . $screening->getRoom()->getName() .
-                            " || Genre: " . $screening->getMovie()->getGenre()->getGenreName();?> 
+                            $screening->getRoom()->getCinema()->getName() . " || Room: " . $screening->getRoom()->getName()
+                         ?> 
                         &nbsp;<b><a href="<?php echo FRONT_ROOT."Home/ShowWeAreWorkingView"/* "Ticket/GetTicket/?id_screening=" . $screening->getId_screening(); */?>">Get ticket!</a></b>
                         </p>
                         

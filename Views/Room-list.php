@@ -47,13 +47,11 @@ require_once('nav-bar.php');
                     <td> <?php echo $Room->GetTicketValue(); ?> </td>
                     <td> <?php echo $Room->GetCinema()->getName() ?> </td>
                     
-                    <td><?php if($_SESSION["loginUser"]->getRole()==1){ ?>
+                    <td>
+                      <input id="id_cinema" name="id_cinema" type="hidden" value="<?php echo $cinema->getId_Cinema();?>">
                       <button type="submit" name="id_remove" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Remove </button>
                       <button type="submit" name="id_modify" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Modify </button>
                       <button type="submit" name="id_add_screenings" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Add Screenings </button>
-                    <?php } ?>
-
-                    <input id="id_cinema" name="id_cinema" type="hidden" value="<?php echo $cinema->getId_Cinema();?>">
                       <button type="submit" name="id_show_screenings" class="btn" value="<?php echo $Room->getId_room() ?>" style="font-size: 12px"> Show Screenings </button>
                       
                     </td>
