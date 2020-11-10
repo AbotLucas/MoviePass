@@ -293,9 +293,24 @@ use Models\Room;
 
         }
 
+        public function ModifyScreeningInBd($id_screening, $id_movie, $data, $hour) {
 
+            $query = "UPDATE " . $this->tableName . " SET idmovie=:idmovie, date_screening =:date_screening , hour_screening=:hour_screening WHERE (id_screening=:id_screening)";
+           
+            $parameters["id_screening"] = $id_screening;
+            $parameters["idmovie"] = $id_movie;
+            $parameters["date_screening "] = $data;
+            $parameters["hour_screening"] = $hour;
+           
+    
+            try {
+                $this->connection = Connection::GetInstance();
+                return $this->connection->ExecuteNonQuery($query, $parameters);
+            } catch (Exception $ex) {
+                throw $ex;
+            }
 
     }
-
+    }
 
 ?>

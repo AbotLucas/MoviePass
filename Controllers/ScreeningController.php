@@ -7,6 +7,7 @@
     use DAO\RoomBdDAO;
     use Models\Screening as Screening;
     use DAO\ScreeningBdDao as ScreeningBdDao;
+    use Controllers\MovieController as MovieController;
 
     class ScreeningController {
 
@@ -174,7 +175,39 @@
             return $this->screeningBdDAO->GetDatesOfScreenings();
         }
 
-        
+        public function modify($id_screening, $id_movie, $data, $hour,$id_room,$id_cinema){
+
+            try{
+                $room = RoomBdDAO::MapearRoom($id_room);
+            
+                $movie = MovieBdDao::MapearMovie($id_movie);   
+            
+                $cinema = CinemaBdDao::MapearCinema($id_cinema); 
+
+              $movieController = new MovieController();
+
+            $movieList = $movieController->GetMoviesWithoutScreening($id_room);
+
+            $this->screeningBdDAO->ModifyScreeningInBd($id_screening, $id_cinema, $id_room,$data, $hour);
+          
+           
+            $this->ShowListScreeningView("Screening modify succesfully!");
+
+              }catch (PDOException $ex){
+                   $message = $ex->getMessage();
+                   if(Functions::contains_substr($message, "Duplicate entry")) {
+                       $message = "some of the data entered already exists . repeated";
+                       $this->ShowListScreeningView("Screening modify succesfully!");
+                   }else{
+                    $this->ShowListScreeningView("Screening modify succesfully!");
+                   }
+           } 
+        }
+
+        public function ShowAddRoomView($id_cinema) {
+            $cinema = CinemaBdDAO::MapearCinema($id_cinema);
+            require_once(VIEWS_PATH."room-add.php");
+        }  
 
 
 
