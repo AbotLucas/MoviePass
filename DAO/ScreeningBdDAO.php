@@ -337,7 +337,62 @@ use Models\Room;
 
 
         }
+        public function GetScreeningById($searchidScreening)
+        {
+            $screening = null;
+    
+            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_screening = :id_screening) ";
+    
+            $parameters["id_screening"] = $searchidScreening;
+    
+            try{
+    
+                $this->connection = Connection::GetInstance();
+                $results = $this->connection->Execute($query, $parameters);
+            
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+            
+            $return = $this->mapear($results);
+    
+    
+            return $return;
+        }  
 
+        public static function MapearScreening($idScreeningToMapear) {
+            $screeningDAOBdAux = new ScreeningBdDAO();
+            return $roomDAOBdAux->GetScreeningById($idScreeningToMapear);
+        }
+
+
+
+        public function GetGenresOfScreenings() {
+            
+            $genderList = $this->BringGenresOfScreeningsDb();
+            $result = [];
+
+            if(!empty($genderList)) {
+                
+                foreach($genderList as $genre) {
+                    array_push($result, GenreBdDAO::MapearGenre($genre["id_genre"]));
+                }
+                
+                if(is_array($result)) {
+                    
+                    return $result;
+                }
+                else {
+                    
+                    $arrayResult[0] = $result;
+                    return $arrayResult;
+                }
+            }
+            else {
+                return $errorArray[0] = "No hay generos cargados. ERROR";
+            }
+
+        }
 
 
     }
