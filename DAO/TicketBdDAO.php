@@ -2,8 +2,9 @@
 namespace DAO;
 
 use Models\Ticket as Ticket;
-use DAO\Iticket as Iticket;
 use DAO\Connection as Connection;
+use DAO\ScreeningBdDAO as ScreeningBdDAO;
+use DAO\UserBdDAO as UserBdDAO;
 use FFI\Exception;
 
 class TicketBdDAO {
@@ -18,9 +19,10 @@ class TicketBdDAO {
 
     public function SaveTicketInBd($ticket){
     
-        $sql = " INSERT INTO ". $this->tableName ."(idscreening) VALUES (:idscreening)";
+        $sql = " INSERT INTO ". $this->tableName ."(idscreening,userid) VALUES (:idscreening,:userid)";
       
               $parameters["idscreening"] = $Ticket->getScreening()->getId_screening();
+              $parameters['userid'] = $ticket->getUser()->getgetUserId();
               try {
                   $this->connection = Connection::GetInstance();
                   return $this->connection->ExecuteNonQuery($sql, $parameters);
@@ -70,7 +72,7 @@ class TicketBdDAO {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            $ticket = new Ticket(ScreeningBdDAO::MapearScreening($p["idscreening"]));
+            $ticket = new Ticket(ScreeningBdDAO::MapearScreening($p["idscreening"],UserBdDAO::MapearUser($p['user_id'])));
             $ticket->getId_ticket($p['id_ticket']);
             return $ticket;
 

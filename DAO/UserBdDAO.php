@@ -63,5 +63,32 @@ class UserBdDAO{
 
         return count($resp) > 1 ? $resp : $resp['0'];
     }
+
+    public function GetUserById($searchidUser)
+    {
+        $User = null;
+
+        $query = "SELECT * FROM " . $this->tableName . " WHERE (user_id = :user_id) ";
+
+        $parameters["user_id"] = $searchidUser;
+
+        try{
+
+            $this->connection = Connection::GetInstance();
+            $results = $this->connection->Execute($query, $parameters);
+        
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        
+        $return = $this->mapear($results);
+
+    }
+    public static function MapearUser($idUserToMapear) {
+        $userDAOBdAux = new UserBdDAO();
+        return $userDAOBdAux->GetUserById($idUserToMapear);
+    }
+
     
+
 }
