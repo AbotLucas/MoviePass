@@ -3,6 +3,8 @@
 
     use Models\Ticket as Ticket;
     use DAO\TicketBdDAO as TicketBdDAO;
+    use DAO\ScreeningBdDAO as ScreeningBdDAO;
+    use DAO\UserBdDAO as UserBdDAO;
     use PDOException;
 
     class TicketController
@@ -16,39 +18,28 @@
         }
 
 
-        public function AddTicket($id_screening)
-        {   
-            if(isset($_POST["cancel"])){
+        public function AddTicket($id_screening, $id_user) {
 
-                $cinemaController = new CinemaController();
-                $cinemaController->ShowListCinemaView();
+            
+            $screening = ScreeningBdDAO::MapearScreening($id_screening);
+            $user = UserBdDao::MapearUser($id_user);   
+    
+            $newTicket = new Ticket($screening,$user);
+        
+            $this->TicketBdDAO = new TicketBdDAO();
+            $result = $this->TicketBdDAO->SaveTicketInBd($newTicket);
 
+            if($result == 1) {
+                $message = "";
+                require_once(VIEWS_PATH."");
             }
-            else
-            {
-            $newTicket = new Ticket($name, $capacity, $ticketValue,CinemaBdDao::MapearCinema($id_cinema));
-            $newShowListCinema = new CinemaController();
+            else {
 
-                try{
-                    $result = $this->TicketBdDAO->SaveTicketInBd($newTicket);
-                    if($result == 1) {
-                        $message = "Ticket added succesfully!";
-                        $this->ShowListTicketView($message, $id_cinema);
-                     }
-                    else
-                    {
-                        $message = "ERROR: System error, reintente";
-                        $newShowListCinema->ShowListCinemaView($message);
-                    }
-                } catch (PDOException $ex){
-                    $message = $ex->getMessage();
-                    if(Functions::contains_substr($message, "Duplicate entry")) {
-                        $message = "some of the data entered";
-                        $newShowListCinema->ShowListCinemaView($message);
-                    }
-                }
+                $message = "Ticket added FAIL!";
+                require_once(VIEWS_PATH."");           
             }
-        }  
+
+        }
        
    }
    ?>
