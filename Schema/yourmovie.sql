@@ -81,12 +81,11 @@ foreign key (idroom) references room(id_room) on delete CASCADE
 create table if not exists ticket(
 id_ticket BIGINT UNSIGNED not null auto_increment,
 idstreening BIGINT UNSIGNED not null,
-userid BIGINT UNSIGNED NOT NULL,
-constraint `pk_idticket` PRIMARY KEY (id_ticket),
-foreign key (idstreening) references screening(id_screening) 
-foreign key (userid) references user(user_id) 
-)ENGINE=INNODB;
-
+userid  BIGINT UNSIGNED not null,
+constraint pk_idticket PRIMARY KEY (id_ticket),
+constraint fk_idstreening foreign key (idstreening) references screening(id_screening),
+constraint fk_userid foreign key (userid) references user(user_id)
+);
 use yourmovie;
 select * from user;
 select * from movie;
