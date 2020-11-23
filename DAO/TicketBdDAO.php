@@ -9,7 +9,7 @@ use FFI\Exception;
 
 class TicketBdDAO {
 
-    private $tableName = "ticket";
+    private $tableName ="ticket";
     private $connection;
     private $ticketList = [];
    
@@ -17,12 +17,12 @@ class TicketBdDAO {
         
     }
 
-    public function SaveTicketInBd($ticket){
+    public function SaveTicketInBd(Ticket $ticket){
     
-        $sql = " INSERT INTO ". $this->tableName ."(idscreening,userid) VALUES (:idscreening,:userid)";
+        $sql = " INSERT INTO ". $this->tableName ."(idstreening,userid) VALUES (:idstreening,:userid)";
       
-              $parameters["idscreening"] = $Ticket->getScreening()->getId_screening();
-              $parameters['userid'] = $ticket->getUser()->getgetUserId();
+              $parameters["idstreening"] = $ticket->getScreening()->getId_screening();
+              $parameters['userid'] = $ticket->getUser()->getUserId();
               try {
                   $this->connection = Connection::GetInstance();
                   return $this->connection->ExecuteNonQuery($sql, $parameters);
@@ -123,6 +123,27 @@ class TicketBdDAO {
                 throw $ex;
             }
         }
+
+        private function getTickesFromAUserDB($id_user){
+        
+            $query = "SELECT * FROM " . $this->tableName . " WHERE user_id = :user_id";
+
+            $parameters["user_id"] = intval($id_user);
+
+            try {
+            
+                $this->connection = Connection::GetInstance();
+                $result = $this->connection->Execute($query, $parameters);
+    
+            } catch (Exception $ex) {
+
+                return null;
+            }
+            
+            return $result;
+        
+        }
+
         
     }
     ?>

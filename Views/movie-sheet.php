@@ -30,7 +30,7 @@
                             "Hour: " . $screening->getHour_screening() . " || Cinema: " . 
                             $screening->getRoom()->getCinema()->getName() . " (Address: ". $screening->getRoom()->getCinema()->getAddress() .") || Room: " . $screening->getRoom()->getName()
                          ?> 
-                        &nbsp;<b><a href="<?php echo FRONT_ROOT."Home/ShowWeAreWorkingView"/* "Ticket/GetTicket/?id_screening=" . $screening->getId_screening(); */?>">Get ticket!</a></b>
+                        &nbsp;<b><a href="<?php echo FRONT_ROOT. "Ticket/GetTicket/?id_screening=". $screening->getId_screening() ?>">Get ticket!</a></b>
                         </p>
                         
 

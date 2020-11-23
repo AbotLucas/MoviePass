@@ -1,6 +1,5 @@
-<?php 
-
-    namespace DAO;
+<?php
+namespace DAO;
     use Models\Screening as Screening;
     use DAO\MovieBdDao as MovieBdDAO;
     use DAO\RoomBdDao as RoomBdDAO;
@@ -337,8 +336,8 @@ use Models\Room;
 
 
         }
-        public function GetScreeningById($searchidScreening)
-        {
+
+        public function GetScreeningById($searchidScreening){
             $screening = null;
     
             $query = "SELECT * FROM " . $this->tableName . " WHERE (id_screening = :id_screening) ";
@@ -362,36 +361,7 @@ use Models\Room;
 
         public static function MapearScreening($idScreeningToMapear) {
             $screeningDAOBdAux = new ScreeningBdDAO();
-            return $roomDAOBdAux->GetScreeningById($idScreeningToMapear);
-        }
-
-
-
-        public function GetGenresOfScreenings() {
-            
-            $genderList = $this->BringGenresOfScreeningsDb();
-            $result = [];
-
-            if(!empty($genderList)) {
-                
-                foreach($genderList as $genre) {
-                    array_push($result, GenreBdDAO::MapearGenre($genre["id_genre"]));
-                }
-                
-                if(is_array($result)) {
-                    
-                    return $result;
-                }
-                else {
-                    
-                    $arrayResult[0] = $result;
-                    return $arrayResult;
-                }
-            }
-            else {
-                return $errorArray[0] = "No hay generos cargados. ERROR";
-            }
-
+            return $screeningDAOBdAux->GetScreeningById($idScreeningToMapear);
         }
 
 
