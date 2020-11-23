@@ -19,16 +19,26 @@
             <th style="width: 25%;">Movie</th>
             <th style="width: 15%;" >Date</th>
             <th style="width: 15%;" >Hour</th>
+            <th style="width: 15%;" >Ticket Value</th>
+            <th style="width: 15%;" >Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-                <td> <?php echo $screening->getRoom()->getCinema()->getName()."/".$screening->GetRoom()->getName(); ?> </td>
-                <td> <?php echo $screening->GetMovie()->getTitle(); ?> </td>
-                <td> <?php echo $screening->GetDate_screening(); ?> </td>
-                <td> <?php echo $screening->GetHour_screening(); ?> </td>            
+            <?php if(is_array($ticketList)){ foreach($ticketList as $ticket){?>
+                <td> <?php echo $ticket->getScreening()->getRoom()->getCinema()->getName()."/".$ticket->getScreening()->getRoom()->getName() ; ?> </td>
+                <td> <?php echo $ticket->getScreening()->getMovie()->getTitle(); ?> </td>
+                <td> <?php echo $ticket->getScreening()->getDate_screening(); ?> </td>
+                <td> <?php echo $ticket->getScreening()->getHour_screening(); ?> </td>
+                <td> <?php echo $ticket->getScreening()->getRoom()->getTicketValue(); ?> </td>    
+                 <td>
+                <button type="submit" name="id_remove" class="btn" value="<?php  echo $ticket->getId_ticket() ;?>"style="font-size: 12px"> Remove </button>
+                </td>        
             </tr> 
-               
+            <?php 
+            }
+          }
+         ?>       
         </tbody></form>
         </table> 
       </div>

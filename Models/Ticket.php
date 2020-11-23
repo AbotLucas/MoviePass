@@ -7,13 +7,13 @@ class Ticket{
 
    private $id_ticket;
    private $screening;
-   private $user;
+   private  $user;
 
-   public function __construct(Screening $screening,User $user) {
-           
+   public function __construct( $screening ,$user)
+   {       
     $this->screening = $screening;
    $this->user = $user;
-}
+  }
    public function getId_ticket(){ return $this->id_ticket;}
    public function setId_ticket($id_ticket){ $this->id_ticket = $id_ticket;}
    public function getScreening(){ return $this->screening;}

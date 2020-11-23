@@ -17,7 +17,7 @@ class TicketBdDAO {
         
     }
 
-    public function SaveTicketInBd(Ticket $ticket){
+    public function SaveTicketInBd($ticket){
     
         $sql = " INSERT INTO ". $this->tableName ."(idstreening,userid) VALUES (:idstreening,:userid)";
       
@@ -66,26 +66,25 @@ class TicketBdDAO {
             return $errorArray[0] = "ERROR while reading the database.";
         }
     }
-
     protected function mapear($value) {
+
 
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            $ticket = new Ticket(ScreeningBdDAO::MapearScreening($p["idscreening"],UserBdDAO::MapearUser($p['user_id'])));
-            $ticket->getId_ticket($p['id_ticket']);
+            $ticket = new Ticket( ScreeningBdDAO::MapearScreening($p["idstreening"]) ,UserBdDAO::MapearUser($p["userid"]));
+            $ticket->setId_ticket($p['id_ticket']);
             return $ticket;
-
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];
     }
-    
+   
         public function GetTicketById($searchidticket)
         {
             $ticket = null;
     
-            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_ticket = :id_ticket) ";
+            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_ticket =:id_ticket) ";
     
             $parameters["id_ticket"] = $searchidticket;
     
@@ -126,9 +125,9 @@ class TicketBdDAO {
 
         private function getTickesFromAUserDB($id_user){
         
-            $query = "SELECT * FROM " . $this->tableName . " WHERE user_id = :user_id";
+            $query = "SELECT * FROM " . $this->tableName . " WHERE (userid = :userid)";
 
-            $parameters["user_id"] = intval($id_user);
+            $parameters["userid"] = intval($id_user);
 
             try {
             
@@ -142,6 +141,28 @@ class TicketBdDAO {
             
             return $result;
         
+        }
+        public function GetTicketFromUser($id_user) {
+
+            $ticketfromUser = $this->getTickesFromAUserDB($id_user);
+
+            if(!empty($ticketfromUser)) {
+            
+                $result = $this->mapear($ticketfromUser);
+
+                if(is_array($result)) {
+                    $this->ticketList = $result;
+                }
+                else {
+                    $arrayResult[0] = $result;
+                    $this->ticketList = $arrayResult;
+                }
+                return $this->ticketList;
+            }
+            else {
+                return $errorArray[0] = "Error al leer la base de datos.";
+            }
+            
         }
 
         
