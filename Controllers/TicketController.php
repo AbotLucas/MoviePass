@@ -17,8 +17,8 @@
             
             $this->ticketBdDAO = new TicketBdDAO();
         }
-
-
+      
+    
         public function AddTicket($id_screening,User $user) {
 
             
@@ -41,7 +41,18 @@
 
         }
 
-        #Ticket/GetTicket/?id_screening=" . $screening->getId_screening(); */
+        public function removerTicket($id_screening){
+
+            $this->GetTicket($id_screening);
+
+            if(isset($_POST['id_remove'])){
+
+               
+
+            
+            }
+        }
+        
 
         public function GetTicket($id_screening) {
 
@@ -55,17 +66,18 @@
 
             $this->AddTicket($id_screening,$user);
             
-            $screening = ScreeningBdDao::MapearScreening($id_screening);
-            #$user= UserBdDAO::MapearUser($id_user);
+           
+            $this->ticketBdDAO = new TicketBdDAO();
 
-            #$this->ticketBdDAO = new TicketBdDAO();
-            #$screeningList = $this->ticketBdDAO->getTickesFromAUserDB($id_user);
+            $ticketList = $this->ticketBdDAO->GetTicketFromUser($user->getUserId());
 
             require_once(VIEWS_PATH."ticket-list.php");   
 
             }else{
-                $message ="";
 
+                $message ="no esta logueado ";
+
+               require_once(VIEWS_PATH."login.php");   
             }
         }
 

@@ -203,9 +203,9 @@ use Models\Room;
             $value = is_array($value) ? $value : [];
 
             $resp = array_map(function($p){
-                $cinema = new Screening($p['date_screening'], $p['hour_screening'], MovieBdDAO::MapearMovie($p["idmovie"]) ,RoomBdDAO::MapearRoom($p["idroom"]));
-                $cinema->setId_screening($p['id_screening']);
-                return $cinema;
+                $screening = new Screening($p['date_screening'], $p['hour_screening'], MovieBdDAO::MapearMovie($p["idmovie"]) ,RoomBdDAO::MapearRoom($p["idroom"]));
+                $screening->setId_screening($p['id_screening']);
+                return $screening;
     
             }, $value);
     
