@@ -110,7 +110,7 @@ class CinemaBdDao {
 
     public function DeleteCinemaInDB($id_cinema) {
   
-        $sql = "DELETE FROM cinema WHERE id_cinema = :id_cinema";
+        $sql = "CALL deleteCinema(". $id_cinema .")";
   
         $parameters["id_cinema"] = $id_cinema;
 

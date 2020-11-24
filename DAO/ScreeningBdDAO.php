@@ -1,6 +1,5 @@
-<?php 
-
-    namespace DAO;
+<?php
+namespace DAO;
     use Models\Screening as Screening;
     use DAO\MovieBdDao as MovieBdDAO;
     use DAO\RoomBdDao as RoomBdDAO;
@@ -200,13 +199,13 @@ use Models\Room;
 
         protected function mapear($value) {
 
-
+         
             $value = is_array($value) ? $value : [];
 
             $resp = array_map(function($p){
-                $cinema = new Screening($p['date_screening'], $p['hour_screening'], MovieBdDAO::MapearMovie($p["idmovie"]) ,RoomBdDAO::MapearRoom($p["idroom"]));
-                $cinema->setId_screening($p['id_screening']);
-                return $cinema;
+                $screening = new Screening($p['date_screening'] , $p['hour_screening'],MovieBdDAO::MapearMovie($p["idmovie"]),RoomBdDAO::MapearRoom($p["idroom"]));
+                $screening->setId_screening($p['id_screening']);
+                return $screening;
     
             }, $value);
     
@@ -338,6 +337,32 @@ use Models\Room;
 
         }
 
+        public function GetScreeningById($searchidScreening){
+            $screening = null;
+    
+            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_screening = :id_screening) ";
+    
+            $parameters["id_screening"] = $searchidScreening;
+    
+            try{
+    
+                $this->connection = Connection::GetInstance();
+                $results = $this->connection->Execute($query, $parameters);
+            
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+            
+            $return = $this->mapear($results);
+    
+    
+            return $return;
+        }  
+
+        public static function MapearScreening($idScreeningToMapear) {
+            $screeningDAOBdAux = new ScreeningBdDAO();
+            return $screeningDAOBdAux->GetScreeningById($idScreeningToMapear);
+        }
 
 
     }
