@@ -1,7 +1,8 @@
 <?php 
 
     namespace Models;
-
+    use Models\Room as Room ;
+    use Models\Movie as Movie ;
     //Class Screening, represent the screening of the movies
 
     class Screening {
@@ -13,12 +14,12 @@
         private $hour_screening; //Screening Hour
         
         
-        public function __construct($date_screening, $hour_screening, Movie $movie, Room $room) {
-           
+        public function __construct($date_screening, $hour_screening, Movie $movie, Room $room) 
+        {
+           $this->date_screening = $date_screening;
+            $this->hour_screening = $hour_screening;
             $this->room = $room;
             $this->movie = $movie;
-            $this->date_screening = $date_screening;
-            $this->hour_screening = $hour_screening;
         }
 
     public function getId_screening(){return $this->id_screening;}
@@ -32,7 +33,7 @@
     public function getRoom() { return $this->room; }
     public function setRoom($room){ $this->room = $room;}
     public function getCinema() { return $this->cinema;}
-    public function setCinema($cinema) {   $this->cinema = $cinema; return $this;}
+    public function setCinema($cinema) { $this->cinema = $cinema;}
 
 }
 

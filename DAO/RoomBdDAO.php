@@ -48,19 +48,7 @@ class RoomBdDAO {
     
     }
 
-    protected function mapear($value) {
-
-        $value = is_array($value) ? $value : [];
-
-        $resp = array_map(function($p){
-            $room = new Room($p['name'], $p['capacity'], $p['ticketvalue'], CinemaBdDao::MapearCinema($p["idcinema"]));
-            $room->setId_room($p['id_room']);
-            return $room;
-
-        }, $value);
-
-        return count($resp) > 1 ? $resp : $resp['0'];
-    }
+   
     
     
     public function getAllRoom() {
@@ -82,31 +70,49 @@ class RoomBdDAO {
             return $errorArray[0] = "ERROR while reading the database.";
         }
     }
+
+    protected function mapear($value) {
+        
+        $value = is_array($value) ? $value : [];
+
+        $resp = array_map(function($p){
+            $room = new Room($p['name'], $p['capacity'], $p['ticketvalue'],CinemaBdDao::MapearCinema($p["idcinema"]));
+            $room->setId_room($p['id_room']);
+        
+            return $room;
+
+        }, $value);
+
+        return count($resp) > 1 ? $resp : $resp['0'];
+    }
+
+  
         public function GetRoomById($searchidRoom)
         {
             $room = null;
     
-            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_room = :id_room) ";
-    
-            $parameters["id_room"] = $searchidRoom;
+            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_room =:idroom )";
+           
+            $parameters["idroom"] = $searchidRoom;
     
             try{
     
                 $this->connection = Connection::GetInstance();
                 $results = $this->connection->Execute($query, $parameters);
-            
+
+
             } catch (Exception $ex) {
                 throw $ex;
             }
             
-            $return = $this->mapear($results);
+            $room  = $this->mapear($results);
+            return $room ;
     
-    
-            return $return;
         }  
+
         public function DeleteRoomInDB($id_room) {
 
-            $sql = "DELETE FROM "  . $this->tableName . " WHERE (id_room = :id_room) ";
+            $sql ="call deleteroom(".$id_room.")" ;
       
             $parameters["id_room"] = $id_room;
     
@@ -122,13 +128,15 @@ class RoomBdDAO {
         }
         
         public static function MapearRoom($idRoomToMapear) {
+
             $roomDAOBdAux = new RoomBdDAO();
+
             return $roomDAOBdAux->GetRoomById($idRoomToMapear);
         }
 
         public function GetRoomsXCinemaFromBd($id_cinema) {
 
-            $query = "SELECT * FROM " . $this->tableName . " WHERE (idcinema = :idcinema) ";
+            $query = "SELECT * FROM " . $this->tableName . " WHERE idcinema = :idcinema ";
     
             $parameters["idcinema"] = $id_cinema;
     

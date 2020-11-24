@@ -97,6 +97,7 @@ class RoomController
         
         public function RemoveRoomFromDB($id_cinema, $id_room)
         {   
+            try{
             $result = $this->roomBdDAO->DeleteRoomInDB($id_room);
 
             if($result == 1) {
@@ -108,12 +109,19 @@ class RoomController
                 $message = "ERROR: Failed in room delete, reintente";
                 $this->ShowListRoomView($message, $id_cinema);
             }
+        } catch (PDOException $ex){
+            $message = $ex->getMessage();
+            if(Functions::contains_substr($message, "has associated screening cannot be deleted !! you must delete screening")) {
+                $message = "has associated screening cannot be deleted !! you must delete screening";
+                $this->ShowListRoomView($message, $id_cinema); 
+            }
         }
-       
+    }
    public function modifyANDremover($id_cinema, $id_room){
 
             
             if(isset($_POST['id_remove'])){
+
 
                 $this->RemoveRoomFromDB($id_cinema, $id_room);
             
