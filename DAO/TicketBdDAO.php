@@ -108,7 +108,7 @@ class TicketBdDAO {
 
         public function DeleteTicketInDB($id_Ticket) {
 
-            $sql = "DELETE FROM "  . $this->tableName . " WHERE (id_ticket = :id_ticket) ";
+            $sql = "call deleteTicket(".$id_Ticket.")";
       
             $parameters["id_ticket"] = $id_Ticket;
     
@@ -116,6 +116,7 @@ class TicketBdDAO {
     
                 $this->connection = Connection::GetInstance();
                 $result = $this->connection->ExecuteNonQuery($sql, $parameters);
+                
                 return $result;
 
             }catch (Exception $ex){

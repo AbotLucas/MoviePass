@@ -119,7 +119,6 @@
                 } catch (PDOException $ex){
                     $message = $ex->getMessage();
                     if(Functions::contains_substr($message, "Duplicate entry")) {
-                        
                         $message = "some of the data entered (Address/Name) already exists . repeated";
                         $this->ShowAddCinemaView($message);
                     }
@@ -139,6 +138,7 @@
         
         public function RemoveCinemaFromDB($id)
         {
+            try{
             $result = $this->cinemaBdDAO->DeleteCinemaInDB($id);
 
             if($result == 1) {
@@ -148,8 +148,15 @@
             else
             {
                 $message = "ERROR: Failed in cinema delete, reintente";
-                $this->ShowListcinemaView();
+                $this->ShowListcinemaView($message);
             }
+        } catch(PDOException $ex){
+            $message = $ex->getMessage();
+            if(Functions::contains_substr($message, "has associated rooms cannot be deleted !! you must delete rooms")) {
+                $message = "has associated rooms cannot be deleted !! you must delete rooms";
+                $this->ShowListcinemaView($message);
+            }
+        }
         }
 
         public function getCinemasList() {
@@ -170,9 +177,13 @@
                }elseif(isset($_POST['Modify'])){
 
                try{
+
              $this->cinemaBdDAO->ModifyCinemaInBd($id,$name, $address);
+
              $this->ShowListCinemaView("Cinema modify succesfully!");
+
            }catch (PDOException $ex){
+               
                 $message = $ex->getMessage();
                 if(Functions::contains_substr($message, "Duplicate entry")) {
                     $message = "some of the data entered (Address/Name) already exists . repeated";

@@ -199,11 +199,11 @@ use Models\Room;
 
         protected function mapear($value) {
 
-
+         
             $value = is_array($value) ? $value : [];
 
             $resp = array_map(function($p){
-                $screening = new Screening($p['date_screening'], $p['hour_screening'], MovieBdDAO::MapearMovie($p["idmovie"]) ,RoomBdDAO::MapearRoom($p["idroom"]));
+                $screening = new Screening($p['date_screening'] , $p['hour_screening'],MovieBdDAO::MapearMovie($p["idmovie"]),RoomBdDAO::MapearRoom($p["idroom"]));
                 $screening->setId_screening($p['id_screening']);
                 return $screening;
     

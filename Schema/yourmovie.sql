@@ -39,10 +39,10 @@ create table if not exists room(
 id_room BIGINT UNSIGNED not null auto_increment unique,
 name VARCHAR(30) not null unique,
 capacity BIGINT UNSIGNED not null ,
-ticketvalue FLOAT UNSIGNED not null,
+ticketvalue float UNSIGNED not null,
 idcinema BIGINT UNSIGNED not null ,
 constraint pk_room primary key(id_room),
-foreign key (idcinema) references cinema(id_cinema) on delete CASCADE
+foreign key (idcinema) references cinema(id_cinema) on delete CASCADE on update CASCADE
 )ENGINE=INNODB;
 
 #drop table genre;
@@ -74,8 +74,8 @@ idmovie BIGINT UNSIGNED not null ,
 date_screening DATE not null,
 hour_screening TIME not null,
 constraint `pk_idscreenig` PRIMARY KEY (id_screening),
-foreign key (idmovie) references movie(id_movie) on delete CASCADE,
-foreign key (idroom) references room(id_room) on delete CASCADE
+foreign key (idmovie) references movie(id_movie) on delete CASCADE on update CASCADE,
+foreign key (idroom) references room(id_room) on delete CASCADE on update CASCADE
 )ENGINE=INNODB;
 
 create table if not exists ticket(
@@ -93,3 +93,38 @@ select * from cinema;
 select * from screening;
 select * from room;
 select * from genre;
+select * from ticket;
+
+DELIMITER $$
+create procedure deleteCinema(idcinemas int)
+begin
+declare idroom int default 0;
+select id_room into idroom from room where idcinema = idcinemas;
+if(idroom <> 0) then
+SIGNAL sqlstate '11111' SET MESSAGE_TEXT = 'has associated rooms cannot be deleted !! you must delete rooms', MYSQL_ERRNO = 9999;
+else 
+delete from cinema where id_cinema = idcinemas;
+
+end if;
+END;
+$$
+
+DELIMITER $$
+create procedure deleteRoom(idrooms int)
+begin
+declare idscreening int default 0;
+select id_screening into idscreening from screening where idroom = idrooms;
+if(idscreening <> 0) then
+SIGNAL sqlstate '11111' SET MESSAGE_TEXT = 'has associated screening cannot be deleted !! you must delete screening', MYSQL_ERRNO = 9999;
+else 
+delete from room where id_room = idrooms;
+end if;
+END;
+$$
+
+DELIMITER $$
+create procedure deleteTicket(idtickes int)
+begin
+delete from ticket where id_ticket= idtickes;
+END;
+$$

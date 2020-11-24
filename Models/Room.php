@@ -9,7 +9,7 @@
         private $name;
         private $capacity;
         private $ticketValue;
-        private  $cinema;
+        private Cinema $cinema;
 
         public function __construct($name, $capacity, $ticketValue,Cinema $cinema)
 	{
