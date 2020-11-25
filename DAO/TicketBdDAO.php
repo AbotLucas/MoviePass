@@ -19,9 +19,9 @@ class TicketBdDAO {
 
     public function SaveTicketInBd($ticket){
     
-        $sql = " INSERT INTO ". $this->tableName ."(idstreening,userid) VALUES (:idstreening,:userid)";
+        $sql = " INSERT INTO ". $this->tableName ."(idscreening,userid) VALUES (:idscreening,:userid)";
       
-              $parameters["idstreening"] = $ticket->getScreening()->getId_screening();
+              $parameters["idscreening"] = $ticket->getScreening()->getId_screening();
               $parameters['userid'] = $ticket->getUser()->getUserId();
               try {
                   $this->connection = Connection::GetInstance();
@@ -72,7 +72,7 @@ class TicketBdDAO {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            $ticket = new Ticket( ScreeningBdDAO::MapearScreening($p["idstreening"]) ,UserBdDAO::MapearUser($p["userid"]));
+            $ticket = new Ticket( ScreeningBdDAO::MapearScreening($p["idscreening"]) ,UserBdDAO::MapearUser($p["userid"]));
             $ticket->setId_ticket($p['id_ticket']);
             return $ticket;
         }, $value);

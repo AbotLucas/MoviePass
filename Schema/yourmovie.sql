@@ -86,6 +86,15 @@ constraint pk_idticket PRIMARY KEY (id_ticket),
 constraint fk_idstreening foreign key (idstreening) references screening(id_screening),
 constraint fk_userid foreign key (userid) references user(user_id)
 );
+create table if not exists buyUp(
+id_buyUP BIGINT UNSIGNED not null auto_increment,
+idticket BIGINT UNSIGNED not null,
+ticketquantity  BIGINT UNSIGNED not null,
+date_buy DATE not null,
+total float unsigned not null,
+constraint pk_idbuyup PRIMARY KEY (id_buyup),
+constraint fk_idstreening foreign key (idticket) references ticket(id_ticket)
+);
 use yourmovie;
 select * from user;
 select * from movie;
@@ -126,5 +135,20 @@ DELIMITER $$
 create procedure deleteTicket(idtickes int)
 begin
 delete from ticket where id_ticket= idtickes;
+END;
+$$
+
+DELIMITER $$
+create procedure addbuyUp(idtickets int ,ticketquantitys int )
+begin
+Declare idscreningticket int;
+Declare valueticket float ;
+declare totals float ;
+    set idscreningticket =(select idscreening from ticket where id_ticket = idtickets);
+    set valueticket = (select r.ticketvalue from room r inner join screening s on s.idroom =r.id_room inner join ticket t on s.id_screening = idscreningticket limit 1);
+    set totals =( ticketquantitys * valueticket );
+
+insert into buyup (idticket , ticketquantity , date_buy ,total) value (idtickets,ticketquantitys,date(now()),totals);
+
 END;
 $$

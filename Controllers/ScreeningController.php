@@ -70,7 +70,7 @@ use DAO\MovieBdDao as MovieBdDao;
             
             if(!isset($_SESSION["loginUser"])){
                 $message = "";
-                require_once(VIEWS_PATH."login.php");
+                require_once(VIEWS_PATH."signup.php");
             }
             else {
             $id_movie = $message;
