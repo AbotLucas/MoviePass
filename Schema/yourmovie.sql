@@ -95,6 +95,14 @@ total float unsigned not null,
 constraint pk_idbuyup PRIMARY KEY (id_buyup),
 constraint fk_idstreening foreign key (idticket) references ticket(id_ticket)
 );
+
+DELIMITER $$
+create procedure deleteBuyUp(idbuyUp int)
+begin
+delete from buyUp where id_buyUp = idbuyUp;
+END;
+$$
+
 use yourmovie;
 select * from user;
 select * from movie;
@@ -150,5 +158,19 @@ declare totals float ;
 
 insert into buyup (idticket , ticketquantity , date_buy ,total) value (idtickets,ticketquantitys,date(now()),totals);
 
+END;
+$$
+
+DELIMITER $$
+create procedure getbuyUp(idbuyUp int)
+begin
+select * from buyup where id_buyup = idbuyup;
+END;
+$$
+
+DELIMITER $$
+create procedure getAllbuyUp()
+begin
+select * from buyup ;
 END;
 $$

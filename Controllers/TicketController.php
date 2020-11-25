@@ -64,6 +64,8 @@
 
              $this->RemoveTicketFromDB($id_ticket);
 
+            }elseif($_POST['id_pay']){
+                require_once(VIEWS_PATH."buyUp-add-list.php");
             }
         }
 
