@@ -29,7 +29,11 @@
 
         public function ShowLoginTicketView($message =""){
 
-            require_once(VIEWS_PATH."login.php");   
+            if(!isset($_SESSION["loginUser"])){
+            
+                require_once(VIEWS_PATH."signup.php");
+            }
+               
          }
 
         public function AddTicket($id_screening,User $user) {
@@ -64,7 +68,8 @@
         }
 
         public function GetTicket($id_screening) {
-
+           
+            if(isset($_SESSION["loginUser"])){
             $userName = $_SESSION['loginUser']->getUserName();
             
             $userDao = new UserBdDAO();
@@ -79,13 +84,13 @@
 
            $this->ShowListTicketView($message,$user);
             
-            }else{
-                  
-                $message ="no esta logueado ";
-
-               $this->ShowLoginTicketView($message);
-
             }
+
+        }else{
+            $message ="debe loguearse";
+           $this-> ShowLoginTicketView($message);
+        }
+            
         }
 
         public function RemoveTicketFromDB($id_ticket)
