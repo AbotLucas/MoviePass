@@ -1,7 +1,8 @@
 <?php 
 
     namespace Models;
-
+    use Models\Cinema as Cinema;
+    
     class Room {
 
 
