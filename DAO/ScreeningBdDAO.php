@@ -155,8 +155,9 @@ use Models\Room;
 
         public function GetScreeningsFromAMovie($id_movie) {
 
+
             $screeningArray = $this->getScreeningsFromAMovieDB($id_movie);
-            
+
 
             if(!empty($screeningArray)) {
                 
@@ -171,6 +172,7 @@ use Models\Room;
                     $arrayResult[0] = $result;
                     $this->listScreening = $arrayResult;
                 }
+
                 
                 return $this->listScreening;
             }
@@ -199,9 +201,9 @@ use Models\Room;
 
         protected function mapear($value) {
 
-         
+            
             $value = is_array($value) ? $value : [];
-
+            
             $resp = array_map(function($p){
                 $screening = new Screening($p['date_screening'] , $p['hour_screening'],MovieBdDAO::MapearMovie($p["idmovie"]),RoomBdDAO::MapearRoom($p["idroom"]));
                 $screening->setId_screening($p['id_screening']);

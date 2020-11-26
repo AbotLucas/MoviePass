@@ -169,6 +169,7 @@ class ScreeningController {
 
             if(!empty($screeningsOfRoom)) {
 
+                if(is_array($screeningsOfRoom)) {
                 foreach($screeningsOfRoom as $screening) {
                     if($screening->getDate_screening()==$date_screening) {
 
@@ -176,6 +177,10 @@ class ScreeningController {
 
                     }
                 }
+            }
+            else {
+                $screeningsOfRoomOnDate = $screeningsOfRoom;
+            }
 
                 if(!empty($screeningsOfRoomOnDate)) {
 

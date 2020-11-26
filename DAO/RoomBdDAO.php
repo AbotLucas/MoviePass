@@ -74,7 +74,6 @@ class RoomBdDAO {
     protected function mapear($value) {
         
         $value = is_array($value) ? $value : [];
-
         $resp = array_map(function($p){
             $room = new Room($p['name'], $p['capacity'], $p['ticketvalue'],CinemaBdDao::MapearCinema($p["idcinema"]));
             $room->setId_room($p['id_room']);

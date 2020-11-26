@@ -32,7 +32,7 @@
             require_once(VIEWS_PATH."login.php");   
          }
 
-        public function AddTicket($id_screening,User $user) {
+        public function AddTicket($id_screening, User $user) {
 
             
             $screening = ScreeningBdDAO::MapearScreening($id_screening);
