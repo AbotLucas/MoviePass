@@ -18,7 +18,7 @@
             $this->ticketBdDAO = new TicketBdDAO();
         }
           
-        public function ShowListTicketView($message ="",$user){
+        public function ShowListTicketView($message ="", $user){
 
             $this->ticketBdDAO = new TicketBdDAO();
 
@@ -44,7 +44,7 @@
            # }
         }
 
-        public function AddTicket($id_screening,User $user) {
+        public function AddTicket($id_screening,  User $user) {
 
             
             $screening = ScreeningBdDAO::MapearScreening($id_screening);
@@ -54,15 +54,7 @@
             $this->TicketBdDAO = new TicketBdDAO();
             $result = $this->TicketBdDAO->SaveTicketInBd($newTicket);
 
-            if($result == 1) {
-                $message = "";
-               # require_once(VIEWS_PATH."");
-            }
-            else {
-
-                $message = "Ticket added FAIL!";
-               # require_once(VIEWS_PATH."");           
-            }
+            return $result;
 
         }
 
@@ -90,14 +82,24 @@
             $userDao = new UserBdDAO();
 
             $user = $userDao->GetByUserName($userName);
+
+            if(is_array($user)) {
+                $user = $user[0];
+            } 
             
             if(!empty($user)){
 
-            $this->AddTicket($id_screening,$user);
+                $result = $this->AddTicket($id_screening, $user);
 
-            $message = "Ticket added FAIL!";
+                if($result != 1) {
 
-           $this->ShowListTicketView($message,$user);
+                    $message = "Ticket added FAIL!";
+                }
+                else {
+                    $message = "Ticket added Succesfully";
+                }
+
+                $this->ShowListTicketView($message, $user);
             
             }
 

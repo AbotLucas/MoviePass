@@ -19,7 +19,7 @@ class TicketBdDAO {
 
     public function SaveTicketInBd($ticket){
     
-        $sql = " INSERT INTO ". $this->tableName ."(idscreening,userid) VALUES (:idscreening,:userid)";
+        $sql = " INSERT INTO ". $this->tableName ."(idscreening, userid) VALUES (:idscreening,:userid)";
       
               $parameters["idscreening"] = $ticket->getScreening()->getId_screening();
               $parameters['userid'] = $ticket->getUser()->getUserId();
