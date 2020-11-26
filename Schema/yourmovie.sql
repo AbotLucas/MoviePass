@@ -86,9 +86,10 @@ constraint pk_idticket PRIMARY KEY (id_ticket),
 constraint fk_idstreening foreign key (idstreening) references screening(id_screening),
 constraint fk_userid foreign key (userid) references user(user_id)
 );
+
 create table if not exists buyUp(
 id_buyUP BIGINT UNSIGNED not null auto_increment,
-idticket BIGINT UNSIGNED not null,
+idticket BIGINT UNSIGNED not null unique,
 ticketquantity  BIGINT UNSIGNED not null,
 date_buy DATE not null,
 total float unsigned not null,
@@ -111,6 +112,14 @@ select * from screening;
 select * from room;
 select * from genre;
 select * from ticket;
+
+DELIMITER $$
+create procedure getTicket(idTicket int)
+begin
+select * from ticket where id_ticket = idticket;
+END;
+$$
+
 
 DELIMITER $$
 create procedure deleteCinema(idcinemas int)
@@ -142,7 +151,13 @@ $$
 DELIMITER $$
 create procedure deleteTicket(idtickes int)
 begin
+declare idticke int default 0;
+select idticket into idticke from buyUp where idticket = idtickes;
+if(idticke <> 0) then
+SIGNAL sqlstate '11111' SET MESSAGE_TEXT = 'has associated buy up cannot be deleted !!', MYSQL_ERRNO = 9999;
+else 
 delete from ticket where id_ticket= idtickes;
+end if;
 END;
 $$
 
@@ -172,5 +187,12 @@ DELIMITER $$
 create procedure getAllbuyUp()
 begin
 select * from buyup ;
+END;
+$$
+
+DELIMITER $$
+create procedure getTicketfrombuyUp(idTickets int)
+begin
+select * from buyUp where idticket = idTickets;
 END;
 $$

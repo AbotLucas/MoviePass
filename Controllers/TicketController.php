@@ -36,6 +36,14 @@
                
          }
 
+         public function ShowbuyUpaddlistView($id_ticket){
+
+            #if(!isset($_SESSION["loginUser"])){
+
+                require_once(VIEWS_PATH."buyUp-add-numberTicket.php");
+           # }
+        }
+
         public function AddTicket($id_screening,User $user) {
 
             
@@ -58,6 +66,8 @@
 
         }
 
+
+
         public function removerTicketAndPay($id_ticket){
 
             if(isset($_POST['id_remove'])){
@@ -65,7 +75,10 @@
              $this->RemoveTicketFromDB($id_ticket);
 
             }elseif($_POST['id_pay']){
-                require_once(VIEWS_PATH."buyUp-add-list.php");
+
+                $message ="";
+
+                $this->ShowbuyUpaddlistView($id_ticket);
             }
         }
 
@@ -97,8 +110,9 @@
 
         public function RemoveTicketFromDB($id_ticket)
         {   
-            $user = $_SESSION['loginUser'];
+            
             try{
+                $user = $_SESSION['loginUser'];
                 $this->ticketBdDAO = new TicketBdDAO();
 
             $result = $this->ticketBdDAO->DeleteTicketInDB($id_ticket);
@@ -113,9 +127,12 @@
                 $this->ShowListTicketView($message ,$user);
             }
         } catch (PDOException $ex){
+
             $message = $ex->getMessage();
-            if(Functions::contains_substr($message, "")) {
-                $message = "";
+            
+            if(Functions::contains_substr($message,"has associated buy up cannot be deleted !!")) {
+                $message = "has associated buy up cannot be deleted !!";
+
                 $this->ShowListTicketView($message ,$user);
             }
         }

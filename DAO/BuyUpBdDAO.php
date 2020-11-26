@@ -8,7 +8,7 @@ use FFI\Exception;
 
 class BuyUpBdDAO implements IbuyUp{
 
-   # private $tableName = "buyUp";
+    private $tableName = "buyUp";
     private $connection;
     private $buyUpList = [];
    
@@ -16,22 +16,30 @@ class BuyUpBdDAO implements IbuyUp{
         
     }
 
-    public function SaveBuyUpInBd(BuyUp $BuyUp) {
-    
-        $sql = "call addbuyUp(". $BuyUp->getTicket()->getId_ticket() . "," . $BuyUp->getTicketquantity() .")";
+    public function SaveBuyUpInBd($id_ticket , $ticketquantity) {
+        
       
-              $parameters["id_buyUp"] = $BuyUp->getId_buyUp();
-              $parameters["idticket"] = $BuyUp->getTicket()->getId_ticket();
-              $parameters["ticketquantity"] = $BuyUp-getTicketquantity()>;
-              $parameters["date_buy"] = $BuyUp->getDate_buy();
-              $parameters["total"] = $BuyUp->getTotal();
+    
+        $sql = "call addbuyUp(". $id_ticket . ",". $ticketquantity .")";
+        
+
+              $parameters["idticket"] = $id_ticket;
+              $parameters["ticketquantity"] = $ticketquantity;
+             
               try {
                   $this->connection = Connection::GetInstance();
-                  return $this->connection->ExecuteNonQuery($sql, $parameters);
+
+                 
+                  $id_ticket = $this->connection->ExecuteNonQuery($sql, $parameters);
+
+                  
+                  return $id_ticket; 
+
               } catch (Exception $ex) {
                   throw $ex;
               }
           }
+
 
           
     public function getBdBuyUpFromBD(){
@@ -76,7 +84,7 @@ class BuyUpBdDAO implements IbuyUp{
 
         $resp = array_map(function($p){
             $buyUp = new BuyUp();
-            $buyUp->setId_buyUp($p['id_buyUp']);
+            $buyUp->setId_buyUp($p['id_buyUP']);
             $buyUp->setTicket(TicketBdDAO::MapearTicket($p['idticket']));
             $buyUp->setTicketquantity($p['ticketquantity']);
             $buyUp->setDate_buy($p['date_buy']);
@@ -110,6 +118,26 @@ class BuyUpBdDAO implements IbuyUp{
             $buyUp  = $this->mapear($results);
 
             return $buyUp ;
+    
+        }  
+        public function GetBuyUpByfromticket($searchidticket)
+        {
+    
+            $query = "call getTicketfrombuyUp(". $searchidticket .");";
+           
+            $parameters["idticket"] = $searchidticket;
+    
+            try{
+    
+                $this->connection = Connection::GetInstance();
+                $results = $this->connection->Execute($query, $parameters);
+               
+
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+            
+            return $this->mapear($results);
     
         }  
 
