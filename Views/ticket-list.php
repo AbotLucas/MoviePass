@@ -5,7 +5,7 @@
   <main class="hoc container clear" style="background-color: rgba(0, 0, 0, 0);"> 
     <div class="content" style="background-color: rgba(0, 0, 0, 0);"> 
       <div class="scrollable">
-      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Your ticket <a href="#" style="font-size: 16px;"><?php echo $user->getUserName() ?></a></span></h2>
+      <h2> <span style="background-color: rgba(115, 64, 70, 0.9); padding: 10px">Your tickets <a href="#" style="font-size: 12px;"><?php echo $user->getUserName() ?></a></span></h2>
       <br>
       <div>
           <?php  if(isset($message)){ echo "<span style='color:red; font-weight: bold;' >". $message ."</span><br><br>";}?>

@@ -14,7 +14,7 @@ class UserBdDAO{
     public function GetByUserName($userName)
     {
 
-        $query = "SELECT * FROM " . $this->tableName . " WHERE (username = :username) ";
+        $query = "SELECT * FROM " . $this->tableName . " WHERE (username = :username) LIMIT 1";
 
         $parameters["username"] = $userName;
 

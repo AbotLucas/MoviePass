@@ -364,8 +364,34 @@ use Models\Room;
             return $screeningDAOBdAux->GetScreeningById($idScreeningToMapear);
         }
 
+        public function GetScreeningReservations($searchidScreening){
+    
+            $query = "SELECT * FROM " . "ticket" . " WHERE (idscreening = :id_screening) ";
+    
+            $parameters["id_screening"] = $searchidScreening;
+    
+            try{
+    
+                $this->connection = Connection::GetInstance();
+                $results = $this->connection->Execute($query, $parameters);
+            
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+
+            return count($results);
+    
+        }  
+
+        public function CalcularCantidadVendida(Screening $screening) {
+        
+            return $this->GetScreeningReservations($screening->getId_screening());
+
+        }
+
 
     }
+
 
 
 ?>

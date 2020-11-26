@@ -45,20 +45,9 @@ include("nav-bar.php");
                                 <input type="date" min="<?php echo $actualDate ?>" max="<?php echo $maxDate ?>" name="date_screening" id="date_screening" style="width: 100%;" required>
                                 </td>
                                 <td style="max-width: 25%; align-items: center; vertical-align: middle;">
-                                <select name="hour_screening" id="hour_screening" style="width: 100%;" required>
-                                            <option value="" disable_selected>--Choose an Hour--</option>
-                                            <option value="14:00">14:00</option>
-                                            <option value="15:00">15:00</option>
-                                            <option value="16:00">16:00</option>
-                                            <option value="17:00">17:00</option>
-                                            <option value="18:00">18:00</option>
-                                            <option value="19:00">19:00</option>
-                                            <option value="20:00">20:00</option>
-                                            <option value="21:00">21:00</option>
-                                            <option value="22:00">22:00</option>
-                                            <option value="23:00">23:00</option>
-                                    </select>
-                                </td>
+                                
+                                <input type="time" name="hour_screening" id="hour_screening" style="width: 100%;" min="14:00:00" max="23:00:00" required>
+
                                 </td>
                             </tr>
                         </tbody>

@@ -30,7 +30,11 @@
                             "Hour: " . $screening->getHour_screening() . " || Cinema: " . 
                             $screening->getRoom()->getCinema()->getName() . " (Address: ". $screening->getRoom()->getCinema()->getAddress() .") || Room: " . $screening->getRoom()->getName()
                          ?> 
-                        &nbsp;<b><a href="<?php echo FRONT_ROOT. "Ticket/GetTicket/?id_screening=". $screening->getId_screening() ?>">Get ticket!</a></b>
+                         <?php if($_SESSION["loginUser"]->getRole() == 2) {?>
+                        &nbsp;<b><a href="<?php echo FRONT_ROOT. "Ticket/TicketDetails/?id_screening=". $screening->getId_screening() ?>">Get ticket!</a></b>
+                         <?php } else { ?>
+                            &nbsp;<b style="color:white;"><a href="<?php echo FRONT_ROOT. "Screening/ScreeningStats/?id_screening=". $screening->getId_screening() ?>">Stats</a></b>
+                         <?php }?>
                         </p>
                         
 

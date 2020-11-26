@@ -8,6 +8,7 @@ use DAO\MovieBdDao as MovieBdDao;
     use DAO\RoomBdDAO;
     use Models\Screening as Screening;
     use DAO\ScreeningBdDao as ScreeningBdDao;
+use DAO\ScreeningDao;
 use DateTime;
 
 class ScreeningController {
@@ -323,6 +324,15 @@ class ScreeningController {
 
         public function GetDatesOfScreenings() {
             return $this->screeningBdDAO->GetDatesOfScreenings();
+        }
+
+        public function ScreeningStats($id_screening) {
+            
+            $screening = ScreeningBdDao::MapearScreening($id_screening);
+            $cantidadVendida = $this->screeningBdDAO->CalcularCantidadVendida($screening);
+            $remanente = $screening->getRoom()->getCapacity() - $cantidadVendida;
+            require_once(VIEWS_PATH."screening-stats.php");
+
         }
 
 }

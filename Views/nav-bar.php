@@ -34,6 +34,9 @@
           <li><a class="drop" href="#">Session</a>
             <ul>
               <li><a href="<?php echo FRONT_ROOT. "Home/ShowWeAreWorkingView"?>">My profile</a></li>
+              <?php if($_SESSION["loginUser"]->getRole() == 2) { ?>
+              <li><a href="<?php echo FRONT_ROOT. "Ticket/ShowListTicketView"?>">My Tickets</a></li>
+              <?php }?>
               <li><a href="<?php echo FRONT_ROOT . "Session/SessionDestroy" ?>">Log Out</a></li>
             </ul>
           </li>

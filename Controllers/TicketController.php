@@ -18,7 +18,11 @@
             $this->ticketBdDAO = new TicketBdDAO();
         }
           
-        public function ShowListTicketView($message ="", $user){
+        public function ShowListTicketView($message ="", $user = "a"){
+
+            if(is_string($user)) {
+                $user = $_SESSION["loginUser"];
+            }
 
             $this->ticketBdDAO = new TicketBdDAO();
 
@@ -74,7 +78,7 @@
             }
         }
 
-        public function GetTicket($id_screening) {
+        public function GetTicket($id_screening, $quantity) {
            
             if(isset($_SESSION["loginUser"])){
             $userName = $_SESSION['loginUser']->getUserName();
@@ -138,6 +142,66 @@
                 $this->ShowListTicketView($message ,$user);
             }
         }
+    }
+
+    public function TicketDetails($id_screening) {
+
+        $screening = ScreeningBdDAO::MapearScreening($id_screening);
+
+        require_once(VIEWS_PATH."buyUp-add-numberTicket.php");
+
+    }
+
+    public function PayTickets($number, $id_screening) {
+
+        $screening = ScreeningBdDAO::MapearScreening($id_screening);
+        $totalPrice = $number * $screening->getRoom()->getTicketValue(); 
+
+        if(isset($_SESSION["loginUser"]) && $_SESSION["loginUser"]->getRole() == 2) {
+
+            require_once(VIEWS_PATH."confirm-buy.php");
+
+        }
+
+
+    }
+
+    public function ConfirmTickets($id_screening, $number) {
+
+        if(isset($_POST["cancel"])) {
+
+            $message = "Compra Cancelada";
+            require_once(VIEWS_PATH."movie-list");
+        }
+        else {
+            if(!empty($_SESSION["loginUser"])) {
+
+                $count = 0;
+                $screening = ScreeningBdDAO::MapearScreening($id_screening);
+                $newTicket = new Ticket($screening, $_SESSION["loginUser"]);
+
+                for($count=0; $count<$number; $count++){
+
+                    $result = $this->ticketBdDAO->SaveTicketInBd($newTicket);                    
+
+                }
+
+                if($result = $number) {
+                    $this->ShowListTicketView("Tickets added succesfully" , $_SESSION["loginUser"]);
+                }
+
+
+
+            }
+            else{
+                $message = "Upps needs to be logged ;C";
+                require_once(VIEWS_PATH."movie-list");
+            }
+
+
+        }
+
+
     }
 
        
