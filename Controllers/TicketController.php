@@ -18,7 +18,7 @@
             $this->ticketBdDAO = new TicketBdDAO();
         }
           
-        public function ShowListTicketView($message ="",$user){
+        public function ShowListTicketView($message ="", $user){
 
             $this->ticketBdDAO = new TicketBdDAO();
 
@@ -29,10 +29,22 @@
 
         public function ShowLoginTicketView($message =""){
 
-            require_once(VIEWS_PATH."login.php");   
+            if(!isset($_SESSION["loginUser"])){
+            
+                require_once(VIEWS_PATH."signup.php");
+            }
+               
          }
 
-        public function AddTicket($id_screening,User $user) {
+         public function ShowbuyUpaddlistView($id_ticket){
+
+            #if(!isset($_SESSION["loginUser"])){
+
+                require_once(VIEWS_PATH."buyUp-add-numberTicket.php");
+           # }
+        }
+
+        public function AddTicket($id_screening,  User $user) {
 
             
             $screening = ScreeningBdDAO::MapearScreening($id_screening);
@@ -42,17 +54,11 @@
             $this->TicketBdDAO = new TicketBdDAO();
             $result = $this->TicketBdDAO->SaveTicketInBd($newTicket);
 
-            if($result == 1) {
-                $message = "";
-               # require_once(VIEWS_PATH."");
-            }
-            else {
-
-                $message = "Ticket added FAIL!";
-               # require_once(VIEWS_PATH."");           
-            }
+            return $result;
 
         }
+
+
 
         public function removerTicketAndPay($id_ticket){
 
@@ -60,38 +66,55 @@
 
              $this->RemoveTicketFromDB($id_ticket);
 
+            }elseif($_POST['id_pay']){
+
+                $message ="";
+
+                $this->ShowbuyUpaddlistView($id_ticket);
             }
         }
 
         public function GetTicket($id_screening) {
-
+           
+            if(isset($_SESSION["loginUser"])){
             $userName = $_SESSION['loginUser']->getUserName();
             
             $userDao = new UserBdDAO();
 
             $user = $userDao->GetByUserName($userName);
+
+            if(is_array($user)) {
+                $user = $user[0];
+            } 
             
             if(!empty($user)){
 
-            $this->AddTicket($id_screening,$user);
+                $result = $this->AddTicket($id_screening, $user);
 
-            $message = "Ticket added FAIL!";
+                if($result != 1) {
 
-           $this->ShowListTicketView($message,$user);
+                    $message = "Ticket added FAIL!";
+                }
+                else {
+                    $message = "Ticket added Succesfully";
+                }
+
+                $this->ShowListTicketView($message, $user);
             
-            }else{
-                  
-                $message ="no esta logueado ";
-
-               $this->ShowLoginTicketView($message);
-
             }
+
+        }else{
+            $message ="debe loguearse";
+           $this-> ShowLoginTicketView($message);
+        }
+            
         }
 
         public function RemoveTicketFromDB($id_ticket)
         {   
-            $user = $_SESSION['loginUser'];
+            
             try{
+                $user = $_SESSION['loginUser'];
                 $this->ticketBdDAO = new TicketBdDAO();
 
             $result = $this->ticketBdDAO->DeleteTicketInDB($id_ticket);
@@ -106,9 +129,12 @@
                 $this->ShowListTicketView($message ,$user);
             }
         } catch (PDOException $ex){
+
             $message = $ex->getMessage();
-            if(Functions::contains_substr($message, "")) {
-                $message = "";
+            
+            if(Functions::contains_substr($message,"has associated buy up cannot be deleted !!")) {
+                $message = "has associated buy up cannot be deleted !!";
+
                 $this->ShowListTicketView($message ,$user);
             }
         }
