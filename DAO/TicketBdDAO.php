@@ -72,9 +72,11 @@ class TicketBdDAO {
         $value = is_array($value) ? $value : [];
 
         $resp = array_map(function($p){
-            $ticket = new Ticket( ScreeningBdDAO::MapearScreening($p["idscreening"]) ,UserBdDAO::MapearUser($p["userid"]));
+            $ticket = new Ticket(ScreeningBdDAO::MapearScreening($p["idscreening"]) ,UserBdDAO::MapearUser($p["userid"]));
             $ticket->setId_ticket($p['id_ticket']);
+            
             return $ticket;
+            var_dump($ticket);
         }, $value);
 
         return count($resp) > 1 ? $resp : $resp['0'];
@@ -82,11 +84,10 @@ class TicketBdDAO {
    
         public function GetTicketById($searchidticket)
         {
-            $ticket = null;
+        
+          $query = "call getTicket(". $searchidticket .") ";
     
-            $query = "SELECT * FROM " . $this->tableName . " WHERE (id_ticket =:id_ticket) ";
-    
-            $parameters["id_ticket"] = $searchidticket;
+            $parameters["id_tickets"] = $searchidticket;
     
             try{
     
@@ -96,14 +97,19 @@ class TicketBdDAO {
             } catch (Exception $ex) {
                 throw $ex;
             }
+               $ticket =$this->mapear($results);
             
-            $return = $this->mapear($results);
+            return  $ticket;
 
         }
 
         public static function MapearTicket($idTicketToMapear) {
+
             $ticketDAOBdAux = new TicketBdDAO();
-            return $ticketDAOBdAux->GetTicketById($idTicketToMapear);
+
+            $ticket = $ticketDAOBdAux->GetTicketById($idTicketToMapear);
+
+            return $ticket;
         }
 
         public function DeleteTicketInDB($id_Ticket) {
@@ -126,9 +132,9 @@ class TicketBdDAO {
 
         private function getTickesFromAUserDB($id_user){
         
-            $query = "SELECT * FROM " . $this->tableName . " WHERE (userid = :userid)";
+            $query = "SELECT * FROM " . $this->tableName . " WHERE userid = :user_id ";
 
-            $parameters["userid"] = intval($id_user);
+            $parameters["user_id"] = intval($id_user);
 
             try {
             

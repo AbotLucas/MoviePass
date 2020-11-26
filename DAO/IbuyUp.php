@@ -5,7 +5,7 @@ use Models\BuyUp as BuyUp;
 
 interface IbuyUp
 {
-    function SaveBuyUpInBd(BuyUp $buyup);
+    function SaveBuyUpInBd($id_ticket , $ticketquantity);
     function deleteBuyUp($id_BuyUp);
     function getAllBuyUp();
 }
